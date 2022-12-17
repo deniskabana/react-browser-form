@@ -1,0 +1,44 @@
+{
+  "version": "0.1.0-alpha",
+  "name": "react-dumb-form",
+  "description": "The simplest React forms handler ever.",
+  "keywords": [
+    "react",
+    "form",
+    "management",
+    "hooks",
+    "performance",
+    "typescript"
+  ],
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/react-slot-component.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/react-slot-component.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-slot-component.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": "https://github.com/deniskabana/react-dumb-form",
+  "author": "Denis Kabana <github.com/deniskabana>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.0.26",
+    "react": "^18.2.0"
+  }
+}
