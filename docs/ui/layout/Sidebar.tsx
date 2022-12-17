@@ -21,6 +21,7 @@ interface MenuItem {
 const MENU: MenuItem[] = [
   { title: "Introduction", href: "/introduction", icon: "tabler:bulb" },
   { title: "Getting started", href: "/getting-started", icon: "tabler:terminal-2" },
+  { title: "FAQ", href: "/frequently-asked-questions", icon: "ph:question-bold" },
   { title: "Documentation", href: "/documentation", icon: "ph:tree-structure-bold" },
   {
     title: "Examples",
@@ -46,6 +47,10 @@ const MENU: MenuItem[] = [
       {
         title: "Real-world usage",
         href: "/examples/real-world-usage",
+      },
+      {
+        title: "Performance showcase",
+        href: "/examples/performance-showcase",
       },
     ],
   },

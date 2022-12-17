@@ -1,13 +1,49 @@
-// import { ExampleMinimalForm } from "examples/basic/ExampleMinimalForm";
-import { Icon } from "@iconify/react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { Alert, Button, Card, Col, Form, InputGroup, Nav, Row, Stack, Table } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Card,
+  Col,
+  Form,
+  InputGroup,
+  Nav,
+  Row,
+  Spinner,
+  Stack,
+  Tab,
+  Table,
+  Tabs,
+} from "react-bootstrap";
+import { Icon } from "@iconify/react";
 import Separator from "ui/Separator";
+// import { ExampleMinimalForm } from "examples/basic/ExampleMinimalForm";
 
 // TODO: Create basic components (decouple) from this example to use in other examples
 
 export default function Home() {
+  const [isCodeLoading, setIsCodeLoading] = useState(true);
+  const [code, setCode] = useState("");
+  const CODE_URL =
+    "https://raw.githubusercontent.com/deniskabana/react-dumb-form/main/docs/examples/basic/ExampleMinimalForm.tsx";
+
+  useEffect(() => {
+    async function getCode() {
+      const response = await fetch(CODE_URL);
+      const data = await response.text();
+      setCode(data);
+      setIsCodeLoading(false);
+
+      if (typeof window !== "undefined" && "Prism" in window) {
+        (window as any).Prism.highlightAll();
+      } else {
+        debugger;
+      }
+    }
+    getCode();
+  }, []);
+
   return (
     <>
       <Head>
@@ -16,7 +52,9 @@ export default function Home() {
 
       <main>
         <h1 className="fw-bold">Minimal form example</h1>
-        <p className="text-muted">This is the most basic usage example you can use.</p>
+        <p className="text-muted">
+          This is the most basic usage example you can use. If you need a plain form, just copy and paste the code.
+        </p>
 
         <Separator />
 
@@ -42,27 +80,27 @@ export default function Home() {
           </Stack>
         </Alert>
 
-        <Row className="mt-5">
+        <Row className="mt-4">
           <Col md="8">
-            <Card className="shadow-sm">
-              <Card.Header>
-                <Nav variant="tabs" defaultActiveKey="#first" style={{ fontSize: "0.8rem" }}>
-                  <Nav.Item>
-                    <Nav.Link href="#first">Form</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link href="#link">Source code</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Card.Header>
-              <Card.Body className="p3">
+            <Tabs defaultActiveKey="form" id="form-example-1">
+              <Tab eventKey="form" title="Form" className="p-3 bg-white border border-top-0 shadow-sm">
                 <InputGroup>
                   <Form.Control placeholder="E-mail address" />
                   <Button type="submit">Subscribe</Button>
                 </InputGroup>
-                {/* <ExampleMinimalForm /> */}
-              </Card.Body>
-            </Card>
+              </Tab>
+              <Tab eventKey="code" title="Code" className="bg-white border border-top-0 shadow-sm">
+                {isCodeLoading ? (
+                  <div className="text-center">
+                    <Spinner animation="border" className="mx-auto my-3" />
+                  </div>
+                ) : (
+                  <pre className="m-0 line-numbers">
+                    <code className="language-tsx">{code}</code>
+                  </pre>
+                )}
+              </Tab>
+            </Tabs>
           </Col>
 
           <Col md="4">

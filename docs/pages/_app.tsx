@@ -1,8 +1,10 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import AppLayout from "ui/layout/AppLayout";
-import "styles/startbootstrap-new-age.css";
 import { Nunito as FontHelper, Ubuntu_Mono as FontMonoHelper } from "@next/font/google";
+import "styles/startbootstrap-new-age.css";
+import "styles/prism.min.css";
+import "public/prism.min.js";
 
 const font = FontHelper({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
 const fontMono = FontMonoHelper({ subsets: ["latin"], weight: ["400"], display: "swap" });
@@ -48,12 +50,24 @@ export default function App({ Component, pageProps }: AppProps) {
           font-size: 110%;
           color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
         }
+        pre,
+        code[class*="language-"],
+        pre[class*="language-"] {
+          font-family: ${fontMono.style.fontFamily} !important;
+          font-size: 0.8rem !important;
+          line-height: 1.2 !important;
+          background: white !important;
+        }
 
         body {
           background: linear-gradient(to left, hsl(37deg 82% 90%), hsl(282deg 83% 95%));
         }
         ol.breadcrumb {
           margin-bottom: 0;
+        }
+        .nav-tabs .nav-link {
+          font-size: 0.8em;
+          font-weight: bold;
         }
       `}</style>
 
