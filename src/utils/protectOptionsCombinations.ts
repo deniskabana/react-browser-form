@@ -45,9 +45,6 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
   if (process.env.NODE_ENV === "production") return;
 
   if (mode === "onChange") {
-    if (errorRevalidateMode !== "onChange")
-      logError("init", "When using 'onChange' mode, errorRevalidateMode should be 'onChange'.");
-
     if (liveChangeFields && liveChangeFields.length > 0)
       logError("init", "When using 'onChange' mode, liveChangeFields should not be specified.");
   }

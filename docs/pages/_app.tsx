@@ -2,9 +2,10 @@ import Head from "next/head";
 import type { AppProps } from "next/app";
 import AppLayout from "ui/layout/AppLayout";
 import "styles/startbootstrap-new-age.css";
-import { Mulish } from "@next/font/google";
+import { Nunito as FontHelper, Ubuntu_Mono as FontMonoHelper } from "@next/font/google";
 
-const fontMulish = Mulish({ subsets: ["latin"], display: "swap" });
+const font = FontHelper({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
+const fontMono = FontMonoHelper({ subsets: ["latin"], weight: ["400"], display: "swap" });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -16,6 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <style jsx global>{`
+        html {
+          font-size: 18px;
+        }
         html,
         body {
           min-height: 100%;
@@ -29,11 +33,27 @@ export default function App({ Component, pageProps }: AppProps) {
         h5,
         h6,
         p,
+        #mainNav .navbar-brand,
         body {
-          font-family: ${fontMulish.style.fontFamily};
+          letter-spacing: 0.2px;
+          font-family: ${font.style.fontFamily};
+
+          --bs-font-monospace: ${fontMono.style.fontFamily};
         }
+        code,
+        .font-monospace {
+          letter-spacing: 0.3px;
+        }
+        code {
+          font-size: 110%;
+          color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
+        }
+
         body {
           background: linear-gradient(to left, hsl(37deg 82% 90%), hsl(282deg 83% 95%));
+        }
+        ol.breadcrumb {
+          margin-bottom: 0;
         }
       `}</style>
 

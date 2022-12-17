@@ -97,7 +97,9 @@ function SidebarMenu({
       >
         <Link
           href={menuItem.href}
-          className={`text-decoration-none ${active ? "text-secondary fw-bold" : "text-body"}`}
+          className={`text-decoration-none d-flex align-items-center ${
+            active ? "text-secondary fw-bold" : "text-body"
+          }`}
         >
           {menuItem.icon ? <Icon icon={menuItem.icon} className="me-2" height={22} /> : null}
           {nestLevel > 1 && !menuItem.icon ? <Icon icon="pajamas:level-up" className="me-2" height={12} /> : null}
