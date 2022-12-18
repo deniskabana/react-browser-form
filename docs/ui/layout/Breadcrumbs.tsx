@@ -15,7 +15,7 @@ export default function Breadcrumbs() {
     function generateBreadcrumbs() {
       const asPathWithoutQuery = router.asPath.split("?")[0];
       const asPathNestedRoutes = asPathWithoutQuery
-        .replace(/#.+$/, "")
+        .replace(/#.*$/, "")
         .split("/")
         .filter((v) => v.length > 0);
 

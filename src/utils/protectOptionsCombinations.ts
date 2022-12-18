@@ -40,6 +40,11 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
       throw new Error("react-dumb-form: 'onChange' function is required if using mode 'onChange'.");
   }
 
+  if (liveChangeFields) {
+    if (typeof onChange !== "function")
+      throw new Error("react-dumb-form: 'onChange' function is required if using 'liveChangeFields'.");
+  }
+
   // WARNINGS - should not stop exeuction in production environment
   // --------------------------------------------------------------------------------
   if (process.env.NODE_ENV === "production") return;

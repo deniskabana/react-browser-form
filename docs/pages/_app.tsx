@@ -4,12 +4,24 @@ import AppLayout from "ui/layout/AppLayout";
 import { Nunito as FontHelper, Ubuntu_Mono as FontMonoHelper } from "@next/font/google";
 import "styles/startbootstrap-new-age.css";
 import "styles/prism.min.css";
+import "styles/custom-docs-style.css";
 import "public/prism.min.js";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const font = FontHelper({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
 const fontMono = FontMonoHelper({ subsets: ["latin"], weight: ["400"], display: "swap" });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { pathname } = useRouter();
+
+  // Re-apply syntax highlighting whenever a page changes
+  useEffect(() => {
+    if (typeof window !== "undefined" && "Prism" in window) {
+      (window as any).Prism.highlightAll();
+    }
+  }, [pathname]);
+
   return (
     <>
       <Head>
@@ -19,15 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <style jsx global>{`
-        html {
-          font-size: 18px;
-        }
-        html,
-        body {
-          min-height: 100%;
-          height: 100%;
-        }
-
+        /* Apply custom fonts */
         h1,
         h2,
         h3,
@@ -39,35 +43,12 @@ export default function App({ Component, pageProps }: AppProps) {
         body {
           letter-spacing: 0.2px;
           font-family: ${font.style.fontFamily};
-
           --bs-font-monospace: ${fontMono.style.fontFamily};
-        }
-        code,
-        .font-monospace {
-          letter-spacing: 0.3px;
-        }
-        code {
-          font-size: 110%;
-          color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
         }
         pre,
         code[class*="language-"],
         pre[class*="language-"] {
           font-family: ${fontMono.style.fontFamily} !important;
-          font-size: 0.8rem !important;
-          line-height: 1.2 !important;
-          background: white !important;
-        }
-
-        body {
-          background: linear-gradient(to left, hsl(37deg 82% 90%), hsl(282deg 83% 95%));
-        }
-        ol.breadcrumb {
-          margin-bottom: 0;
-        }
-        .nav-tabs .nav-link {
-          font-size: 0.8em;
-          font-weight: bold;
         }
       `}</style>
 

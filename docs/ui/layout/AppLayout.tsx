@@ -8,7 +8,7 @@ export default function AppLayout({ children }: any) {
     <>
       <Header />
       <Breadcrumbs />
-      <Container className="pb-5">
+      <Container style={{ paddingBottom: "6rem" }}>
         <Row>
           <Col md="3">
             <Sidebar />

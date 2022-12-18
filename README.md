@@ -1,16 +1,3 @@
-# React Dumb Form
-
-Motivation:
-
-1. Developer-first experience - from juniors to seniors, start using forms with just 4 lines of code
-2. Validation support with reusable functions
-3. Performance optimization - only ever do what needs to be done
-4. Flexibility - allow developers to take over and implement any custom logic over forms
-5. First-class TypeScript support and run-time configuration checking to prevent unnecessary bugs
-6. Great, noob-friendly examples & docs to help anyone understand the core mechanics in a matter of seconds
-7. Full API coverage, verbose explanations and examples links with inline JSDoc + Docs
-8. Only one dependency - React
-
 ## To-do
 
 ### Bugs

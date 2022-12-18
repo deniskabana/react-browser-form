@@ -1,0 +1,57 @@
+/* Basics for HTML and body */
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+}
+html {
+  font-size: 18px;
+}
+body {
+  background: linear-gradient(to left, hsl(37deg 82% 90%), hsl(282deg 83% 95%));
+}
+
+/* Code and monospace settings */
+code,
+.font-monospace {
+  letter-spacing: 0.3px;
+}
+code {
+  font-size: 110%;
+}
+pre,
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.75rem !important;
+  line-height: 1.2 !important;
+  background: white !important;
+}
+
+/* Bootstrap components */
+ol.breadcrumb {
+  margin-bottom: 0;
+}
+.nav-tabs .nav-link {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+/* Fancy numbered list in introduction */
+ol.motivation-and-values {
+  list-style-type: none;
+  padding-left: 3rem;
+}
+ol.motivation-and-values li {
+  counter-increment: step-counter;
+  position: relative;
+}
+ol.motivation-and-values li::before {
+  content: counter(step-counter) ".";
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: -0.5rem;
+}

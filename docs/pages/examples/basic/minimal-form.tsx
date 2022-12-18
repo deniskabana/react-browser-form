@@ -37,8 +37,6 @@ export default function Home() {
 
       if (typeof window !== "undefined" && "Prism" in window) {
         (window as any).Prism.highlightAll();
-      } else {
-        debugger;
       }
     }
     getCode();
@@ -51,7 +49,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="fw-bold">Minimal form example</h1>
+        <h1>Minimal form example</h1>
         <p className="text-muted">
           This is the most basic usage example you can use. If you need a plain form, just copy and paste the code.
         </p>
