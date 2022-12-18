@@ -1,44 +1,56 @@
 {
   "version": "0.1.0-alpha",
-  "name": "react-dumb-form",
-  "description": "The simplest React forms handler ever.",
-  "keywords": [
-    "react",
-    "form",
-    "management",
-    "hooks",
-    "performance",
-    "typescript"
-  ],
+  "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/react-slot-component.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-slot-component.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/react-slot-component.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "files": [
     "dist",
     "src"
   ],
-  "repository": "https://github.com/deniskabana/react-dumb-form",
-  "author": "Denis Kabana <github.com/deniskabana>",
-  "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
   "peerDependencies": {
     "react": ">=16.8"
   },
-  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "name": "react-dumb-form",
+  "author": "Denis Kabana <github.com/deniskabana>",
+  "repository": "https://github.com/deniskabana/react-dumb-form",
+  "module": "dist/dumbform-stable.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/dumbform-stable.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/dumbform-stable.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.1.0",
     "@types/react": "^18.0.26",
-    "react": "^18.2.0"
+    "@types/react-dom": "^18.0.9",
+    "husky": "^8.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "size-limit": "^8.1.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
   }
 }

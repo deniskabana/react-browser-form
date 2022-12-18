@@ -34,13 +34,15 @@ export default function Home() {
       const data = await response.text();
       setCode(data);
       setIsCodeLoading(false);
-
-      if (typeof window !== "undefined" && "Prism" in window) {
-        (window as any).Prism.highlightAll();
-      }
     }
     getCode();
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && "Prism" in window) {
+      (window as any).Prism?.highlightAll();
+    }
+  }, [code]);
 
   return (
     <>
@@ -55,28 +57,6 @@ export default function Home() {
         </p>
 
         <Separator />
-
-        <p className="text-muted">
-          <strong>
-            Object <code>names</code> is not mandatory
-          </strong>
-          , however it helps prevent errors so it's always included in the examples. More info about <code>names</code>{" "}
-          and other return types can be found in the <Link href="/documentation">Documentation section</Link>.
-        </p>
-
-        <Alert variant="info" className="shadow-sm my-2 p-2" style={{ fontSize: "0.75rem" }}>
-          <Stack direction="horizontal">
-            <Icon icon="tabler:bulb" height={30} className="me-2" />
-            <p className="mb-0">
-              <strong>
-                This example is only meant to show you how easy it is to start using React Dumb Form today.
-              </strong>
-              <br />
-              To see what React Dumb Form can do, consider viewing{" "}
-              <Link href="/examples/real-world-usage">Real-world usage examples</Link>.
-            </p>
-          </Stack>
-        </Alert>
 
         <Row className="mt-4">
           <Col md="8">
@@ -146,6 +126,30 @@ export default function Home() {
             </Card>
           </Col>
         </Row>
+
+        <Separator />
+
+        <p className="text-muted">
+          <strong>
+            Object <code>names</code> is not mandatory
+          </strong>
+          , however it helps prevent errors so it's always included in the examples. More info about <code>names</code>{" "}
+          and other return types can be found in the <Link href="/documentation">Documentation section</Link>.
+        </p>
+
+        <Alert variant="info" className="shadow-sm my-2 p-2" style={{ fontSize: "0.75rem" }}>
+          <Stack direction="horizontal">
+            <Icon icon="tabler:bulb" height={30} className="me-2" />
+            <p className="mb-0">
+              <strong>
+                This example is only meant to show you how easy it is to start using React Dumb Form today.
+              </strong>
+              <br />
+              To see what React Dumb Form can do, consider viewing{" "}
+              <Link href="/examples/real-world-usage">Real-world usage examples</Link>.
+            </p>
+          </Stack>
+        </Alert>
       </main>
     </>
   );

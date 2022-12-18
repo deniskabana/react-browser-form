@@ -1,6 +1,5 @@
 import {
   DumbFormOptions,
-  ErrorsObject,
   EventSource,
   EventType,
   FormEventHandler,
@@ -11,36 +10,35 @@ import {
 
 export function useFormEventHandlers<Schema>(
   handleDataFlow: HandleDataFlow<Schema>,
-  options: DumbFormOptions<Schema>,
-  errors: ErrorsObject<Schema>
+  options: DumbFormOptions<Schema>
 ): FormEventHandlers<Schema> {
   // USER EVENTS
   // --------------------------------------------------------------------------------
-  const handleUserSetValues: UserEventHandler<Schema> = (value) => {
+  const handleUserSetValues: UserEventHandler<Schema> = value => {
     handleDataFlow({ source: EventSource.User, type: EventType.Change, value });
   };
   const handleUserSubmit: UserEventHandler<Schema> = () => {
     handleDataFlow({ source: EventSource.User, type: EventType.Submit });
   };
-  const handleUserReset: UserEventHandler<Schema> = (value) => {
+  const handleUserReset: UserEventHandler<Schema> = value => {
     handleDataFlow({ source: EventSource.User, type: EventType.Reset, value });
   };
 
   // DOM FORM EVENTS
   // --------------------------------------------------------------------------------
-  const handleFormChange: FormEventHandler = (event) => {
+  const handleFormChange: FormEventHandler = event => {
     handleDataFlow({ source: EventSource.Form, type: EventType.Change, nativeEvent: event });
   };
-  const handleFormSubmit: FormEventHandler = (event) => {
+  const handleFormSubmit: FormEventHandler = event => {
     event.preventDefault();
     handleDataFlow({ source: EventSource.Form, type: EventType.Submit, nativeEvent: event });
   };
-  const handleFormBlur: FormEventHandler = (event) => {
+  const handleFormBlur: FormEventHandler = event => {
     // Safely ignore this event unless onBlur modes are used
     if (options.mode !== "onBlur" && options.mode !== "onBlurUnlessError") return;
     handleDataFlow({ source: EventSource.Form, type: EventType.Blur, nativeEvent: event });
   };
-  const handleFormReset: FormEventHandler = (event) => {
+  const handleFormReset: FormEventHandler = event => {
     // A deliberately unsupported event! Stop exeuction.
     event.preventDefault();
     handleDataFlow({ source: EventSource.Form, type: EventType.Reset, nativeEvent: event });

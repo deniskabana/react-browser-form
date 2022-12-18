@@ -39,10 +39,10 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   // --------------------------------------------------------------------------------
   const fieldsData = React.useRef<FieldsData<Schema>>(Object.freeze(getFieldsData(options))).current;
   const callbacks = React.useRef<UserCallbacks<Schema>>({
-    onChange: (data) => {
+    onChange: data => {
       if (options?.onChange) options.onChange({ ...data });
     },
-    onSubmit: (data) => {
+    onSubmit: data => {
       // onSubmit is mandatory
       options.onSubmit({ ...data });
     },
@@ -60,7 +60,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     isDirty,
     setIsDirty
   );
-  const formEventHandlers = useFormEventHandlers(handleDataFlow, options, errors);
+  const formEventHandlers = useFormEventHandlers(handleDataFlow, options);
 
   // INITIALIZATION
   // --------------------------------------------------------------------------------

@@ -11,7 +11,6 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
     validationSchema,
     validateAfterInit,
     mode,
-    errorRevalidateMode,
     liveChangeFields,
   } = options;
 

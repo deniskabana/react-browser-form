@@ -31,7 +31,7 @@ export default function Home() {
             to be framework agnostic, performant, easy to learn and to handle even very complex forms easily while
             providing full type safety and an amazing developer experience.
           </p>
-          <Card className="my-3">
+          <Card className="my-3 shadow-sm">
             <pre className="line-numbers my-0 language-tsx" tabIndex={-1}>
               <code className="language-tsx">{`const defaultValues = {};
 type Form = typeof defaultValues;

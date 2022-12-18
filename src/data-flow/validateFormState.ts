@@ -17,11 +17,13 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
 
     // Check required
     if (required.includes(key)) {
+      const formStateValue = dataFlowState.formState[key] as any; // Necessary, unfortunately
+
       if (
-        dataFlowState.formState[key] === null ||
-        dataFlowState.formState[key] === undefined ||
-        dataFlowState.formState[key] === false ||
-        (typeof dataFlowState.formState[key] === "string" && (dataFlowState.formState[key] as string).length === 0)
+        formStateValue === null ||
+        formStateValue === undefined ||
+        formStateValue === false ||
+        (typeof formStateValue === "string" && formStateValue.length === 0)
       ) {
         newErrors[key] = dataFlowState.options?.validationSchema?.required?.message ?? DEFAULT_REQUIRED_ERROR_MESSAGE;
         dataFlowState.hasErrors = true;
@@ -45,9 +47,9 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
         } else {
           throw new Error("react-dumb-form: Invalid validators provided!");
         }
-      } catch (error: any) {
-        if (error?.name !== ValidationError.name) throw error;
-        newErrors[key] = error.message ?? DEFAULT_VALIDATION_ERROR_MESSAGE;
+      } catch (error) {
+        if (error instanceof ValidationError) throw error;
+        newErrors[key] = (error as any)?.message ?? DEFAULT_VALIDATION_ERROR_MESSAGE;
         dataFlowState.hasErrors = true;
       }
     }

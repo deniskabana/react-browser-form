@@ -35,6 +35,9 @@ ol.breadcrumb {
   font-size: 0.8em;
   font-weight: bold;
 }
+.nav-tabs .nav-link:not(.active) {
+  color: var(--bs-secondary);
+}
 
 /* Fancy numbered list in introduction */
 ol.motivation-and-values {
