@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Col, Row, Spinner, Tab, Tabs } from "react-bootstrap";
+import { useEffect } from "react";
+import { Col, Row, Tab, Tabs } from "react-bootstrap";
 import { FormMeta } from "./FormMeta";
 
 interface FormAndCodeTabsProps {
@@ -16,10 +16,10 @@ export function FormAndCodeTabs({ sourceCode, children, name }: FormAndCodeTabsP
   }, [sourceCode]);
 
   return (
-    <Row className="mt-4">
+    <Row className="mt-4 form-code-and-tabs">
       <Col md="8">
         <Tabs defaultActiveKey="form" transition={false} id="example-minimal-form-tabs">
-          <Tab eventKey="form" title="Form" className="p-3 bg-white border border-top-0 shadow-sm">
+          <Tab eventKey="form" title="Form" className="p-4 bg-white border border-top-0 shadow-sm">
             {children}
           </Tab>
           <Tab eventKey="code" title="Code" className="bg-white border border-top-0 shadow-sm">

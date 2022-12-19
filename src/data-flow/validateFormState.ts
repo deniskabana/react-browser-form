@@ -48,7 +48,7 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
           throw new Error("react-dumb-form: Invalid validators provided!");
         }
       } catch (error) {
-        if (error instanceof ValidationError) throw error;
+        if (!(error instanceof ValidationError)) throw error;
         newErrors[key] = (error as any)?.message ?? DEFAULT_VALIDATION_ERROR_MESSAGE;
         dataFlowState.hasErrors = true;
       }

@@ -154,26 +154,38 @@ export function Example() {
           <br />
           <p>
             As the adoption rate grows, more issues might be discovered. This section will reflect issues important for
-            developers to understand.
+            developers to be aware of when starting working with React Dumb Form.
           </p>
           <ol>
-            <li>
+            <li className="mb-3">
               <strong>No 3rd party validator library support.</strong>
               <Badge bg="secondary" className="ms-1" pill>
-                Upcoming
+                Next minor release
               </Badge>
-              <br />
-              The plan is to implement this in the future.
+              <p className="text-muted">The plan is to implement this in the future.</p>
             </li>
-            <li>
+
+            <li className="mb-3">
               <strong>No support for non-standard form data.</strong>
               <Badge bg="secondary" className="ms-1" pill>
-                Upcoming
+                Next minor release
               </Badge>
-              <br />
-              Currently supports primitive types - <code>string</code>, <code>number</code> and <code>boolean</code>.
-              This disqualifies fields like multiselect. There are future plans to add support for other types, like
-              arrays. Check <a href="#">Roadmap</a> to get a better idea.
+              <p className="text-muted">
+                Currently supports primitive types - <code>string</code>, <code>number</code> and <code>boolean</code>.
+                This disqualifies fields like multiselect. There are future plans to add support for other types, like
+                arrays. Check <a href="#">Roadmap</a> to get a better idea.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>Weak i18n support.</strong>
+              <Badge bg="info" className="ms-1" pill>
+                Future update
+              </Badge>
+              <p className="text-muted">
+                If you change strings inside validation schema for validation feedback, React Dumb Form will ignore
+                those as options are considered immutable right now.
+              </p>
             </li>
           </ol>
         </div>

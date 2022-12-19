@@ -27,7 +27,7 @@ export function FormMeta({ name }: { name: string }) {
   return (
     <Card bg="dark" text="white" className="shadow-sm">
       <Card.Body className="p-0">
-        <Table variant="dark" style={{ fontSize: "0.8rem" }} className="mb-0">
+        <Table variant="dark" style={{ fontSize: "0.8rem" }} className="mb-0" responsive>
           <tbody>
             {/* FORM META */}
 
@@ -41,11 +41,11 @@ export function FormMeta({ name }: { name: string }) {
               <td>Submitted?</td>
               <td>
                 {debugData?.isSubmitted ? (
-                  <div className="text-success d-flex align-items-center">
+                  <div className="text-success d-flex align-items-center fw-bold">
                     <Icon icon="material-symbols:check-circle-rounded" className="me-1" /> Yes
                   </div>
                 ) : (
-                  <div className="text-warning d-flex align-items-center">
+                  <div className="text-warning d-flex align-items-center fw-bold">
                     <Icon icon="ri:close-circle-fill" className="me-1" /> No
                   </div>
                 )}
@@ -56,11 +56,11 @@ export function FormMeta({ name }: { name: string }) {
               <td>Has errors?</td>
               <td>
                 {debugData?.returnData?.errors?.count > 0 ? (
-                  <div className="text-danger d-flex align-items-center">
+                  <div className="text-danger d-flex align-items-center fw-bold">
                     <Icon icon="material-symbols:check-circle-rounded" className="me-1" /> Yes
                   </div>
                 ) : (
-                  <div className="text-success d-flex align-items-center">
+                  <div className="text-success d-flex align-items-center fw-bold">
                     <Icon icon="ri:close-circle-fill" className="me-1" /> No
                   </div>
                 )}
@@ -71,11 +71,11 @@ export function FormMeta({ name }: { name: string }) {
               <td>Is dirty?</td>
               <td>
                 {debugData?.returnData?.isDirty ? (
-                  <div className="text-success d-flex align-items-center">
+                  <div className="text-success d-flex align-items-center fw-bold">
                     <Icon icon="material-symbols:check-circle-rounded" className="me-1" /> Yes
                   </div>
                 ) : (
-                  <div className="text-warning d-flex align-items-center">
+                  <div className="text-warning d-flex align-items-center fw-bold">
                     <Icon icon="ri:close-circle-fill" className="me-1" /> No
                   </div>
                 )}
@@ -90,20 +90,18 @@ export function FormMeta({ name }: { name: string }) {
               </th>
             </tr>
 
-            <tr>
-              {debugData?.formState
-                ? Object.keys(debugData.formState).map(field => (
-                    <React.Fragment key={field}>
-                      <td className="font-monospace">{field}</td>
-                      <td className="font-monospace text-white-50" style={{ lineBreak: "anywhere" }}>
-                        {typeof debugData.formState[field] === "string" ? '"' : ""}
-                        {String(debugData.formState[field])}
-                        {typeof debugData.formState[field] === "string" ? '"' : ""}
-                      </td>
-                    </React.Fragment>
-                  ))
-                : null}
-            </tr>
+            {debugData?.formState
+              ? Object.keys(debugData.formState).map(field => (
+                  <tr key={field}>
+                    <td className="font-monospace">{field}</td>
+                    <td className="font-monospace text-white-50" style={{ lineBreak: "anywhere" }}>
+                      {typeof debugData.formState[field] === "string" ? '"' : ""}
+                      {String(debugData.formState[field])}
+                      {typeof debugData.formState[field] === "string" ? '"' : ""}
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
         </Table>
       </Card.Body>

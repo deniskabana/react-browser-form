@@ -47,6 +47,7 @@ const MENU: MenuItem[] = [
       {
         title: "Real-world usage",
         href: "/examples/real-world-usage",
+        children: [{ title: "Ecommerce checkout", href: "/examples/real-world-usage/ecommerce-checkout" }],
       },
       {
         title: "Performance showcase",
@@ -65,7 +66,7 @@ export default function Sidebar() {
   return (
     <Card>
       <ListGroup variant="flush" className="shadow-sm">
-        {MENU.map((menuItem) => (
+        {MENU.map(menuItem => (
           <SidebarMenu menuItem={menuItem} pathname={router.pathname} key={menuItem.href} />
         ))}
       </ListGroup>
@@ -94,14 +95,15 @@ function SidebarMenu({
       <ListGroup.Item
         className="d-flex align-items-center"
         style={{
-          height: "3rem",
-          paddingLeft: `${0.5 + nestLevel / 3}rem`,
+          minHeight: "3rem",
+          paddingLeft: `${0.25 + nestLevel / 1.5}rem`,
           fontSize: `${1 - nestLevel / 25}em`,
           backgroundColor: NEST_BACKGROUNDS[nestLevel - 1],
         }}
       >
         <Link
           href={menuItem.href}
+          style={{ lineHeight: 1.2 }}
           className={`text-decoration-none d-flex align-items-center ${
             active ? "text-secondary fw-bold" : "text-body"
           }`}
@@ -126,7 +128,7 @@ function SidebarMenu({
 
       {menuItem.children && isExpanded ? (
         <ListGroup variant="flush" className="border-bottom" style={{ backgroundColor: "#380fa71a" }}>
-          {menuItem.children.map((submenuItem) => (
+          {menuItem.children.map(submenuItem => (
             <SidebarMenu menuItem={submenuItem} pathname={pathname} key={submenuItem.href} nestLevel={nestLevel + 1} />
           ))}
         </ListGroup>

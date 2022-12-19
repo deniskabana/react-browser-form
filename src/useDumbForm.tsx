@@ -86,7 +86,8 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   // This is intended to be used from within docs, lib development or debugging for users and devs
   if (options.debug && typeof window !== "undefined") {
     // Set up an empty object if necessary
-    if (!(window as any).__rdf_debug) (window as any).__rdf_debug = { [options.name]: {} };
+    if (!(window as any).__rdf_debug) (window as any).__rdf_debug = {};
+    if (!(window as any).__rdf_debug[options.name]) (window as any).__rdf_debug[options.name] = {};
     (window as any).__rdf_debug[options.name].returnData = returnData;
   }
 
