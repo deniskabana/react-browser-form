@@ -38,6 +38,9 @@ export interface DumbFormOptionsInput<Schema> {
 
   /** A subset of fields that will trigger update **and validation of fields with errors** on every input change. **Useful for conditional operations within forms.** */
   liveChangeFields?: (keyof Schema)[];
+
+  /** **DO NOT USE IN PRODUCTION**. This is meant for tests, library development and docs. */
+  debug?: boolean;
 }
 
 export type DumbFormOptions<Schema> = Required<DumbFormOptionsInput<Schema>>;
@@ -143,7 +146,7 @@ export interface UserCallbacks<Schema> {
 
 export enum EventSource {
   User = "User",
-  Form = "Form",
+  Form = "Form"
 }
 
 export enum EventType {
@@ -156,7 +159,7 @@ export enum EventType {
   /** `EventType.Blur` when a form input is blurred (loses focus) */
   Blur = "Blur",
   /** A special type of event triggered programmatically during init phase. Under the hood it just calls `reset()` without calling `onChange()` or hydrating */
-  FormInit = "FormInit",
+  FormInit = "FormInit"
 }
 
 export type FormEventHandler = (event: React.FormEvent<HTMLFormElement>) => void;

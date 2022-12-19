@@ -11,7 +11,7 @@ import {
   EventType,
   FieldsData,
   FormComponentProps,
-  UserCallbacks
+  UserCallbacks,
 } from "./types";
 import { getFieldsData } from "./utils/getFieldsData";
 import { protectOptionsCominations } from "./utils/protectOptionsCombinations";
@@ -28,7 +28,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   // --------------------------------------------------------------------------------
   const options = React.useRef<DumbFormOptions<Schema>>({
     ...DEFAULT_OPTIONS,
-    ...(userOptions as any)
+    ...(userOptions as any),
   }).current;
   const formState = React.useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
@@ -39,13 +39,8 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   // --------------------------------------------------------------------------------
   const fieldsData = React.useRef<FieldsData<Schema>>(Object.freeze(getFieldsData(options))).current;
   const callbacks = React.useRef<UserCallbacks<Schema>>({
-    onChange: data => {
-      if (options?.onChange) options.onChange({ ...data });
-    },
-    onSubmit: data => {
-      // onSubmit is mandatory
-      options.onSubmit({ ...data });
-    }
+    onChange: data => options?.onChange && options.onChange({ ...data }),
+    onSubmit: data => options.onSubmit({ ...data }),
   }).current;
 
   // INTERNAL FUNCTIONS
@@ -58,7 +53,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     errors,
     setErrors,
     isDirty,
-    setIsDirty
+    setIsDirty,
   );
   const formEventHandlers = useFormEventHandlers(handleDataFlow, options);
 
@@ -77,7 +72,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
 
   // RETURN
   // --------------------------------------------------------------------------------
-  return {
+  const returnData = {
     // Values
     errors,
     isDirty,
@@ -85,6 +80,15 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     // Methods
     ...formEventHandlers[EventSource.User],
     // Form props
-    formProps
+    formProps,
   };
+
+  // This is intended to be used from within docs, lib development or debugging for users and devs
+  if (options.debug && typeof window !== "undefined") {
+    // Set up an empty object if necessary
+    if (!(window as any).__rdf_debug) (window as any).__rdf_debug = { [options.name]: {} };
+    (window as any).__rdf_debug[options.name].returnData = returnData;
+  }
+
+  return returnData;
 }

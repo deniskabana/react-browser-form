@@ -13,7 +13,7 @@ export function useDataFlowHandler<Schema>(
   errors: DataFlowState<Schema>["errors"],
   setErrors: DataFlowState<Schema>["setErrors"],
   isDirty: DataFlowState<Schema>["isDirty"],
-  setIsDirty: DataFlowState<Schema>["setIsDirty"]
+  setIsDirty: DataFlowState<Schema>["setIsDirty"],
 ): HandleDataFlow<Schema> {
   return function handleDataFlow(event: DataFlowEvent<Schema>) {
     // An object reference to be passed around to all data flow functions
@@ -56,6 +56,14 @@ export function useDataFlowHandler<Schema>(
 
       default:
         logError("data-flow", "An unsupported event type provided");
+    }
+
+    // This is intended to be used from within docs, lib development or debugging for users and devs
+    if (options.debug && typeof window !== "undefined") {
+      (window as any).__rdf_debug[options.name].formState = dataFlowState.formState;
+      (window as any).__rdf_debug[options.name].changeReason = dataFlowState.changeReason;
+      (window as any).__rdf_debug[options.name].event = dataFlowState.event;
+      (window as any).__rdf_debug[options.name].timestamp = Date.now();
     }
   };
 }

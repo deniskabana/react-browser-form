@@ -38,6 +38,9 @@ ol.breadcrumb {
 .nav-tabs .nav-link:not(.active) {
   color: var(--bs-secondary);
 }
+.text-success {
+  color: #28dc88 !important;
+}
 
 /* Fancy numbered list in introduction */
 ol.motivation-and-values {
