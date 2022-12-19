@@ -1,14 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
 import Separator from "ui/Separator";
-import { ExampleMinimalForm } from "examples/basic/ExampleMinimalForm";
 import { FormAndCodeTabs } from "ui/examples/FormAndCodeTabs";
 import Tip from "ui/Tip";
+import fs from "fs/promises";
 
-export default function Page() {
-  const CODE_URL =
-    "https://raw.githubusercontent.com/deniskabana/react-dumb-form/main/docs/examples/basic/ExampleMinimalForm.tsx";
+// Form component
+import { ExampleMinimalForm } from "examples/basic/ExampleMinimalForm";
 
+export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
@@ -23,7 +23,7 @@ export default function Page() {
 
         <Separator />
 
-        <FormAndCodeTabs codeUrl={CODE_URL} name="example-minimal-form">
+        <FormAndCodeTabs sourceCode={sourceCode} name="example-minimal-form">
           <ExampleMinimalForm />
         </FormAndCodeTabs>
 
@@ -46,4 +46,10 @@ export default function Page() {
       </main>
     </>
   );
+}
+
+// Get component source code
+export async function getServerSideProps() {
+  const sourceCode = await fs.readFile("examples/basic/ExampleMinimalForm.tsx", "utf8");
+  return { props: { sourceCode } };
 }

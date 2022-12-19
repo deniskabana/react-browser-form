@@ -3,30 +3,17 @@ import { Col, Row, Spinner, Tab, Tabs } from "react-bootstrap";
 import { FormMeta } from "./FormMeta";
 
 interface FormAndCodeTabsProps {
-  codeUrl: string;
+  sourceCode: string;
   name: string;
   children: React.ReactNode;
 }
 
-export function FormAndCodeTabs({ codeUrl, children, name }: FormAndCodeTabsProps) {
-  const [isCodeLoading, setIsCodeLoading] = useState(true);
-  const [code, setCode] = useState("");
-
-  useEffect(() => {
-    async function getCode() {
-      const response = await fetch(codeUrl);
-      const data = await response.text();
-      setCode(data);
-      setIsCodeLoading(false);
-    }
-    getCode();
-  }, []);
-
+export function FormAndCodeTabs({ sourceCode, children, name }: FormAndCodeTabsProps) {
   useEffect(() => {
     if (typeof window !== "undefined" && "Prism" in window) {
       (window as any).Prism?.highlightAll();
     }
-  }, [code]);
+  }, [sourceCode]);
 
   return (
     <Row className="mt-4">
@@ -36,15 +23,9 @@ export function FormAndCodeTabs({ codeUrl, children, name }: FormAndCodeTabsProp
             {children}
           </Tab>
           <Tab eventKey="code" title="Code" className="bg-white border border-top-0 shadow-sm">
-            {isCodeLoading ? (
-              <div className="text-center">
-                <Spinner animation="border" className="mx-auto my-3" />
-              </div>
-            ) : (
-              <pre className="m-0 line-numbers">
-                <code className="language-tsx">{code}</code>
-              </pre>
-            )}
+            <pre className="m-0 line-numbers language-tsx" tabIndex={-1}>
+              <code className="language-tsx">{sourceCode}</code>
+            </pre>
           </Tab>
         </Tabs>
       </Col>
