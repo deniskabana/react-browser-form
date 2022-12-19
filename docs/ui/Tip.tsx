@@ -20,7 +20,7 @@ export default function Tip({
   variant = "info",
   small = false,
 }: {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
   variant?: "info" | "danger" | "success";
   small?: boolean;
 }) {
