@@ -1,26 +1,82 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import {
-  Alert,
-  Button,
-  Card,
-  Col,
-  Form,
-  InputGroup,
-  Nav,
-  Row,
-  Spinner,
-  Stack,
-  Tab,
-  Table,
-  Tabs,
-} from "react-bootstrap";
+import { Alert, Card, Col, Row, Spinner, Stack, Tab, Table, Tabs } from "react-bootstrap";
 import { Icon } from "@iconify/react";
 import Separator from "ui/Separator";
-// import { ExampleMinimalForm } from "examples/basic/ExampleMinimalForm";
+import { ExampleMinimalForm } from "examples/basic/ExampleMinimalForm";
 
 // TODO: Create basic components (decouple) from this example to use in other examples
+
+function ExampleForm({ isCodeLoading, code }: any) {
+  return (
+    <Row className="mt-4">
+      <Col md="8">
+        <Tabs defaultActiveKey="form" transition={false} id="form-example-minimal">
+          <Tab eventKey="form" title="Form" className="p-3 bg-white border border-top-0 shadow-sm">
+            <ExampleMinimalForm />
+          </Tab>
+          <Tab eventKey="code" title="Code" className="bg-white border border-top-0 shadow-sm">
+            {isCodeLoading ? (
+              <div className="text-center">
+                <Spinner animation="border" className="mx-auto my-3" />
+              </div>
+            ) : (
+              <pre className="m-0 line-numbers">
+                <code className="language-tsx">{code}</code>
+              </pre>
+            )}
+          </Tab>
+        </Tabs>
+      </Col>
+
+      <Col md="4">
+        <Card bg="dark" text="white" className="shadow-sm">
+          <Card.Body className="p-0">
+            <Table variant="dark" style={{ fontSize: "0.8rem" }} className="mb-0">
+              <tbody>
+                <tr>
+                  <th colSpan={2} className="text-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+                    Form meta
+                  </th>
+                </tr>
+                <tr>
+                  <td>Submitted?</td>
+                  <td>
+                    <div className="text-warning d-flex align-items-center">
+                      <Icon icon="ri:close-circle-fill" className="me-1" /> No
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Has errors?</td>
+                  <td>
+                    <div className="text-muted">&mdash;</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Is dirty?</td>
+                  <td>
+                    <div className="text-muted">&mdash;</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th colSpan={2} className="text-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+                    Form state
+                  </th>
+                </tr>
+                <tr>
+                  <td className="font-monospace">email</td>
+                  <td className="font-monospace text-white-50">"asdf@asdf.com"</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
+  );
+}
 
 export default function Home() {
   const [isCodeLoading, setIsCodeLoading] = useState(true);
@@ -58,74 +114,7 @@ export default function Home() {
 
         <Separator />
 
-        <Row className="mt-4">
-          <Col md="8">
-            <Tabs defaultActiveKey="form" id="form-example-1">
-              <Tab eventKey="form" title="Form" className="p-3 bg-white border border-top-0 shadow-sm">
-                <InputGroup>
-                  <Form.Control placeholder="E-mail address" />
-                  <Button type="submit">Subscribe</Button>
-                </InputGroup>
-              </Tab>
-              <Tab eventKey="code" title="Code" className="bg-white border border-top-0 shadow-sm">
-                {isCodeLoading ? (
-                  <div className="text-center">
-                    <Spinner animation="border" className="mx-auto my-3" />
-                  </div>
-                ) : (
-                  <pre className="m-0 line-numbers">
-                    <code className="language-tsx">{code}</code>
-                  </pre>
-                )}
-              </Tab>
-            </Tabs>
-          </Col>
-
-          <Col md="4">
-            <Card bg="dark" text="white" className="shadow-sm">
-              <Card.Body className="p-0">
-                <Table variant="dark" style={{ fontSize: "0.8rem" }} className="mb-0">
-                  <tbody>
-                    <tr>
-                      <th colSpan={2} className="text-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
-                        Form meta
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>Submitted?</td>
-                      <td>
-                        <div className="text-warning d-flex align-items-center">
-                          <Icon icon="ri:close-circle-fill" className="me-1" /> No
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Has errors?</td>
-                      <td>
-                        <div className="text-muted">&mdash;</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Is dirty?</td>
-                      <td>
-                        <div className="text-muted">&mdash;</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th colSpan={2} className="text-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
-                        Form state
-                      </th>
-                    </tr>
-                    <tr>
-                      <td className="font-monospace">email</td>
-                      <td className="font-monospace text-white-50">"asdf@asdf.com"</td>
-                    </tr>
-                  </tbody>
-                </Table>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+        <ExampleForm isCodeLoading={isCodeLoading} code={code} />
 
         <Separator />
 

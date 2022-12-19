@@ -11,7 +11,7 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
     validationSchema,
     validateAfterInit,
     mode,
-    liveChangeFields,
+    liveChangeFields
   } = options;
 
   // ERRORS - prevent further execution to prevent bugs
@@ -39,7 +39,7 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
       throw new Error("react-dumb-form: 'onChange' function is required if using mode 'onChange'.");
   }
 
-  if (liveChangeFields) {
+  if (liveChangeFields && liveChangeFields.length > 0) {
     if (typeof onChange !== "function")
       throw new Error("react-dumb-form: 'onChange' function is required if using 'liveChangeFields'.");
   }

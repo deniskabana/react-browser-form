@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
-import { useDumbForm } from "../../../src/index";
+import { useDumbForm } from "react-dumb-form";
 
 const defaultValues = {
-  email: "",
+  email: ""
 };
 type Form = typeof defaultValues;
 
@@ -13,7 +13,7 @@ export function ExampleMinimalForm() {
   const { formProps, names } = useDumbForm<Form>({
     name: "example-minimal-form",
     onSubmit: setData,
-    defaultValues,
+    defaultValues
   });
 
   return (

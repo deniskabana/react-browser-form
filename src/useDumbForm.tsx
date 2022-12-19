@@ -11,7 +11,7 @@ import {
   EventType,
   FieldsData,
   FormComponentProps,
-  UserCallbacks,
+  UserCallbacks
 } from "./types";
 import { getFieldsData } from "./utils/getFieldsData";
 import { protectOptionsCominations } from "./utils/protectOptionsCombinations";
@@ -28,7 +28,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   // --------------------------------------------------------------------------------
   const options = React.useRef<DumbFormOptions<Schema>>({
     ...DEFAULT_OPTIONS,
-    ...(userOptions as any),
+    ...(userOptions as any)
   }).current;
   const formState = React.useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
@@ -45,7 +45,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     onSubmit: data => {
       // onSubmit is mandatory
       options.onSubmit({ ...data });
-    },
+    }
   }).current;
 
   // INTERNAL FUNCTIONS
@@ -85,6 +85,6 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     // Methods
     ...formEventHandlers[EventSource.User],
     // Form props
-    formProps,
+    formProps
   };
 }

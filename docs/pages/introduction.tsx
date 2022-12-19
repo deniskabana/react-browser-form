@@ -14,7 +14,9 @@ export default function Home() {
       <main>
         <div>
           <h1>📝 React Dumb Form</h1>
-          <p className="text-muted">The simplest React forms handler - TypeScript and DX first.</p>
+          <p className="text-muted">
+            The simplest React forms handler - with primary focus on TypeScript, performance and developer experience.
+          </p>
 
           <Tip variant="danger">
             <strong>React Dumb Form is not ready for production use yet.</strong> We need to write unit tests, check
