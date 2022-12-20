@@ -27,10 +27,9 @@ export function FormMeta({ name }: { name: string }) {
   return (
     <Card bg="dark" text="white" className="shadow-sm">
       <Card.Body className="p-0">
-        <Table variant="dark" style={{ fontSize: "0.8rem" }} className="mb-0" responsive>
+        <Table variant="dark" style={{ fontSize: "0.75rem" }} className="mb-0" responsive>
           <tbody>
             {/* FORM META */}
-
             <tr>
               <th colSpan={2} className="text-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
                 Form meta
@@ -82,8 +81,12 @@ export function FormMeta({ name }: { name: string }) {
               </td>
             </tr>
 
-            {/* FORM STATE */}
+            <tr>
+              <td>Change reason</td>
+              <td className="text-white-50">{debugData?.changeReason}</td>
+            </tr>
 
+            {/* FORM STATE */}
             <tr>
               <th colSpan={2} className="text-center" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
                 Form state
@@ -93,8 +96,10 @@ export function FormMeta({ name }: { name: string }) {
             {debugData?.formState
               ? Object.keys(debugData.formState).map(field => (
                   <tr key={field}>
-                    <td className="font-monospace">{field}</td>
-                    <td className="font-monospace text-white-50" style={{ lineBreak: "anywhere" }}>
+                    <td className="font-monospace" style={{ minWidth: "130px" }}>
+                      {field}
+                    </td>
+                    <td className="font-monospace text-white-50 w-100" style={{ lineBreak: "anywhere" }}>
                       {typeof debugData.formState[field] === "string" ? '"' : ""}
                       {String(debugData.formState[field])}
                       {typeof debugData.formState[field] === "string" ? '"' : ""}

@@ -2,4 +2,5 @@
 export * from "./FormCheckbox";
 export * from "./FormGroup";
 export * from "./FormGroupTitle";
+export * from "./FormSelect";
 export * from "./FormTextInput";

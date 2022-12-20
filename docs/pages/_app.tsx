@@ -41,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         h6,
         p,
         #mainNav .navbar-brand,
+        .tooltip-inner,
         body {
           letter-spacing: 0.2px;
           font-family: ${font.style.fontFamily};

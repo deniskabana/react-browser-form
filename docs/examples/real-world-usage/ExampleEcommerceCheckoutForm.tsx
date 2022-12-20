@@ -6,6 +6,9 @@ import { Button, Form } from "react-bootstrap";
 import { FormTextInput, FormCheckbox, FormGroup, FormGroupTitle } from "ui/forms";
 import Separator from "ui/Separator";
 
+// FORM SETUP AND VALIDATION
+// --------------------------------------------------------------------------------
+
 const defaultValues = {
   firstName: "",
   lastName: "",
@@ -38,6 +41,9 @@ const validationSchema: ValidationSchema<Form> = {
     },
   },
 };
+
+// COMPONENT
+// --------------------------------------------------------------------------------
 
 export function ExampleEcommerceCheckoutForm() {
   const [data, setData] = React.useState(defaultValues);

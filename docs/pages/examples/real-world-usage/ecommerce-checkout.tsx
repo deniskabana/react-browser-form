@@ -5,7 +5,7 @@ import fs from "fs/promises";
 
 // Form component
 import { ExampleEcommerceCheckoutForm } from "examples/real-world-usage/ExampleEcommerceCheckoutForm";
-import Tip from "ui/Tip";
+import { TipReactBootstrapDocs } from "ui/Tip";
 
 export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
@@ -19,11 +19,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         <p className="text-muted">
           A real world example of how you can easily compose a checkout form common to ecommerce sites.
         </p>
-
-        <Tip variant="info">
-          This example uses <code>react-bootstrap</code> for styling purposes and some custom UI components for visual
-          aspects.
-        </Tip>
+        <TipReactBootstrapDocs />
 
         <Separator />
 

@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import Head from "next/head";
+import Link from "next/link";
 import { Badge, Card } from "react-bootstrap";
 import Separator from "ui/Separator";
 import Tip from "ui/Tip";
@@ -61,7 +62,7 @@ export function Example() {
         <Separator />
 
         <div>
-          <h2>Motivation &amp; values</h2>
+          <h2>Philosophy &amp; values</h2>
           <br />
           <p>
             The following describes the project's philosophy and key values. React Dumb Form has some limitations and is
@@ -82,7 +83,7 @@ export function Example() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:user-heart-outline" width={36} className="me-2" />
-                Developer-first experience. No learning curve.
+                Developer-first experience. No learning curve. Junior-friendly.
               </h5>
               <span className="text-muted">
                 Minimal, effective and easy to learn - anyone from a junior to a senior engineer can start using RDF
@@ -93,7 +94,7 @@ export function Example() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="tabler:brand-typescript" width={36} className="me-2" />
-                TypeScript at the core.
+                TypeScript at the core. Type safety on another level.
               </h5>
               <span className="text-muted">
                 Written completely in TypeScript with a heavy emphasis on type safety. Fully documented.
@@ -103,7 +104,7 @@ export function Example() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:package-variant" height={36} className="me-2" />
-                Small bundle size &amp; one dependency - React.
+                Small bundle size and a single dependency - React.
               </h5>
               <span className="text-muted">
                 Minimal dependency code, small bundle size. This is core part of the project philosophy.
@@ -158,11 +159,56 @@ export function Example() {
           </p>
           <ol>
             <li className="mb-3">
-              <strong>No 3rd party validator library support.</strong>
+              <strong>No field array support yet.</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
               <Badge bg="secondary" className="ms-1" pill>
                 Next minor release
               </Badge>
-              <p className="text-muted">The plan is to implement this in the future.</p>
+              <p className="text-muted">
+                As shown in the example{" "}
+                <Link href="/examples/real-world-usage/invoice-array-fields">Invoice array fields</Link>, there is no
+                first-class support for using field arrays. While it is possible (and quite easy) to do with code, it
+                goes against point 2 of philosophy.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>Errors have bad semantics.</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
+              <p className="text-muted">
+                The semantics of errors must change. Right now, accessing data looks like{" "}
+                <code>errors.errorData[field: string]</code>. Reversing the tree structure names would suffice -{" "}
+                <code>errorData.errors</code> and <code>errorData.count</code>.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>Default values need to be relied upon less.</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
+              <p className="text-muted">
+                With the current approach, <code>defaultValues</code> is treated as mandatory, with all fields required
+                and is used internally to infer form field types, traverse objects, etc.
+                <br />A much better suited approach was be to use <code>formState</code> for iteration, no type
+                transformation on single values (closer to native browser behavior) and making defaultValues optional
+                and partial. Take inspiration from <code>react-hook-form</code>.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>No 3rd party validator library support.</strong>
+              <Badge bg="info" className="ms-1" pill>
+                In the future
+              </Badge>
+              <p className="text-muted">
+                The plan is to implement this in the future with first class support for Zod and Yup (others maybe
+                later).
+              </p>
             </li>
 
             <li className="mb-3">
@@ -180,7 +226,7 @@ export function Example() {
             <li className="mb-3">
               <strong>Weak i18n support.</strong>
               <Badge bg="info" className="ms-1" pill>
-                Future update
+                In the future
               </Badge>
               <p className="text-muted">
                 If you change strings inside validation schema for validation feedback, React Dumb Form will ignore

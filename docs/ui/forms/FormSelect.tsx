@@ -1,9 +1,9 @@
 import { Form } from "react-bootstrap";
 
 interface FormTextInputProps {
+  options: Array<{ label: string; value: string }>;
   name: string;
   requiredMark?: boolean;
-  type?: string;
   label?: string | React.ReactNode;
   error?: string;
   placeholder?: string;
@@ -11,10 +11,10 @@ interface FormTextInputProps {
   small?: boolean;
 }
 
-export function FormTextInput({
+export function FormSelect({
+  options,
   name,
   requiredMark,
-  type = "text",
   label,
   error,
   placeholder,
@@ -29,14 +29,19 @@ export function FormTextInput({
           {requiredMark ? <span className="fw-bold text-danger">*</span> : null}
         </Form.Label>
       ) : null}
-      <Form.Control
+      <Form.Select
         name={name}
-        type={type}
         placeholder={placeholder}
         disabled={disabled}
         className={error ? "is-invalid" : ""}
         size={small ? "sm" : undefined}
-      />
+      >
+        {options.map(({ label, value }) => (
+          <option value={value} key={value}>
+            {label}
+          </option>
+        ))}
+      </Form.Select>
       {error ? (
         <Form.Control.Feedback type="invalid" style={{ fontSize: "0.7em" }}>
           {error}

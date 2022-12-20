@@ -10,7 +10,7 @@ import {
 
 export function useFormEventHandlers<Schema>(
   handleDataFlow: HandleDataFlow<Schema>,
-  options: DumbFormOptions<Schema>
+  options: DumbFormOptions<Schema>,
 ): FormEventHandlers<Schema> {
   // USER EVENTS
   // --------------------------------------------------------------------------------
@@ -34,8 +34,9 @@ export function useFormEventHandlers<Schema>(
     handleDataFlow({ source: EventSource.Form, type: EventType.Submit, nativeEvent: event });
   };
   const handleFormBlur: FormEventHandler = event => {
-    // Safely ignore this event unless onBlur modes are used
-    if (options.mode !== "onBlur" && options.mode !== "onBlurUnlessError") return;
+    // Safely ignore this event unless it is needed
+    if (options.mode !== "onBlur" && options.mode !== "onBlurUnlessError" && options.errorRevalidateMode === "onBlur")
+      return;
     handleDataFlow({ source: EventSource.Form, type: EventType.Blur, nativeEvent: event });
   };
   const handleFormReset: FormEventHandler = event => {

@@ -21,12 +21,15 @@ export function handleResetEvent<Schema>(dataFlowState: DataFlowState<Schema>): 
     for (let key in dataFlowState.changedData) {
       (dataFlowState.formState as any)[key] = transformValueType(
         dataFlowState.changedData[key],
-        dataFlowState.options.defaultValues[key]
+        dataFlowState.options.defaultValues[key],
       );
     }
 
     // Trigger callback
     dataFlowState.callbacks.onChange(dataFlowState.formState);
+  } else {
+    // Testing & debugging info
+    dataFlowState.changeReason = "";
   }
 
   hydrateDomInputs(dataFlowState.options, dataFlowState.formState);

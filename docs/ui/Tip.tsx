@@ -37,3 +37,12 @@ export default function Tip({
     </Alert>
   );
 }
+
+export function TipReactBootstrapDocs() {
+  return (
+    <Tip variant="info">
+      This example uses <code>react-bootstrap</code> for styling purposes and some custom UI components for visual
+      aspects.
+    </Tip>
+  );
+}

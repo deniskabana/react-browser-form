@@ -34,20 +34,43 @@ const MENU: MenuItem[] = [
         children: [
           { title: "Minimal form", href: "/examples/basic/minimal-form" },
           { title: "Basic usage", href: "/examples/basic/basic-usage" },
+          { title: "Different field types", href: "/examples/basic/different-field-types" },
+          { title: "Resetting forms", href: "/examples/basic/resetting-forms" },
+          { title: "Setting values", href: "/examples/basic/setting-values" },
+          { title: "Programmatic submit", href: "/examples/basic/programmatic-submit" },
         ],
       },
       {
         title: "Validation",
         href: "/examples/validation",
+        children: [
+          { title: "Required fields", href: "/examples/validation/required-fields" },
+          { title: "Basic validation", href: "/examples/validation/basic-validation" },
+          { title: "Composed validation", href: "/examples/validation/composed-validation" },
+          { title: "Dependent fields", href: "/examples/validation/dependent-fields" },
+          { title: "Complex validation", href: "/examples/validation/complex-validation" },
+          { title: "Validation on init", href: "/examples/validation/validation-on-init" },
+        ],
       },
       {
         title: "Modes",
         href: "/examples/modes",
+        children: [
+          { title: "onSubmitUnlessError (default)", href: "/examples/modes/onSubmitUnlessError" },
+          { title: "onSubmit", href: "/examples/modes/onSubmit" },
+          { title: "onBlurUnlessError", href: "/examples/modes/onBlurUnlessError" },
+          { title: "onBlur", href: "/examples/modes/onBlur" },
+          { title: "onChange", href: "/examples/modes/onChange" },
+          { title: "Live change fields", href: "/examples/modes/live-change-fields" },
+        ],
       },
       {
         title: "Real-world usage",
         href: "/examples/real-world-usage",
-        children: [{ title: "Ecommerce checkout", href: "/examples/real-world-usage/ecommerce-checkout" }],
+        children: [
+          { title: "Ecommerce checkout", href: "/examples/real-world-usage/ecommerce-checkout" },
+          { title: "Invoice array fields", href: "/examples/real-world-usage/invoice-array-fields" },
+        ],
       },
       {
         title: "Performance showcase",
