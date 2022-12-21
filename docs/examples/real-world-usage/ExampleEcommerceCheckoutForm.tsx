@@ -48,7 +48,7 @@ const validationSchema: ValidationSchema<Form> = {
 export function ExampleEcommerceCheckoutForm() {
   const [data, setData] = React.useState(defaultValues);
 
-  const { formProps, names, errors } = useDumbForm<Form>({
+  const { formProps, names, errorData } = useDumbForm<Form>({
     name: "example-ecommerce-checkout-form",
     onSubmit: setData,
     onChange: setData,
@@ -57,25 +57,20 @@ export function ExampleEcommerceCheckoutForm() {
     liveChangeFields: ["hasDifferentShipping"],
   });
 
-  const { errorData } = errors;
+  const { errors } = errorData;
 
   return (
     <form {...formProps}>
       <FormGroupTitle>Billing information</FormGroupTitle>
       <FormGroup>
-        <FormTextInput label="First name" requiredMark name={names.firstName} error={errorData.firstName} />
-        <FormTextInput label="Last name" requiredMark name={names.lastName} error={errorData.lastName} />
+        <FormTextInput label="First name" requiredMark name={names.firstName} error={errors.firstName} />
+        <FormTextInput label="Last name" requiredMark name={names.lastName} error={errors.lastName} />
       </FormGroup>
       <FormGroup>
-        <FormTextInput label="E-mail" requiredMark name={names.email} error={errorData.email} />
-        <FormTextInput label="Phone number" name={names.phoneNumber} error={errorData.phoneNumber} />
+        <FormTextInput label="E-mail" requiredMark name={names.email} error={errors.email} />
+        <FormTextInput label="Phone number" name={names.phoneNumber} error={errors.phoneNumber} />
       </FormGroup>
-      <FormTextInput
-        label="Billing address"
-        requiredMark
-        name={names.billingAddress}
-        error={errorData.billingAddress}
-      />
+      <FormTextInput label="Billing address" requiredMark name={names.billingAddress} error={errors.billingAddress} />
 
       <Separator small />
 
@@ -83,14 +78,14 @@ export function ExampleEcommerceCheckoutForm() {
       <FormCheckbox
         label="Different shipping address?"
         name={names.hasDifferentShipping}
-        error={errorData.hasDifferentShipping}
+        error={errors.hasDifferentShipping}
       />
       {data.hasDifferentShipping ? (
         <FormTextInput
           label="Shipping address"
           requiredMark
           name={names.shippingAddress}
-          error={errorData.shippingAddress}
+          error={errors.shippingAddress}
         />
       ) : null}
 
@@ -105,17 +100,17 @@ export function ExampleEcommerceCheckoutForm() {
         }
         requiredMark
         name={names.hasAgreedToTerms}
-        error={errorData.hasAgreedToTerms}
+        error={errors.hasAgreedToTerms}
       />
       <FormCheckbox
         label="I want to receive e-mail newsletter."
         name={names.hasSubscribed}
-        error={errorData.hasSubscribed}
+        error={errors.hasSubscribed}
       />
 
       <Separator small />
 
-      <Button type="submit" disabled={errors.count > 0}>
+      <Button type="submit" disabled={errorData.count > 0}>
         Place order
       </Button>
     </form>

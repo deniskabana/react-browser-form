@@ -175,18 +175,6 @@ export function Example() {
             </li>
 
             <li className="mb-3">
-              <strong>Errors have bad semantics.</strong>
-              <Badge bg="danger" className="ms-1" pill>
-                Critical
-              </Badge>
-              <p className="text-muted">
-                The semantics of errors must change. Right now, accessing data looks like{" "}
-                <code>errors.errorData[field: string]</code>. Reversing the tree structure names would suffice -{" "}
-                <code>errorData.errors</code> and <code>errorData.count</code>.
-              </p>
-            </li>
-
-            <li className="mb-3">
               <strong>Default values need to be relied upon less.</strong>
               <Badge bg="danger" className="ms-1" pill>
                 Critical

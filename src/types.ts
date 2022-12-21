@@ -48,8 +48,8 @@ export type DumbFormOptions<Schema> = Required<DumbFormOptionsInput<Schema>>;
 export interface DumbFormReturnType<Schema> {
   /**
    * Errors object that keeps tracks of errors and their count.
-   * @example { count: 1, errorData: { password: "Error message" } } */
-  errors: ErrorsObject<Schema>;
+   * @example { count: 1, errors: { password: "Error message" } } */
+  errorData: ErrorsObject<Schema>;
 
   /** Whether the form has been touched by the user. */
   isDirty: boolean;
@@ -88,14 +88,14 @@ export type SetValuesMethod<Schema> = (values: Partial<Schema>) => void;
 // --------------------------------------------------------------------------------
 
 export interface ErrorManager<Schema> {
-  errors: ErrorsObject<Schema>;
+  errorData: ErrorsObject<Schema>;
   setErrors: (errors: Partial<Record<keyof Schema, string>>) => void;
 }
 
 export interface ErrorsObject<Schema> {
   count: number;
   /** Contains an object that ties field name to a custom error message (if any) */
-  errorData: Partial<Record<keyof Schema, string>>;
+  errors: Partial<Record<keyof Schema, string>>;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface UserCallbacks<Schema> {
 
 export enum EventSource {
   User = "User",
-  Form = "Form"
+  Form = "Form",
 }
 
 export enum EventType {
@@ -159,7 +159,7 @@ export enum EventType {
   /** `EventType.Blur` when a form input is blurred (loses focus) */
   Blur = "Blur",
   /** A special type of event triggered programmatically during init phase. Under the hood it just calls `reset()` without calling `onChange()` or hydrating */
-  FormInit = "FormInit"
+  FormInit = "FormInit",
 }
 
 export type FormEventHandler = (event: React.FormEvent<HTMLFormElement>) => void;
@@ -195,7 +195,7 @@ export interface DataFlowState<Schema> {
   formState: Schema;
   fieldsData: FieldsData<Schema>;
   callbacks: UserCallbacks<Schema>;
-  errors: ErrorsObject<Schema>;
+  errorData: ErrorsObject<Schema>;
   setErrors: ErrorManager<Schema>["setErrors"];
   isDirty: boolean;
   setIsDirty: React.Dispatch<React.SetStateAction<boolean>>;

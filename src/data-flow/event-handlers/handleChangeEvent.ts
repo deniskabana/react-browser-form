@@ -23,7 +23,7 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     for (let key in dataFlowState.changedData) {
       (dataFlowState.formState as any)[key] = transformValueType(
         dataFlowState.changedData[key],
-        dataFlowState.options.defaultValues[key]
+        dataFlowState.options.defaultValues[key],
       );
     }
 
@@ -43,7 +43,7 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
 
     // Validate fields with errors only to save performance and improve UX
     const shouldRevalidate =
-      options.errorRevalidateMode === "onChange" && dataFlowState.errors.errorData[targetInput.name as keyof Schema];
+      options.errorRevalidateMode === "onChange" && dataFlowState.errorData.errors[targetInput.name as keyof Schema];
     const isLiveField = options.liveChangeFields.includes(targetInput.name as keyof Schema);
 
     const shouldExecute = hasOnChangeMode || shouldRevalidate || isLiveField;
@@ -58,7 +58,7 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     // Treating all errored fields as changed data will force re-validation and state update
     // This allows to use conditional fields with validation
     if (isLiveField) {
-      for (let key in dataFlowState.errors.errorData) {
+      for (let key in dataFlowState.errorData.errors) {
         dataFlowState.changedData[key] = dataFlowState.formState[key];
       }
     }

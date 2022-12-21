@@ -8,7 +8,7 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
 
   const { required, validated } = dataFlowState.fieldsData;
   const data = dataFlowState.changedData;
-  const oldErrors = dataFlowState.errors.errorData;
+  const oldErrors = dataFlowState.errorData.errors;
   const newErrors: Partial<Record<keyof Schema, string>> = {};
 
   for (let key in data) {

@@ -72,7 +72,7 @@ interface InvoiceLineFormProps {
 }
 
 export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: InvoiceLineFormProps) {
-  const { formProps, names, errors, setValues } = useDumbForm<Form>({
+  const { formProps, names, errorData, setValues } = useDumbForm<Form>({
     name: `example-invoice-array-fields-form-${index}`,
     mode: "onBlurUnlessError",
     onSubmit: setData,
@@ -82,7 +82,7 @@ export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: Invo
     liveChangeFields: ["isActive", "quantity", "price"],
   });
 
-  const { errorData } = errors;
+  const { errors } = errorData;
   const { isActive } = data;
 
   // Automatically set quantity unit when switching between goods and services
@@ -112,14 +112,14 @@ export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: Invo
 
           <FormGroup layout={[7, 5]}>
             <FormGroup layout={[8, 4]}>
-              <FormTextInput label="Title" small disabled={!isActive} name={names.title} error={errorData.title} />
+              <FormTextInput label="Title" small disabled={!isActive} name={names.title} error={errors.title} />
               <FormSelect
                 options={TYPES}
                 label="Type"
                 small
                 disabled={!isActive}
                 name={names.type}
-                error={errorData.type}
+                error={errors.type}
               />
             </FormGroup>
 
@@ -130,7 +130,7 @@ export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: Invo
                 disabled={!isActive}
                 type="number"
                 name={names.quantity}
-                error={errorData.quantity}
+                error={errors.quantity}
               />
               <FormSelect
                 options={UNITS}
@@ -138,9 +138,9 @@ export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: Invo
                 small
                 disabled={!isActive}
                 name={names.unit}
-                error={errorData.unit}
+                error={errors.unit}
               />
-              <FormTextInput label="Price" small disabled={!isActive} name={names.price} error={errorData.price} />
+              <FormTextInput label="Price" small disabled={!isActive} name={names.price} error={errors.price} />
             </FormGroup>
           </FormGroup>
         </Stack>

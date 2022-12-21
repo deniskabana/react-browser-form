@@ -10,7 +10,7 @@ export function useDataFlowHandler<Schema>(
   formState: DataFlowState<Schema>["formState"],
   fieldsData: DataFlowState<Schema>["fieldsData"],
   callbacks: DataFlowState<Schema>["callbacks"],
-  errors: DataFlowState<Schema>["errors"],
+  errorData: DataFlowState<Schema>["errorData"],
   setErrors: DataFlowState<Schema>["setErrors"],
   isDirty: DataFlowState<Schema>["isDirty"],
   setIsDirty: DataFlowState<Schema>["setIsDirty"],
@@ -18,14 +18,14 @@ export function useDataFlowHandler<Schema>(
   return function handleDataFlow(event: DataFlowEvent<Schema>) {
     // An object reference to be passed around to all data flow functions
     const dataFlowState: DataFlowState<Schema> = {
-      hasErrors: errors.count > 0,
+      hasErrors: errorData.count > 0,
       event,
       options,
       changedData: {},
       formState,
       fieldsData,
       callbacks,
-      errors,
+      errorData,
       setErrors,
       isDirty,
       setIsDirty,

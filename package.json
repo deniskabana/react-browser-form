@@ -12,9 +12,10 @@
   },
   "scripts": {
     "start": "tsdx watch",
+    "prebuild": "tsc --noEmit && yarn lint && yarn test",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
@@ -30,14 +31,14 @@
   "name": "react-dumb-form",
   "author": "Denis Kabana <github.com/deniskabana>",
   "repository": "https://github.com/deniskabana/react-dumb-form",
-  "module": "dist/dumbform-stable.esm.js",
+  "module": "dist/react-dumb-form.esm.js",
   "size-limit": [
     {
-      "path": "dist/dumbform-stable.cjs.production.min.js",
+      "path": "dist/react-dumb-form.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/dumbform-stable.esm.js",
+      "path": "dist/react-dumb-form.esm.js",
       "limit": "10 KB"
     }
   ],

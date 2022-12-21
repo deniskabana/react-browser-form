@@ -12,7 +12,7 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
     validateAfterInit,
     mode,
     liveChangeFields,
-    debug
+    debug,
   } = options;
 
   // ERRORS - prevent further execution to prevent bugs

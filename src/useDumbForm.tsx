@@ -32,7 +32,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   }).current;
   const formState = React.useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
-  const { errors, setErrors } = useErrorManager<Schema>();
+  const { errorData, setErrors } = useErrorManager<Schema>();
   const [isDirty, setIsDirty] = React.useState(false);
 
   // STORED REFERENCES
@@ -50,7 +50,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     formState,
     fieldsData,
     callbacks,
-    errors,
+    errorData,
     setErrors,
     isDirty,
     setIsDirty,
@@ -74,7 +74,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   // --------------------------------------------------------------------------------
   const returnData = {
     // Values
-    errors,
+    errorData,
     isDirty,
     names: fieldsData.names,
     // Methods

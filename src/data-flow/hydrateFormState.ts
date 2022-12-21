@@ -6,7 +6,7 @@ export function hydrateFormState<Schema>(dataFlowState: DataFlowState<Schema>): 
   const domFormElem = (document.forms as any)[dataFlowState.options.name];
 
   // Use defaultValues instead of formState when hydrating formState
-  Object.keys(dataFlowState.options.defaultValues).forEach((key) => {
+  Object.keys(dataFlowState.options.defaultValues).forEach(key => {
     const domInputElem = domFormElem.elements[key] as HTMLInputElement | undefined;
 
     if (domInputElem) {
