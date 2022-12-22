@@ -220,7 +220,7 @@ export function ExampleInvoiceArrayFields() {
       <Separator small />
 
       {wasSubmitted ? (
-        <Table striped size="sm" className="mb-4">
+        <Table striped className="mb-4">
           <thead>
             <tr>
               <th>
@@ -246,7 +246,7 @@ export function ExampleInvoiceArrayFields() {
                   </small>
                 </td>
                 <td>
-                  <small>{line.type}</small>
+                  <small>{TYPES.find(type => type.value === line.type)?.label ?? "-"}</small>
                 </td>
                 <td>
                   <small>
@@ -262,7 +262,7 @@ export function ExampleInvoiceArrayFields() {
         </Table>
       ) : (
         <div>
-          {/* Not the nicest hack using `key` to force re-render when length changes */}
+          {/* TODO: Not the nicest hack using `key` to force re-render when length changes. Implement a better solution. */}
           {data.map((line, index) => (
             <React.Fragment key={`${index}-${data.length}`}>
               <InvoiceLineForm
@@ -271,9 +271,15 @@ export function ExampleInvoiceArrayFields() {
                 setData={data => handleSetData(index, data)}
                 handleRemoveLine={() => handleRemoveLine(index)}
               />
-              {index < data.length - 1 && <Separator dashed small />}
+              <Separator dashed small />
             </React.Fragment>
           ))}
+          <div className="text-center">
+            <Button variant="outline-primary" size="sm" onClick={handleAddLine} disabled={wasSubmitted}>
+              <Icon icon="material-symbols:add-circle-outline-rounded" className="me-1" />
+              Add invoice line
+            </Button>
+          </div>
         </div>
       )}
 
@@ -281,11 +287,6 @@ export function ExampleInvoiceArrayFields() {
 
       <div>
         <Stack direction="horizontal">
-          <Button variant="outline-primary" size="sm" onClick={handleAddLine} disabled={wasSubmitted}>
-            <Icon icon="material-symbols:add-circle-outline-rounded" className="me-1" />
-            Add invoice line
-          </Button>
-
           <Stack direction="horizontal" className="ms-auto">
             <div className="me-3">
               <strong>Invoice total: </strong>
