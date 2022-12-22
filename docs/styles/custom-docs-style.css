@@ -1,8 +1,13 @@
 /* Basics for HTML and body */
 html,
-body {
-  min-height: 100%;
+body,
+body > div:first-child,
+div#__next {
   height: 100%;
+}
+div#__next {
+  display: flex;
+  flex-direction: column;
 }
 html {
   font-size: 18px;

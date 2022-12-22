@@ -72,7 +72,7 @@ export function ExampleEcommerceCheckoutForm() {
       </FormGroup>
       <FormTextInput label="Billing address" requiredMark name={names.billingAddress} error={errors.billingAddress} />
 
-      <Separator small />
+      <Separator small dashed />
 
       <FormGroupTitle>Shipping information</FormGroupTitle>
       <FormCheckbox
@@ -89,7 +89,7 @@ export function ExampleEcommerceCheckoutForm() {
         />
       ) : null}
 
-      <Separator small />
+      <Separator small dashed />
 
       <FormGroupTitle>Consent</FormGroupTitle>
       <FormCheckbox
