@@ -191,7 +191,7 @@ export interface DataFlowState<Schema> {
   event: DataFlowEvent<Schema>;
   options: DumbFormOptions<Schema>;
   changedData: Partial<Schema>;
-  changeReason: string | null;
+  changeReason: string;
   formState: Schema;
   fieldsData: FieldsData<Schema>;
   callbacks: UserCallbacks<Schema>;

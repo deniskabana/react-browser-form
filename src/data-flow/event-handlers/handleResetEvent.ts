@@ -4,19 +4,20 @@ import { transformValueType } from "../transformValueType";
 import { validateFormState } from "../validateFormState";
 
 export function handleResetEvent<Schema>(dataFlowState: DataFlowState<Schema>): void {
-  if (dataFlowState.event.value) {
-    // Reset form to values supplied by the user
+  const shouldResetWithValues = !!dataFlowState.event.value;
+
+  // 1. Populate changedData with values if provided, with defaultValues otherwise
+  if (shouldResetWithValues) {
     dataFlowState.changedData = { ...dataFlowState.event.value };
-    // Testing & debugging info
-    dataFlowState.changeReason = `Reset form with provided values. Source: ${dataFlowState.event.source}`;
+    // DEBUG: Feedback for changeReason
+    dataFlowState.changeReason = `Reset form with provided values.\nSource: ${dataFlowState.event.source}`;
   } else {
-    // Reset form to default values
     dataFlowState.changedData = { ...dataFlowState.options.defaultValues };
-    // Testing & debugging info
-    dataFlowState.changeReason = `Reset form to defaults. Source: ${dataFlowState.event.source}`;
+    // DEBUG: Feedback for changeReason
+    dataFlowState.changeReason = `Reset form to defaults.\nSource: ${dataFlowState.event.source}`;
   }
 
-  // Only update formState when not initializing - reset is also used in initialization
+  // 2. Populate formState with transformed data, IF NOT A FORM INIT EVENT
   if (dataFlowState.event.type !== EventType.FormInit) {
     for (let key in dataFlowState.changedData) {
       (dataFlowState.formState as any)[key] = transformValueType(
@@ -24,17 +25,19 @@ export function handleResetEvent<Schema>(dataFlowState: DataFlowState<Schema>): 
         dataFlowState.options.defaultValues[key],
       );
     }
-
-    // Trigger callback
-    dataFlowState.callbacks.onChange(dataFlowState.formState);
   } else {
-    // Testing & debugging info
+    // DEBUG: Provide no change reason if initializing the form
     dataFlowState.changeReason = "";
   }
 
+  // 3. Hydrate DOM inputs from form state
   hydrateDomInputs(dataFlowState.options, dataFlowState.formState);
 
-  // Conditionally validate - no validation on init unless requested
-  if (dataFlowState.event.type === EventType.FormInit && !dataFlowState.options.validateAfterInit) return;
-  validateFormState(dataFlowState);
+  // 4. Validate form state if not initializing or requested upon initialization (validates only changedData)
+  if (dataFlowState.event.type !== EventType.FormInit || dataFlowState.options.validateAfterInit) {
+    validateFormState(dataFlowState);
+  }
+
+  // 5. Trigger callback
+  dataFlowState.callbacks.onChange(dataFlowState.formState);
 }

@@ -4,7 +4,9 @@ import { handleChangeEvent } from "../data-flow/event-handlers/handleChangeEvent
 import { handleResetEvent } from "../data-flow/event-handlers/handleResetEvent";
 import { handleSubmitEvent } from "../data-flow/event-handlers/handleSubmitEvent";
 import { logError } from "../utils/logError";
+import { setDebugData } from "../utils/setDebugData";
 
+// TODO: Consider changing dataFlowState structure to object of getters/setters for cleaner code if no performance impact
 export function useDataFlowHandler<Schema>(
   options: DataFlowState<Schema>["options"],
   formState: DataFlowState<Schema>["formState"],
@@ -29,8 +31,7 @@ export function useDataFlowHandler<Schema>(
       setErrors,
       isDirty,
       setIsDirty,
-      // Debug, dev and test helper
-      changeReason: null,
+      changeReason: "",
     };
 
     switch (event.type) {
@@ -58,12 +59,13 @@ export function useDataFlowHandler<Schema>(
         logError("data-flow", "An unsupported event type provided");
     }
 
-    // This is intended to be used from within docs, lib development or debugging for users and devs
-    if (options.debug && typeof window !== "undefined") {
-      (window as any).__rdf_debug[options.name].formState = dataFlowState.formState;
-      (window as any).__rdf_debug[options.name].changeReason = dataFlowState.changeReason;
-      (window as any).__rdf_debug[options.name].event = dataFlowState.event;
-      (window as any).__rdf_debug[options.name].timestamp = Date.now();
-    }
+    setDebugData(
+      {
+        formState: dataFlowState.formState,
+        changeReason: dataFlowState.changeReason,
+        event: dataFlowState.event,
+      },
+      options,
+    );
   };
 }

@@ -87,17 +87,19 @@ export function Example() {
               </h5>
               <span className="text-muted">
                 Minimal, effective and easy to learn - anyone from a junior to a senior engineer can start using RDF
-                with just 7 lines of code. See this <a href="#">Minimal form example</a> to see how easy it is to use.
+                with just a few lines of code. See this <a href="#">Minimal form example</a> to see how easy it is to
+                use.
               </span>
             </li>
 
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="tabler:brand-typescript" width={36} className="me-2" />
-                TypeScript at the core. Type safety on another level.
+                TypeScript at the core. Type safety on your side.
               </h5>
               <span className="text-muted">
-                Written completely in TypeScript with a heavy emphasis on type safety. Fully documented.
+                Written in TypeScript with a heavy emphasis on type safety. Fully documented. Utilize it to catch
+                errors.
               </span>
             </li>
 
@@ -107,7 +109,8 @@ export function Example() {
                 Small bundle size and a single dependency - React.
               </h5>
               <span className="text-muted">
-                Minimal dependency code, small bundle size. This is core part of the project philosophy.
+                Stricly uses a single dependency (React) and has a small bundle size. This is a core part of the project
+                philosophy.
               </span>
             </li>
 
@@ -125,24 +128,12 @@ export function Example() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:file-document-error-outline" height={36} className="me-2" />
-                Simple and complex validation support.
+                Validation support - the simplest validation you have seen.
               </h5>
               <span className="text-muted">
                 Use required fields for simple checks. Write one-line validators for your fields. Write chainable,
                 composable validators for complex logic. Explore <a href="#">Validation examples</a> to find out all the
                 options.
-              </span>
-            </li>
-
-            <li className="mb-4">
-              <h5 className="text-secondary d-flex align-items-center">
-                <Icon icon="uil:book-open" height={36} className="me-2" />
-                Developer-friendly documentation.
-              </h5>
-              <span className="text-muted">
-                Covering all of the APIs, options and providing dozens of examples will get you and your team started
-                right away. As a cherry on top, you can rely on JSDoc hints while writing code - providing links to the
-                docs as well.
               </span>
             </li>
           </ol>

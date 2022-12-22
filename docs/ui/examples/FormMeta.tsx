@@ -2,22 +2,24 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { useState } from "react";
 import { Card, Table } from "react-bootstrap";
+import { DebugData } from "react-dumb-form";
 
 export function FormMeta({ name }: { name: string }) {
-  const [debugData, setDebugData] = useState<any>({});
+  const [debugData, setDebugData] = useState<DebugData<any>>();
 
-  // Since debug is turned on in docs, we want to listen to this
-  let formDebugData: any = null;
+  // Since debug is turned on in docs, we want to watch the debug object
+  let formDebugData: DebugData<any> | undefined;
   if (typeof window !== "undefined") {
     formDebugData = (window as any).__rdf_debug[name];
   }
   if (formDebugData) {
     const originalObject: any = (window as any).__rdf_debug[name];
+    // Replace the object in debugger with a proxy of the object
     (window as any).__rdf_debug[name] = new Proxy(originalObject, {
       set: function(target, key, value) {
         target[key] = value;
         if (key === "timestamp") {
-          setDebugData(target);
+          setTimeout(() => setDebugData(target));
         }
         return true;
       },
@@ -54,7 +56,7 @@ export function FormMeta({ name }: { name: string }) {
             <tr>
               <td>Has errors?</td>
               <td>
-                {debugData?.returnData?.errors?.count > 0 ? (
+                {debugData?.returnData?.errorData?.count && debugData.returnData.errorData.count > 0 ? (
                   <div className="text-danger d-flex align-items-center fw-bold">
                     <Icon icon="material-symbols:check-circle-rounded" className="me-1" /> Yes
                   </div>

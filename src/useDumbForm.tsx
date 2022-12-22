@@ -15,12 +15,14 @@ import {
 } from "./types";
 import { getFieldsData } from "./utils/getFieldsData";
 import { protectOptionsCominations } from "./utils/protectOptionsCombinations";
+import { setDebugData } from "./utils/setDebugData";
 import { uniqueNameProtection } from "./utils/uniqueNameProtection";
 
 /**
  * **React Dumb Form** - The simplest forms wrapper you will ever use in React.
+ * LINKS (TODO):
  * - [API and documentation](https://github.com/deniskabana/react-dumb-form).
- * - [Examples](https://github.com/deniskabana/react-dumb-form/tree/main/examples) (TODO).
+ * - [Examples](https://github.com/deniskabana/react-dumb-form/tree/main/examples).
  * @param options **Options can not be changed once initialized to prevent side effects.**
  */
 export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput<Schema>): DumbFormReturnType<Schema> {
@@ -72,7 +74,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
 
   // RETURN
   // --------------------------------------------------------------------------------
-  const returnData = {
+  const returnData: DumbFormReturnType<Schema> = {
     // Values
     errorData,
     isDirty,
@@ -83,13 +85,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     formProps,
   };
 
-  // This is intended to be used from within docs, lib development or debugging for users and devs
-  if (options.debug && typeof window !== "undefined") {
-    // Set up an empty object if necessary
-    if (!(window as any).__rdf_debug) (window as any).__rdf_debug = {};
-    if (!(window as any).__rdf_debug[options.name]) (window as any).__rdf_debug[options.name] = {};
-    (window as any).__rdf_debug[options.name].returnData = returnData;
-  }
+  setDebugData({ returnData }, options);
 
   return returnData;
 }

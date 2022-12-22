@@ -17,6 +17,7 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
 
   // ERRORS - prevent further execution to prevent bugs
   // --------------------------------------------------------------------------------
+
   if (!name || name.length < 1) throw new Error("Option 'name' required!");
   if (!defaultValues) throw new Error("Option 'defaultValues' required!");
   if (typeof onSubmit !== "function") throw new Error("Option 'onSubmit' required!");
@@ -48,10 +49,11 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
 
   // WARNINGS - should not stop exeuction in production environment
   // --------------------------------------------------------------------------------
+
   if (process.env.NODE_ENV === "production") return;
 
   if (mode === "onChange") {
     if (liveChangeFields && liveChangeFields.length > 0)
-      logError("init", "When using 'onChange' mode, liveChangeFields should not be specified.");
+      logError("init", "When using 'onChange' mode, liveChangeFields should be empty.");
   }
 }
