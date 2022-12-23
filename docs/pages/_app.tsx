@@ -7,13 +7,13 @@ import "styles/prism.min.css";
 import "styles/custom-docs-style.css";
 import "public/prism.min.js";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { SSRProvider } from "react-bootstrap";
 
 const font = FontHelper({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
 const fontMono = FontMonoHelper({ subsets: ["latin"], weight: ["400"], display: "swap" });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps}: AppProps ) {
   const { pathname } = useRouter();
 
   // Re-apply syntax highlighting whenever a page changes

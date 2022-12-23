@@ -1,27 +1,11 @@
 import { Icon } from "@iconify/react";
 import Head from "next/head";
 import Link from "next/link";
-import { Badge, Card } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import Separator from "ui/Separator";
 import Tip from "ui/Tip";
-import fs from "fs/promises";
-import path from "path";
 
-const introExampleCode = `type Form = { name: string };
-
-export function DumbForm() {
-  const { formProps } = useDumbForm<Form>({ name: "example-dumb-form", onSubmit: console.log });
-
-  return <form {...formProps} />;
-}`;
-
-type PageProps = {
-  pkgsize: string;
-  pkgloc: string;
-  pkgfilecount: string;
-};
-
-export default function Page({ pkgsize, pkgloc, pkgfilecount }: PageProps) {
+export default function Page() {
   return (
     <>
       <Head>
@@ -29,45 +13,14 @@ export default function Page({ pkgsize, pkgloc, pkgfilecount }: PageProps) {
       </Head>
 
       <main>
-        <div>
-          <h1>📝 React Dumb Form</h1>
-          <p className="text-muted">
-            The simplest React forms handler - with primary focus on TypeScript, performance and developer experience.
-          </p>
-
-          <Tip variant="danger">
-            <strong>React Dumb Form is not ready for production use yet.</strong> We need to write unit tests, check
-            code coverage, implement automatic CI tests and test adoption ourselves before cofidently recommending
-            production adoption.
-          </Tip>
-        </div>
-
-        <Separator />
+        <Tip variant="danger">
+          <strong>React Dumb Form is not ready for production use yet.</strong> We need to write unit tests, check code
+          coverage, implement automatic CI tests and test adoption ourselves before cofidently recommending production
+          adoption.
+        </Tip>
 
         <div>
-          <p>
-            React Dumb Form is a small<strong>*</strong> library intended to handle form usage in React. It is designed
-            to be framework agnostic, performant, easy to learn and to handle even very complex forms easily while
-            providing full type safety and an amazing developer experience.
-          </p>
-          <Card className="my-3 shadow-sm">
-            <pre className="line-numbers my-0 language-tsx" tabIndex={-1}>
-              <code className="language-tsx">{introExampleCode}</code>
-            </pre>
-          </Card>
-
-          <small className="text-muted">
-            <strong>*</strong>: Small means a package size of{" "}
-            <strong>{pkgsize ? (Number(pkgsize) / 1000).toFixed(2) : "-"} kB</strong> with{" "}
-            <strong>{pkgloc ? Number(pkgloc).toLocaleString() : "-"}</strong> lines of code (empty lines included)
-            across <strong>{pkgfilecount}</strong> files.
-          </small>
-        </div>
-
-        <Separator />
-
-        <div>
-          <h2>Philosophy &amp; values</h2>
+          <h1>Philosophy &amp; values</h1>
           <br />
           <p>
             The following describes the project's philosophy and key values. React Dumb Form has some limitations and is
@@ -147,7 +100,7 @@ export default function Page({ pkgsize, pkgloc, pkgfilecount }: PageProps) {
         <Separator />
 
         <div>
-          <h2>Limitations & known issues</h2>
+          <h1>Limitations & known issues</h1>
           <br />
           <p>
             As the adoption rate grows, more issues might be discovered. This section will reflect issues important for
@@ -231,32 +184,33 @@ export default function Page({ pkgsize, pkgloc, pkgfilecount }: PageProps) {
         <Separator />
 
         <div>
-          <h2>Next steps</h2>
+          <h1>Next steps</h1>
           <br />
-          <p>
-            <strong>Convinced yet?</strong> Check out <a href="#">Getting started</a>, which also contains{" "}
-            <a href="#">Basic usage guide</a> or jump straight into our <a href="#">Examples</a> if you prefer learning
-            by trying.
-          </p>
-          <p>
-            <strong>Still not convinced?</strong> That is understandable. Seeing our{" "}
-            <a href="#">Performance examples</a> in action might change your mind quickly.
-          </p>
-          <p>
-            <strong>Have any suggestions?</strong> Raise an issue in our{" "}
-            <a href="https://github.com/deniskabana/react-dumb-form">GitHub repository</a> to spark a discussion or open
-            a Pull Request to suggest changes.
-          </p>
+          <div>
+            <h5>Convinced already?</h5>
+            <p className="text-muted">
+              Check out the <a href="#">Getting started</a> guide, which also contains <a href="#">Basic usage guide</a>{" "}
+              or jump straight into the <a href="#">Examples</a> if you prefer learning by code.
+            </p>
+          </div>
+
+          <div>
+            <h5>Still hesitating?</h5>
+            <p className="text-muted">
+              That is understandable. Seeing the <a href="#">Performance examples</a> in action might change your mind
+              quickly.
+            </p>
+          </div>
+
+          <div>
+            <h5>Have suggestions?</h5>
+            <p className="text-muted">
+              Raise an issue in the <a href="https://github.com/deniskabana/react-dumb-form">GitHub repository</a> to
+              spark a discussion or open a pull request to suggest changes.
+            </p>
+          </div>
         </div>
       </main>
     </>
   );
-}
-
-// Package meta data
-export async function getServerSideProps() {
-  const pkgsize = await fs.readFile("../dist/meta_pkgsize", "utf8");
-  const pkgloc = await fs.readFile("../dist/meta_pkgloc", "utf8");
-  const pkgfilecount = await fs.readFile("../dist/meta_pkgfilecount", "utf8");
-  return { props: { pkgsize, pkgloc, pkgfilecount } as PageProps };
 }

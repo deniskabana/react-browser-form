@@ -1,3 +1,9 @@
+/* Colors */
+:root {
+  --bs-secondary: #bc5feb;
+  --bs-secondary-rgb: 188, 95, 235;
+}
+
 /* Basics for HTML and body */
 html,
 body,
@@ -12,8 +18,23 @@ div#__next {
 html {
   font-size: 18px;
 }
+
+/* Backgrounds */
 body {
   background: linear-gradient(to left, hsl(37deg 82% 90%), hsl(282deg 83% 95%));
+}
+footer,
+nav#mainNav,
+header {
+  background: linear-gradient(to left, hsl(37deg 30% 18%), hsl(300deg 33% 16%));
+}
+
+/* Introduction header */
+header {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
 }
 
 /* Code and monospace settings */

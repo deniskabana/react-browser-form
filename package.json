@@ -24,10 +24,7 @@
     "postinstall": "yarn prepare",
     "prepare": "tsdx build && husky install",
     "size": "size-limit",
-    "writemeta": "yarn writemeta:size && yarn writemeta:loc && yarn writemeta:filecount",
-    "writemeta:size": "yarn size --json | grep size\\\" | tail -1 | sed 's/.*\"size\": \\([0-9]*\\)\\,/\\1/' > ./dist/meta_pkgsize",
-    "writemeta:loc": "cat ./src/**/*.* | wc -l | sed 's/^[[:space:]]*//g' > ./dist/meta_pkgloc",
-    "writemeta:filecount": "find src | wc -l | sed 's/^[[:space:]]*//g' > ./dist/meta_pkgfilecount"
+    "writemeta": "yarn size --json | grep size\\\" | tail -1 | sed 's/.*\"size\": \\([0-9]*\\)\\,/\\1/' > ./docs/public/meta_pkgsize"
   },
   "peerDependencies": {
     "react": ">=16.8"

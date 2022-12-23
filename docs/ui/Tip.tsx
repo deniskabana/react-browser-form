@@ -25,7 +25,7 @@ export default function Tip({
   small?: boolean;
 }) {
   return (
-    <Alert variant={variant} className={`shadow-sm my-3 p-${small ? "1" : "2"}`} style={{ fontSize: "0.75rem" }}>
+    <Alert variant={variant} className={`shadow-sm mb-3 p-${small ? "1" : "2"}`} style={{ fontSize: "0.75rem" }}>
       <Stack direction="horizontal">
         <div>
           <Icon icon={getIcon(variant)} width={small ? 20 : 30} className={`me-${small ? "1" : "2"}`} />
