@@ -35,6 +35,7 @@ const MENU: MenuItem[] = [
           { title: "Minimal form", href: "/examples/basic/minimal-form" },
           { title: "Basic usage", href: "/examples/basic/basic-usage" },
           { title: "Different field types", href: "/examples/basic/different-field-types" },
+          { title: "Type conversions", href: "/examples/basic/type-conversions" },
           { title: "Resetting forms", href: "/examples/basic/resetting-forms" },
           { title: "Setting values", href: "/examples/basic/setting-values" },
           { title: "Programmatic submit", href: "/examples/basic/programmatic-submit" },

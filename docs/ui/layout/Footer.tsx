@@ -2,7 +2,12 @@ import { Container } from "react-bootstrap";
 
 export default function Header() {
   return (
-    <footer className="bg-black text-center py-5 shadow-sm mt-auto mb-0">
+    <footer
+      className="text-center py-5 shadow-sm mt-auto mb-0"
+      style={{
+        background: "linear-gradient(to left, hsl(37deg 30% 18%), hsl(300deg 33% 16%))",
+      }}
+    >
       <Container className="py-5">
         <p className="fs-3 text-white">
           Enjoying React dumb form?{" "}

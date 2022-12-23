@@ -4,8 +4,24 @@ import Link from "next/link";
 import { Badge, Card } from "react-bootstrap";
 import Separator from "ui/Separator";
 import Tip from "ui/Tip";
+import fs from "fs/promises";
+import path from "path";
 
-export default function Home() {
+const introExampleCode = `type Form = { name: string };
+
+export function DumbForm() {
+  const { formProps } = useDumbForm<Form>({ name: "example-dumb-form", onSubmit: console.log });
+
+  return <form {...formProps} />;
+}`;
+
+type PageProps = {
+  pkgsize: string;
+  pkgloc: string;
+  pkgfilecount: string;
+};
+
+export default function Page({ pkgsize, pkgloc, pkgfilecount }: PageProps) {
   return (
     <>
       <Head>
@@ -36,26 +52,15 @@ export default function Home() {
           </p>
           <Card className="my-3 shadow-sm">
             <pre className="line-numbers my-0 language-tsx" tabIndex={-1}>
-              <code className="language-tsx">{`const defaultValues = {};
-type Form = typeof defaultValues;
-
-export function Example() {
-  const [data, setData] = React.useState(defaultValues);
-
-  const { formProps } = useDumbForm<Form>({
-    name: "example-intro-form",
-    onSubmit: setData,
-    defaultValues,
-  });
-
-  return <form {...formProps} />;
-}`}</code>
+              <code className="language-tsx">{introExampleCode}</code>
             </pre>
           </Card>
 
           <small className="text-muted">
-            <strong>*</strong>: Small means a package size of <span className="text-danger fw-bold">TO-DO</span> and the
-            whole source code sitting in under 1,000 lines of code.
+            <strong>*</strong>: Small means a package size of{" "}
+            <strong>{pkgsize ? (Number(pkgsize) / 1000).toFixed(2) : "-"} kB</strong> with{" "}
+            <strong>{pkgloc ? Number(pkgloc).toLocaleString() : "-"}</strong> lines of code (empty lines included)
+            across <strong>{pkgfilecount}</strong> files.
           </small>
         </div>
 
@@ -87,8 +92,8 @@ export function Example() {
               </h5>
               <span className="text-muted">
                 Minimal, effective and easy to learn - anyone from a junior to a senior engineer can start using RDF
-                with just a few lines of code. See this <a href="#">Minimal form example</a> to see how easy it is to
-                use.
+                with as little as a single line of code. See this <a href="#">Minimal form example</a> to see how easy
+                it is to use.
               </span>
             </li>
 
@@ -166,16 +171,23 @@ export function Example() {
             </li>
 
             <li className="mb-3">
-              <strong>Default values need to be relied upon less.</strong>
+              <strong>Default values need to be relied upon less. Reliable type converison.</strong>
               <Badge bg="danger" className="ms-1" pill>
                 Critical
               </Badge>
-              <p className="text-muted">
+              <p className="text-muted text-decoration-line-through">
                 With the current approach, <code>defaultValues</code> is treated as mandatory, with all fields required
                 and is used internally to infer form field types, traverse objects, etc.
                 <br />A much better suited approach was be to use <code>formState</code> for iteration, no type
                 transformation on single values (closer to native browser behavior) and making defaultValues optional
                 and partial. Take inspiration from <code>react-hook-form</code>.
+              </p>
+              <p className="text-muted">
+                Implementing a type conversion mechanism based on <code>input.type</code> and a custom{" "}
+                <code>transform</code> object in options with support for input masking (treating the input like a
+                controlled input) would be a great way to solve this.
+                <br />
+                Afterwards, mark <code>defaultValues</code> as optional.
               </p>
             </li>
 
@@ -186,7 +198,8 @@ export function Example() {
               </Badge>
               <p className="text-muted">
                 The plan is to implement this in the future with first class support for Zod and Yup (others maybe
-                later).
+                later). Make preparations for the event handlers to use a resolver functions, that can be RDF's default
+                or provided for external validators/parses.
               </p>
             </li>
 
@@ -238,4 +251,12 @@ export function Example() {
       </main>
     </>
   );
+}
+
+// Package meta data
+export async function getServerSideProps() {
+  const pkgsize = await fs.readFile("../dist/meta_pkgsize", "utf8");
+  const pkgloc = await fs.readFile("../dist/meta_pkgloc", "utf8");
+  const pkgfilecount = await fs.readFile("../dist/meta_pkgfilecount", "utf8");
+  return { props: { pkgsize, pkgloc, pkgfilecount } as PageProps };
 }
