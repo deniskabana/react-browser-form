@@ -3,24 +3,13 @@ import { logError } from "./logError";
 
 /** TypeScript will try to catch these errors build-time, but some users might still use the any type to override our constraints. */
 export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schema>) {
-  const {
-    name,
-    defaultValues,
-    onSubmit,
-    onChange,
-    validationSchema,
-    validateAfterInit,
-    mode,
-    liveChangeFields,
-    debug,
-  } = options;
+  const { name, defaultValues, onChange, validationSchema, validateAfterInit, mode, liveChangeFields, debug } = options;
 
   // ERRORS - prevent further execution to prevent bugs
   // --------------------------------------------------------------------------------
 
   if (!name || name.length < 1) throw new Error("Option 'name' required!");
   if (!defaultValues) throw new Error("Option 'defaultValues' required!");
-  if (typeof onSubmit !== "function") throw new Error("Option 'onSubmit' required!");
   if (validateAfterInit && !validationSchema)
     throw new Error("react-dumb-form: Option 'validationSchema' is required if 'validateAfterInit' is true.");
 

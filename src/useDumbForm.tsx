@@ -42,7 +42,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
   const fieldsData = React.useRef<FieldsData<Schema>>(Object.freeze(getFieldsData(options))).current;
   const callbacks = React.useRef<UserCallbacks<Schema>>({
     onChange: data => options?.onChange && options.onChange({ ...data }),
-    onSubmit: data => options.onSubmit({ ...data }),
+    onSubmit: data => options?.onSubmit && options.onSubmit({ ...data }),
   }).current;
 
   // INTERNAL FUNCTIONS

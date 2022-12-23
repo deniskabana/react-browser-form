@@ -9,7 +9,7 @@ export interface DumbFormOptionsInput<Schema> {
   defaultValues: Schema & { [key: string]: any };
 
   /** A callback for when the form is submitted. **Will not trigger if there are errors during validation!** */
-  onSubmit: (data: Schema) => void;
+  onSubmit?: (data: Schema) => void;
 
   /** **Optionally use this if you use `liveChangeFields` or validation**. */
   onChange?: (data: Schema) => void;
