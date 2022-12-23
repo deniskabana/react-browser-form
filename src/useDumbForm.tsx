@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import { DEFAULT_OPTIONS } from "./constants";
 import { useDataFlowHandler } from "./hooks/useDataFlowHandler";
 import { useErrorManager } from "./hooks/useErrorManager";
@@ -28,19 +28,19 @@ import { uniqueNameProtection } from "./utils/uniqueNameProtection";
 export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput<Schema>): DumbFormReturnType<Schema> {
   // INTERNAL STATE AND CONFIG
   // --------------------------------------------------------------------------------
-  const options = React.useRef<DumbFormOptions<Schema>>({
+  const options = useRef<DumbFormOptions<Schema>>({
     ...DEFAULT_OPTIONS,
     ...(userOptions as any),
   }).current;
-  const formState = React.useRef<Schema>({ ...options.defaultValues }).current;
+  const formState = useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
   const { errorData, setErrors } = useErrorManager<Schema>();
-  const [isDirty, setIsDirty] = React.useState(false);
+  const [isDirty, setIsDirty] = useState(false);
 
   // STORED REFERENCES
   // --------------------------------------------------------------------------------
-  const fieldsData = React.useRef<FieldsData<Schema>>(Object.freeze(getFieldsData(options))).current;
-  const callbacks = React.useRef<UserCallbacks<Schema>>({
+  const fieldsData = useRef<FieldsData<Schema>>(Object.freeze(getFieldsData(options))).current;
+  const callbacks = useRef<UserCallbacks<Schema>>({
     onChange: data => options?.onChange && options.onChange({ ...data }),
     onSubmit: data => options?.onSubmit && options.onSubmit({ ...data }),
   }).current;
@@ -61,7 +61,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
 
   // INITIALIZATION
   // --------------------------------------------------------------------------------
-  React.useEffect(() => {
+  useEffect(() => {
     protectOptionsCominations(options);
     uniqueNameProtection(options);
     handleDataFlow({ source: EventSource.User, type: EventType.FormInit, value: options.defaultValues });

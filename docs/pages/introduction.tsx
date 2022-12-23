@@ -128,19 +128,23 @@ export default function Page() {
               <Badge bg="danger" className="ms-1" pill>
                 Critical
               </Badge>
-              <p className="text-muted text-decoration-line-through">
-                With the current approach, <code>defaultValues</code> is treated as mandatory, with all fields required
-                and is used internally to infer form field types, traverse objects, etc.
-                <br />A much better suited approach was be to use <code>formState</code> for iteration, no type
-                transformation on single values (closer to native browser behavior) and making defaultValues optional
-                and partial. Take inspiration from <code>react-hook-form</code>.
-              </p>
               <p className="text-muted">
                 Implementing a type conversion mechanism based on <code>input.type</code> and a custom{" "}
                 <code>transform</code> object in options with support for input masking (treating the input like a
                 controlled input) would be a great way to solve this.
                 <br />
                 Afterwards, mark <code>defaultValues</code> as optional.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>Measure the amount of times each internal function ran.</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
+              <p className="text-muted">
+                To ensure the performance is as amazing as the standard of quality the project hopes to achieve it's
+                necessary to make the least possible amount of function executions.
               </p>
             </li>
 

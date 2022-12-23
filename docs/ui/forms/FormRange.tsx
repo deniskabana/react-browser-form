@@ -1,8 +1,7 @@
 import { Form } from "react-bootstrap";
 
-interface FormCheckboxProps {
+interface FormRangeProps {
   name: string;
-  type?: "checkbox" | "switch" | "radio";
   requiredMark?: boolean;
   label?: string | React.ReactNode;
   error?: string;
@@ -10,30 +9,20 @@ interface FormCheckboxProps {
   value?: any;
 }
 
-export function FormCheckbox({
-  name,
-  type = "checkbox",
-  requiredMark,
-  label,
-  error,
-  disabled,
-  value,
-}: FormCheckboxProps) {
+export function FormRange({ name, requiredMark, label, error, disabled, value }: FormRangeProps) {
   return (
     <Form.Group className="mb-2 flex-fill">
-      <Form.Check
-        id={`${type}-${name}-${label}`}
+      {label ? (
+        <Form.Label className="mb-1 fw-bold" style={{ fontSize: "0.8em" }}>
+          {label}
+          {requiredMark ? <span className="fw-bold text-danger">*</span> : null}
+        </Form.Label>
+      ) : null}
+      <Form.Range
+        id={`range-${name}-${label}`}
         name={name}
-        type={type}
-        label={
-          <span style={{ fontSize: "0.8em", userSelect: "none" }}>
-            {label}
-            {requiredMark ? <span className="fw-bold text-danger">*</span> : null}
-          </span>
-        }
         value={value}
         disabled={disabled}
-        isInvalid={!!error}
         className={error ? "is-invalid" : ""}
       />
       {error ? (

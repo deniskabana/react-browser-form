@@ -33,8 +33,9 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     // TODO: Figure out a better way to do transformations
     for (let key in dataFlowState.changedData) {
       (dataFlowState.formState as any)[key] = transformValueType(
+        key as keyof Schema,
         dataFlowState.changedData[key],
-        options.defaultValues[key],
+        dataFlowState,
       );
     }
 
@@ -50,7 +51,9 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
 
   if (dataFlowState.event.source === EventSource.Form) {
     const targetInput = dataFlowState.event.nativeEvent?.target as HTMLInputElement;
-    const fieldName = targetInput.name;
+    const fieldName = targetInput?.name;
+
+    if (!targetInput || !fieldName) return;
 
     // 2.1. Set form to dirty. This is done on the first change, with no deep comparison
     if (!dataFlowState.isDirty && targetInput && fieldName) dataFlowState.setIsDirty(true);
@@ -66,7 +69,7 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     if (!shouldExecute) return;
 
     // 2.3. Hydrate form state from DOM inputs
-    hydrateFormState(dataFlowState);
+    hydrateFormState(dataFlowState, [fieldName]);
 
     // 2.4. Populate changedData with the single input value that has changed
     const value = getDomInputValue(dataFlowState);
@@ -75,8 +78,9 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     // 2.5. Populate formState with transformed data
     // TODO: Figure out a better way to do transformations
     dataFlowState.formState[fieldName as keyof Schema] = transformValueType(
+      fieldName as keyof Schema,
       value,
-      dataFlowState.options.defaultValues[fieldName],
+      dataFlowState,
     );
 
     // 2.6. If live field changed, populate changedData with all errored fields for revalidation - live fields are often conditional / dependent
@@ -92,10 +96,10 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     // DEBUG: Feedback for changeReason
     if (hasOnChangeMode)
       dataFlowState.changeReason = `Changed form state - onChange mode.\nSource: ${dataFlowState.event.source}`;
-    if (isLiveField)
-      dataFlowState.changeReason = `Changed form state - live field.\nSource: ${dataFlowState.event.source}`;
     if (shouldRevalidate)
       dataFlowState.changeReason = `Changed form state - error revalidation.\nSource: ${dataFlowState.event.source}`;
+    if (isLiveField)
+      dataFlowState.changeReason = `Changed form state - live field.\nSource: ${dataFlowState.event.source}`;
 
     // 2.8. Trigger callback
     if (hasOnChangeMode || isLiveField) {

@@ -13,5 +13,5 @@ export function getDomInputValue<Schema>(dataFlowState: DataFlowState<Schema>): 
   }
 
   const value = targetInput.type === "checkbox" ? targetInput.checked : targetInput.value;
-  return transformValueType(value, dataFlowState.options.defaultValues[targetInput.name]);
+  return transformValueType(targetInput.name as keyof Schema, value, dataFlowState);
 }

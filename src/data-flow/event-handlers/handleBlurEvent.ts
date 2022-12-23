@@ -7,6 +7,8 @@ export function handleBlurEvent<Schema>(dataFlowState: DataFlowState<Schema>): v
   const { options } = dataFlowState;
   const targetInput = dataFlowState.event.nativeEvent?.target as HTMLInputElement;
 
+  if (!targetInput || !targetInput.name) return;
+
   // 1. Conditional execution and revalidation
   const hasOnBlurMode = options.mode === "onBlur" || options.mode === "onBlurUnlessError";
   const shouldRevalidate =
@@ -17,7 +19,7 @@ export function handleBlurEvent<Schema>(dataFlowState: DataFlowState<Schema>): v
   if (!shouldExecute) return;
 
   // 2. Hydrate form state from DOM inputs
-  hydrateFormState(dataFlowState);
+  hydrateFormState(dataFlowState, [targetInput.name]);
 
   // 3. Populate changedData with the single input value that has changed
   const value = getDomInputValue(dataFlowState);

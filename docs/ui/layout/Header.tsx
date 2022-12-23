@@ -41,7 +41,7 @@ export default function Header() {
   return (
     <>
       {pathname === "/introduction" ? (
-        <header className="text-white text-center mb-5">
+        <header className="text-white text-center">
           <div className="container">
             <div className="text-white-50 my-2">Welcome to the documentation for</div>
             <h1>📝 React Dumb Form</h1>

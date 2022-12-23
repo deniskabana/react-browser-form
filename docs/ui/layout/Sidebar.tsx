@@ -34,12 +34,15 @@ const MENU: MenuItem[] = [
         children: [
           { title: "Minimal form", href: "/examples/basic/minimal-form" },
           { title: "Basic usage", href: "/examples/basic/basic-usage" },
-          { title: "Different field types", href: "/examples/basic/different-field-types" },
-          { title: "Type conversions", href: "/examples/basic/type-conversions" },
-          { title: "Resetting forms", href: "/examples/basic/resetting-forms" },
-          { title: "Setting values", href: "/examples/basic/setting-values" },
-          { title: "Programmatic submit", href: "/examples/basic/programmatic-submit" },
+          { title: "Form methods", href: "/examples/basic/form-methods" },
+          { title: "Automatic value types", href: "/examples/basic/automatic-value-types" },
+          { title: "Value types with transform", href: "/examples/basic/value-types-with-transform" },
         ],
+      },
+      {
+        title: "Advanced",
+        href: "/examples/advanced",
+        children: [{ title: "Custom transform", href: "/examples/advanced/custom-transform" }],
       },
       {
         title: "Validation",

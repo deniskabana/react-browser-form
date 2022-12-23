@@ -21,8 +21,9 @@ export function handleResetEvent<Schema>(dataFlowState: DataFlowState<Schema>): 
   if (dataFlowState.event.type !== EventType.FormInit) {
     for (let key in dataFlowState.changedData) {
       (dataFlowState.formState as any)[key] = transformValueType(
+        key as keyof Schema,
         dataFlowState.changedData[key],
-        dataFlowState.options.defaultValues[key],
+        dataFlowState,
       );
     }
   } else {

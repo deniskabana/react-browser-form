@@ -11,6 +11,10 @@ export function hydrateDomInputs<Schema>(options: DumbFormOptions<Schema>, formS
       if (domInputElem.type === "checkbox") {
         domInputElem.checked = Boolean(formState[key]);
       } else {
+        if (formState[key] === null) {
+          domInputElem.value = "";
+          break;
+        }
         domInputElem.value = String(formState[key]);
       }
     }

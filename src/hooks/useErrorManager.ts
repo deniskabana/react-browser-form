@@ -1,8 +1,8 @@
-import React from "react";
+import { useState } from "react";
 import { ErrorManager, ErrorsObject } from "../types";
 
 export function useErrorManager<Schema>(): ErrorManager<Schema> {
-  const [stateErrors, stateSetErrors] = React.useState<ErrorsObject<Schema>>({ count: 0, errors: {} });
+  const [stateErrors, stateSetErrors] = useState<ErrorsObject<Schema>>({ count: 0, errors: {} });
 
   const generateErrorsObject = (errors: Partial<Record<keyof Schema, string>>): ErrorsObject<Schema> => {
     return {

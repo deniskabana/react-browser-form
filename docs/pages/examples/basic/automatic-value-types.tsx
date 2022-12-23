@@ -11,11 +11,11 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Type conversions example - React Dumb Form Docs</title>
+        <title>Automatic value types - React Dumb Form Docs</title>
       </Head>
 
       <main>
-        <h1>Type conversions example</h1>
+        <h1>Automatic value types</h1>
         <p className="text-muted">
           React Dumb Form incentivizes developers to use default browser APIs and form handling mechanisms. We use{" "}
           <code>input.type</code> to resolve the correct return types that are applied to <code>formState</code>.
@@ -26,25 +26,13 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           these cases, you will need to use custom <code>transform</code> object in order to receive the correct types.
         </p>
         <Tip variant="danger">
-          <strong>Tip:</strong> If you rely on correct types when validating or submitting or you don't provide default
-          values, be sure to use correct input types or custom <code>transform</code>.
+          <strong>Warning:</strong> If you rely on correct types when validating or submitting be sure to use correct
+          input types or custom <code>transform</code>.
         </Tip>
         <TipReactBootstrapDocs />
 
         <Separator />
 
-        <h2>
-          Type conversions with <code>input.type</code>
-        </h2>
-        <FormAndCodeTabs sourceCode={sourceCode} name="example-type-conversions-form">
-          <ExampleTypeConversions />
-        </FormAndCodeTabs>
-
-        <Separator />
-
-        <h2>
-          Type conversions with <code>transform</code> object
-        </h2>
         <FormAndCodeTabs sourceCode={sourceCode} name="example-type-conversions-form">
           <ExampleTypeConversions />
         </FormAndCodeTabs>
