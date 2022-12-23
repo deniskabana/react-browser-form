@@ -34,6 +34,7 @@ const MENU: MenuItem[] = [
         children: [
           { title: "Minimal form", href: "/examples/basic/minimal-form" },
           { title: "Basic usage", href: "/examples/basic/basic-usage" },
+          { title: "Required fields", href: "/examples/basic/required-fields" },
           { title: "Form methods", href: "/examples/basic/form-methods" },
           { title: "Automatic value types", href: "/examples/basic/automatic-value-types" },
           { title: "Value types with transform", href: "/examples/basic/value-types-with-transform" },
@@ -43,7 +44,6 @@ const MENU: MenuItem[] = [
         title: "Validation",
         href: "/examples/validation",
         children: [
-          { title: "Required fields", href: "/examples/validation/required-fields" },
           { title: "Basic validation", href: "/examples/validation/basic-validation" },
           { title: "Composed validation", href: "/examples/validation/composed-validation" },
           { title: "Dependent fields", href: "/examples/validation/dependent-fields" },

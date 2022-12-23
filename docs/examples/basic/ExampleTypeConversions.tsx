@@ -1,5 +1,7 @@
 import React from "react";
 import { useDumbForm } from "react-dumb-form";
+
+// UI for documentation only
 import { FormCheckbox, FormGroup, FormGroupTitle, FormRange, FormTextInput } from "ui/forms";
 import Separator from "ui/Separator";
 

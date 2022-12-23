@@ -1,6 +1,13 @@
 import Head from "next/head";
+import Separator from "ui/Separator";
+import { TipReactBootstrapDocs } from "ui/Tip";
+import fs from "fs/promises";
 
-export default function Home() {
+// Form component
+import { ExampleBasicUsage } from "examples/basic/ExampleBasicUsage";
+import { FormAndCodeTabs } from "ui/examples/FormAndCodeTabs";
+
+export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
@@ -9,8 +16,21 @@ export default function Home() {
 
       <main>
         <h1>Basic usage</h1>
-        <p>Lorem ipsum dolor sit amet consectetur edipiscing elit.</p>
+        <p className="text-muted">Lorem ipsum dolor sit amet consectetur edipiscing elit.</p>
+        <TipReactBootstrapDocs />
+
+        <Separator />
+
+        <FormAndCodeTabs sourceCode={sourceCode} name="example-basic-usage-form">
+          <ExampleBasicUsage />
+        </FormAndCodeTabs>
       </main>
     </>
   );
+}
+
+// Get component source code
+export async function getServerSideProps() {
+  const sourceCode = await fs.readFile("examples/basic/ExampleBasicUsage.tsx", "utf8");
+  return { props: { sourceCode } };
 }

@@ -15,6 +15,12 @@ export function FormAndCodeTabs({ sourceCode, children, name, ignoreMeta }: Form
   const [showCopied, setShowCopied] = useState(false);
   const tooltipTarget = useRef(null);
 
+  useEffect(() => {
+    if (!ignoreMeta && !document.forms[name as any] && process.env.NODE_ENV !== "production") {
+      throw new Error("Meta data table was not connected to any existing form");
+    }
+  }, []);
+
   // Syntax highlighting on source code input/change
   useEffect(() => {
     if (typeof window !== "undefined" && "Prism" in window) {

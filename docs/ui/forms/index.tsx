@@ -4,4 +4,5 @@ export * from "./FormGroup";
 export * from "./FormGroupTitle";
 export * from "./FormRange";
 export * from "./FormSelect";
+export * from "./FormTextarea";
 export * from "./FormTextInput";
