@@ -40,11 +40,6 @@ const MENU: MenuItem[] = [
         ],
       },
       {
-        title: "Advanced",
-        href: "/examples/advanced",
-        children: [{ title: "Custom transform", href: "/examples/advanced/custom-transform" }],
-      },
-      {
         title: "Validation",
         href: "/examples/validation",
         children: [

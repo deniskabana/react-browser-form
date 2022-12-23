@@ -67,8 +67,8 @@ export function ExampleEcommerceCheckoutForm() {
         <FormTextInput label="Last name" requiredMark name={names.lastName} error={errors.lastName} />
       </FormGroup>
       <FormGroup>
-        <FormTextInput label="E-mail" requiredMark name={names.email} error={errors.email} />
-        <FormTextInput label="Phone number" name={names.phoneNumber} error={errors.phoneNumber} />
+        <FormTextInput label="E-mail" type="email" requiredMark name={names.email} error={errors.email} />
+        <FormTextInput label="Phone number" type="tel" name={names.phoneNumber} error={errors.phoneNumber} />
       </FormGroup>
       <FormTextInput label="Billing address" requiredMark name={names.billingAddress} error={errors.billingAddress} />
 

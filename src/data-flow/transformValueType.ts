@@ -27,13 +27,7 @@ export function transformValueType<Schema>(name: keyof Schema, value: any, dataF
   let inputType: string;
   const domFormElem = (document.forms as any)[dataFlowState.options.name];
   const domInputElem = domFormElem.elements[name] as HTMLInputElement | undefined;
-
-  if (dataFlowState.event.nativeEvent) {
-    const targetInput = dataFlowState.event.nativeEvent.target as HTMLInputElement;
-    inputType = targetInput?.type ?? "text"; // Default to texts like browsers do
-  } else {
-    inputType = domInputElem?.type ?? "text"; // Default to texts like browsers do
-  }
+  inputType = domInputElem?.type ?? "text"; // Default to texts like browsers do
 
   // 2. Automatically return null values
   if (value === null || value === undefined) return null;

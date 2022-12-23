@@ -26,7 +26,7 @@ const defaultValues = {
 };
 type Form = typeof defaultValues;
 
-export function ExampleTypeConversions() {
+export function ExampleAutomaticTypes() {
   const [data, setData] = React.useState<Form>();
 
   const { formProps, names } = useDumbForm<Form>({

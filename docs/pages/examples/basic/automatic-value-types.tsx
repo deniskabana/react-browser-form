@@ -3,9 +3,9 @@ import Separator from "ui/Separator";
 import { FormAndCodeTabs } from "ui/examples/FormAndCodeTabs";
 import Tip, { TipReactBootstrapDocs } from "ui/Tip";
 import fs from "fs/promises";
-import { ExampleTypeConversions } from "examples/basic/ExampleTypeConversions";
 
 // Form component
+import { ExampleAutomaticTypes } from "examples/basic/ExampleTypeConversions";
 
 export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
@@ -34,7 +34,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         <Separator />
 
         <FormAndCodeTabs sourceCode={sourceCode} name="example-type-conversions-form">
-          <ExampleTypeConversions />
+          <ExampleAutomaticTypes />
         </FormAndCodeTabs>
       </main>
     </>
