@@ -1,8 +1,38 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import { useState } from "react";
-import { Card, Table } from "react-bootstrap";
+import { Card, OverlayTrigger, Table, Tooltip, TooltipProps } from "react-bootstrap";
 import { DebugData } from "react-dumb-form";
+
+const renderTooltip = (props: TooltipProps, value: any) => {
+  let type: string | JSX.Element;
+
+  if (value === null) {
+    type = "null";
+  } else if (value === undefined) {
+    type = "undefined";
+  } else if (value instanceof Date) {
+    type = (
+      <>
+        {typeof value}{" "}
+        <span className="d-block">
+          <small className="text-warning fst-italic">instanceof</small> Date
+        </span>
+      </>
+    );
+  } else {
+    type = typeof value;
+  }
+
+  return (
+    <Tooltip id="button-tooltip" {...props}>
+      <code>
+        <span className="text-info fst-italic">type </span>
+        <strong className="text-secondary">{type}</strong>
+      </code>
+    </Tooltip>
+  );
+};
 
 export function FormMeta({ name }: { name: string }) {
   const [debugData, setDebugData] = useState<DebugData<any>>();
@@ -102,6 +132,17 @@ export function FormMeta({ name }: { name: string }) {
                       {field}
                     </td>
                     <td className="font-monospace text-white-50 w-100" style={{ lineBreak: "anywhere" }}>
+                      <OverlayTrigger overlay={props => renderTooltip(props, debugData.formState[field])}>
+                        <a
+                          href="#"
+                          onClick={e => e.preventDefault()}
+                          className="fw-bold text-info text-decoration-none"
+                          style={{ fontSize: "0.8rem" }}
+                        >
+                          ?
+                        </a>
+                      </OverlayTrigger>
+                      &nbsp;
                       {typeof debugData.formState[field] === "string" ? '"' : ""}
                       {String(debugData.formState[field])}
                       {typeof debugData.formState[field] === "string" ? '"' : ""}
