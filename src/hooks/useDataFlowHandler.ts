@@ -66,6 +66,7 @@ export function useDataFlowHandler<Schema>(
         event: dataFlowState.event,
       },
       options,
+      true,
     );
   };
 }

@@ -1,10 +1,10 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Card, OverlayTrigger, Table, Tooltip, TooltipProps } from "react-bootstrap";
-import { DebugData } from "react-dumb-form";
+import { DebugData, DEBUG_CHANGE_EVENT } from "react-dumb-form";
 
-const renderTooltip = (props: TooltipProps, value: any) => {
+const renderTypeTooltip = (props: TooltipProps, value: any) => {
   let type: string | JSX.Element;
 
   if (value === null) {
@@ -37,24 +37,26 @@ const renderTooltip = (props: TooltipProps, value: any) => {
 export function FormMeta({ name }: { name: string }) {
   const [debugData, setDebugData] = useState<DebugData<any>>();
 
-  // Since debug is turned on in docs, we want to watch the debug object
-  let formDebugData: DebugData<any> | undefined;
-  if (typeof window !== "undefined") {
-    formDebugData = (window as any).__rdf_debug[name];
-  }
-  if (formDebugData) {
-    const originalObject: any = (window as any).__rdf_debug[name];
-    // Replace the object in debugger with a proxy of the object
-    (window as any).__rdf_debug[name] = new Proxy(originalObject, {
-      set: function(target, key, value) {
-        target[key] = value;
-        if (key === "timestamp") {
-          setTimeout(() => setDebugData(target));
-        }
-        return true;
-      },
-    });
-  }
+  // Pre-populate debugData
+  useEffect(() => {
+    const debugObject = (window as any).__rdf_debug[name];
+    if (debugObject) {
+      setDebugData({ ...debugObject });
+    }
+  }, []);
+
+  // Handling event listener for RDF's custom debug event
+  useEffect(() => {
+    const eventHandler = (event: Event) => {
+      if ((event as CustomEvent)?.detail !== name) return;
+      setDebugData({ ...(window as any).__rdf_debug[(event as CustomEvent).detail] });
+    };
+    document.addEventListener(DEBUG_CHANGE_EVENT, eventHandler);
+
+    return function() {
+      document.removeEventListener(DEBUG_CHANGE_EVENT, eventHandler);
+    };
+  }, [name, setDebugData]);
 
   return (
     <Card bg="dark" text="white" className="shadow-sm">
@@ -132,7 +134,7 @@ export function FormMeta({ name }: { name: string }) {
                       {field}
                     </td>
                     <td className="font-monospace text-white-50 w-100" style={{ lineBreak: "anywhere" }}>
-                      <OverlayTrigger overlay={props => renderTooltip(props, debugData.formState[field])}>
+                      <OverlayTrigger overlay={props => renderTypeTooltip(props, debugData.formState[field])}>
                         <a
                           href="#"
                           onClick={e => e.preventDefault()}

@@ -1,12 +1,12 @@
 import { DataFlowEvent, DumbFormOptions, DumbFormReturnType } from "../types";
 
+export const DEBUG_CHANGE_EVENT = "rdf_debug_change";
+
 // Intentionally declared outside of types.ts due to usage intentions
 // Most fields are populated when an action was initiated
 export interface DebugData<Schema> {
   /** All of the returned data - includes listeners, isDirty, errors, names, etc. */
   returnData: DumbFormReturnType<Schema>;
-  /** Timestamp of last DebugData change */
-  timestamp?: number;
   /** The reason for change the event handlers provide */
   changeReason?: string;
   /** React dumb form's internal data flow event - includes source and type of the event */
@@ -22,10 +22,13 @@ export interface DebugData<Schema> {
  * **NEVER USE THIS FOR ANYTHING ELSE.**
  */
 export function setDebugData<Schema>(
-  data: Partial<Omit<DebugData<Schema>, "timestamp">>,
+  data: Partial<DebugData<Schema>>,
   options: DumbFormOptions<any>,
+  shouldDispatch = false,
 ) {
   if (!options.debug || typeof window === "undefined") return;
+
+  const rdfDebugChangeEvent = new CustomEvent(DEBUG_CHANGE_EVENT, { detail: options.name });
 
   // Set up a new debug object if it doesn't exist yet
   if (!(window as any).__rdf_debug) (window as any).__rdf_debug = {};
@@ -36,5 +39,9 @@ export function setDebugData<Schema>(
   for (let key in data) {
     (window as any).__rdf_debug[options.name][key] = (data as any)[key];
   }
-  (window as any).__rdf_debug[options.name].timestamp = Date.now();
+
+  if (shouldDispatch) {
+    // Defer execution
+    setTimeout(() => document.dispatchEvent(rdfDebugChangeEvent));
+  }
 }

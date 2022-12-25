@@ -85,7 +85,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     formProps,
   };
 
-  setDebugData({ returnData }, options);
+  setDebugData({ returnData, formState }, options, true);
 
   return returnData;
 }
