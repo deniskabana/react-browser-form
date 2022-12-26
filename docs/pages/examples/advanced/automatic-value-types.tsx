@@ -5,7 +5,7 @@ import Tip, { TipReactBootstrapDocs } from "ui/Tip";
 import fs from "fs/promises";
 
 // Form component
-import { ExampleAutomaticTypes } from "examples/basic/ExampleTypeConversions";
+import { ExampleAutomaticTypes } from "examples/advanced/ExampleTypeConversions";
 
 export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
@@ -43,6 +43,6 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
 
 // Get component source code
 export async function getServerSideProps() {
-  const sourceCode = await fs.readFile("examples/basic/ExampleTypeConversions.tsx", "utf8");
+  const sourceCode = await fs.readFile("examples/advanced/ExampleTypeConversions.tsx", "utf8");
   return { props: { sourceCode } };
 }

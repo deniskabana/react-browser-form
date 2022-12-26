@@ -20,7 +20,7 @@ export function ExampleBasicUsage() {
     name: "example-basic-usage-form",
     defaultValues,
     onSubmit: setData,
-    onChange: setData,
+    onChange: setData, // Used because of reset button
   });
 
   return (
