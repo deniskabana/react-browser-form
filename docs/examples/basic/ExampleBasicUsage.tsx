@@ -20,6 +20,7 @@ export function ExampleBasicUsage() {
     name: "example-basic-usage-form",
     defaultValues,
     onSubmit: setData,
+    onChange: setData,
   });
 
   return (

@@ -17,6 +17,9 @@ export interface DumbFormOptionsInput<Schema> {
   /** A dead-simple validation with a validator schema that has access to all the data. Throw `ValidationError` if validation fails. */
   validationSchema?: ValidationSchema<Schema>;
 
+  /** A dead-simple value transformation schema. */
+  transformationSchema?: TransformationSchema<Schema>;
+
   /** Whether to perform validation right after mounting the form - before the first render. */
   validateAfterInit?: boolean;
 
@@ -84,6 +87,27 @@ export type SubmitMethod = VoidFunction;
 export type ResetMethod<Schema> = (values?: Schema) => void;
 export type SetValuesMethod<Schema> = (values: Partial<Schema>) => void;
 
+// VALUE TRANSFORMATION
+// --------------------------------------------------------------------------------
+
+export type TransformationFn<Schema, Key extends keyof Schema> = (fieldData: unknown) => Schema[Key];
+
+export type TransformationAllFn<Schema> = (formState: Schema) => any;
+
+/** Transform your values either to a type or provide your own transformations. */
+export interface TransformationSchema<Schema> {
+  /** By default a transformation based on input[type] is applied, managing the correct types for primitive types. */
+  disableDefaultTransformation?: boolean;
+
+  /** Singular fields to transform. Can not use `transformAllData` if `fields` is used. Provide the name of the primitive type or your own transform function. */
+  fields?: {
+    [Field in keyof Schema]?: TransformationFn<Schema, Field> | "number" | "string" | "boolean";
+  };
+
+  /** Transform all data en masse. Can not use `fields` if `transformAllData` is used. */
+  transformAllData?: TransformationAllFn<Schema>;
+}
+
 // VALIDATION AND ERROR HANDLING
 // --------------------------------------------------------------------------------
 
@@ -102,7 +126,7 @@ export interface ErrorsObject<Schema> {
  * A validation function that receives all the latest form data.
  * @param fieldData Data of the field that the validation function is tied to.
  * @param formState **Optional.** The whole form state object. Use if any of your data are tied together.
- * @throws ValidationError Throw if the validation failed.
+ * @throws `ValidationError` if the validation failed.
  */
 export type ValidationFn<Schema, Key extends keyof Schema> = (fieldData: Schema[Key], formState: Schema) => void;
 

@@ -37,7 +37,7 @@ const MENU: MenuItem[] = [
           { title: "Required fields", href: "/examples/basic/required-fields" },
           { title: "Form methods", href: "/examples/basic/form-methods" },
           { title: "Automatic value types", href: "/examples/basic/automatic-value-types" },
-          { title: "Value types with transform", href: "/examples/basic/value-types-with-transform" },
+          { title: "Value transformation", href: "/examples/basic/value-transformation" },
         ],
       },
       {

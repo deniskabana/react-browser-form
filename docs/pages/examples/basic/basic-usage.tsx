@@ -16,7 +16,12 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
 
       <main>
         <h1>Basic usage</h1>
-        <p className="text-muted">Lorem ipsum dolor sit amet consectetur edipiscing elit.</p>
+        <p className="text-muted">
+          A very basic form example with a reset button.{" "}
+          <strong>
+            This form uses an <code>onChange</code> handler to get cleared data.
+          </strong>
+        </p>
         <TipReactBootstrapDocs />
 
         <Separator />

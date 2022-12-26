@@ -108,6 +108,26 @@ export default function Page() {
           </p>
           <ol>
             <li className="mb-3">
+              <strong>No support for input masking.</strong>
+              <Badge bg="success" className="ms-1" pill>
+                Unknown
+              </Badge>
+              <Badge bg="info" className="ms-1" pill>
+                In the future
+              </Badge>
+              <p className="text-muted">
+                Since as the philosophy stated the point of React Dumb Form is to incentivize the correct usage and
+                utilization of browsers' own form handling APIs, RDF uses input values to get data. This unfortunately
+                means, that by masking inputs you would overwrite the internal <code>formState</code> upon form data
+                hydration.
+                <br />
+                This doesn't disqualify the option from future uses. RDF can use dataset to store element's mask and
+                real value or can store it internally. Just as we do with required, validated or live fields, we can
+                distinguish whether to set or ignore the actual input's value during the hydration phase.
+              </p>
+            </li>
+
+            <li className="mb-3">
               <strong>No field array support yet.</strong>
               <Badge bg="danger" className="ms-1" pill>
                 Critical
@@ -120,20 +140,6 @@ export default function Page() {
                 <Link href="/examples/real-world-usage/invoice-array-fields">Invoice array fields</Link>, there is no
                 first-class support for using field arrays. While it is possible (and quite easy) to do with code, it
                 goes against point 2 of philosophy.
-              </p>
-            </li>
-
-            <li className="mb-3">
-              <strong>Default values need to be relied upon less. Reliable type converison.</strong>
-              <Badge bg="danger" className="ms-1" pill>
-                Critical
-              </Badge>
-              <p className="text-muted">
-                Implementing a type conversion mechanism based on <code>input.type</code> and a custom{" "}
-                <code>transform</code> object in options with support for input masking (treating the input like a
-                controlled input) would be a great way to solve this.
-                <br />
-                Afterwards, mark <code>defaultValues</code> as optional.
               </p>
             </li>
 
