@@ -44,7 +44,11 @@ export function transformValueType<Schema>(name: keyof Schema, value: any, dataF
       switch (inputType) {
         case InputType.Number:
         case InputType.Range:
-          definitiveValue = Number(value); // Don't implicitly handle NaN
+          if (value === "") {
+            definitiveValue = null;
+          } else {
+            definitiveValue = Number(value); // Don't implicitly handle NaN
+          }
           break;
 
         case InputType.Date:

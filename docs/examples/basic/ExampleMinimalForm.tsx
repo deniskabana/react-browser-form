@@ -1,7 +1,9 @@
 import React from "react";
 import { useDumbForm } from "react-dumb-form";
 
-const defaultValues = { email: "" };
+const defaultValues = {
+  email: null as String | null,
+};
 type Form = typeof defaultValues;
 
 export function ExampleMinimalForm() {

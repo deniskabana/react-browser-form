@@ -17,13 +17,13 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
 
     // Check required
     if (required.includes(key)) {
-      const formStateValue = dataFlowState.formState[key] as any; // Necessary, unfortunately
+      const formStateValue = dataFlowState.formState[key] as unknown;
 
       if (
         formStateValue === null ||
         formStateValue === undefined ||
         formStateValue === false ||
-        (typeof formStateValue === "string" && formStateValue.length === 0)
+        String(formStateValue).length === 0
       ) {
         newErrors[key] = dataFlowState.options?.validationSchema?.required?.message ?? DEFAULT_REQUIRED_ERROR_MESSAGE;
         dataFlowState.hasErrors = true;
