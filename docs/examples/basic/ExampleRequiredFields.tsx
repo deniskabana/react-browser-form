@@ -26,7 +26,7 @@ export function ExampleRequiredFields() {
     defaultValues,
     onSubmit: setData,
     validationSchema: {
-      required: { fields: ["name", "age", "jobTitle"] },
+      required: { fields: ["name", "age", "jobTitle"], message: "An optional custom error message" },
     },
   });
 

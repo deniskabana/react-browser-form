@@ -16,6 +16,10 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
 
       <main>
         <h1>Required fields</h1>
+        <p className="text-muted">
+          Using required fields saves a lot of time. Pass <code>required</code> to the validation schema and falsy
+          values (except number 0) will all be errored. You can provide a custom message, but it is not necessary.
+        </p>
         <TipReactBootstrapDocs />
 
         <Separator />

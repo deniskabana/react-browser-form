@@ -20,8 +20,8 @@ interface MenuItem {
 
 const MENU: MenuItem[] = [
   { title: "Introduction", href: "/introduction", icon: "tabler:bulb" },
-  { title: "Getting started", href: "/getting-started", icon: "tabler:terminal-2" },
   { title: "FAQ", href: "/frequently-asked-questions", icon: "ph:question-bold" },
+  { title: "Getting started", href: "/getting-started", icon: "tabler:terminal-2" },
   { title: "Documentation", href: "/documentation", icon: "ph:tree-structure-bold" },
   {
     title: "Examples",
@@ -42,6 +42,7 @@ const MENU: MenuItem[] = [
         title: "Advanced",
         href: "/examples/advanced",
         children: [
+          { title: "Live fields", href: "/examples/advanced/live-fields" },
           { title: "Automatic value types", href: "/examples/advanced/automatic-value-types" },
           { title: "Value transformation", href: "/examples/advanced/value-transformation" },
         ],
@@ -55,6 +56,7 @@ const MENU: MenuItem[] = [
           { title: "Dependent fields", href: "/examples/validation/dependent-fields" },
           { title: "Complex validation", href: "/examples/validation/complex-validation" },
           { title: "Validation on init", href: "/examples/validation/validation-on-init" },
+          { title: "Revalidation strategies", href: "/examples/validation/revalidation-strategies" },
         ],
       },
       {
