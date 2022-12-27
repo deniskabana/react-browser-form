@@ -2,8 +2,8 @@ import React from "react";
 import { useDumbForm } from "react-dumb-form";
 
 // UI for documentation only
-import { Button, Stack } from "react-bootstrap";
-import { FormCheckbox, FormGroup, FormGroupTitle, FormTextarea, FormTextInput } from "ui/forms";
+import { Button } from "react-bootstrap";
+import { FormGroup, FormTextarea, FormTextInput } from "ui/forms";
 
 const defaultValues = {
   name: "",

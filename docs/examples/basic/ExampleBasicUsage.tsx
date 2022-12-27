@@ -32,6 +32,7 @@ export function ExampleBasicUsage() {
       </FormGroup>
       <FormTextarea placeholder="What's on your mind?" name={names.commentBody} rows={3} />
       <FormCheckbox label="Remember me next time" name={names.rememberMe} />
+
       <Stack direction="horizontal" className="justify-content-end">
         <Button type="reset" variant="outline-danger" className="me-1" size="sm">
           Clear
