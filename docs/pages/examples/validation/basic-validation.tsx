@@ -21,7 +21,8 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           This example uses the default mode - <code>onSubmitUnlessError</code>. The whole form is validated upon
           submit. If there are errors, the invalid inputs are revalidated based on <code>revalidationStrategy</code> -
           the default used in this example is <code>onChange</code>. This will{" "}
-          <strong>only revalidate invalid inputs when they change</strong>, never the whole form.
+          <strong>only revalidate invalid inputs when they change</strong>, never the whole form. As soon as the input
+          is valid, the revalidation will not happen again unless submitted with errors.
         </p>
         <TipReactBootstrapDocs />
 
