@@ -20,14 +20,14 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           An invoice creation example. This is a real-world example of how to approach array fields before there is any
           higher level API with abstractions implemented.
         </p>
-        <TipReactBootstrapDocs />
-
-        <Separator />
 
         <Tip variant="danger">
           <strong>This example is non-standard!</strong> It does not use the form meta and state table since it uses
           more underlying forms.
         </Tip>
+        <TipReactBootstrapDocs />
+
+        <Separator />
 
         <FormAndCodeTabs sourceCode={sourceCode} ignoreMeta name="example-invoice-array-fields-form">
           <ExampleInvoiceArrayFields />

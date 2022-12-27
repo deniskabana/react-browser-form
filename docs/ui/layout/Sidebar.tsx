@@ -45,6 +45,8 @@ const MENU: MenuItem[] = [
           { title: "Live fields", href: "/examples/advanced/live-fields" },
           { title: "Automatic value types", href: "/examples/advanced/automatic-value-types" },
           { title: "Value transformation", href: "/examples/advanced/value-transformation" },
+          { title: "Non-standard inputs", href: "/examples/advanced/non-standard-inputs" },
+          { title: "Masked inputs", href: "/examples/advanced/masked-inputs" },
         ],
       },
       {
@@ -75,6 +77,7 @@ const MENU: MenuItem[] = [
         title: "Real-world usage",
         href: "/examples/real-world-usage",
         children: [
+          { title: "User registration", href: "/examples/real-world-usage/user-registration" },
           { title: "Ecommerce checkout", href: "/examples/real-world-usage/ecommerce-checkout" },
           { title: "Invoice array fields", href: "/examples/real-world-usage/invoice-array-fields" },
         ],

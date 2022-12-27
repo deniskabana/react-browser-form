@@ -20,7 +20,7 @@ const IconGitHub = () => (
 const introExampleCode = `type Form = { name: string };
 
 export function DumbForm() {
-  const { formProps } = useDumbForm<Form>({ name: "example-dumb-form", onSubmit: console.log });
+  const { formProps } = useDumbForm<Form>({ name: "example", onSubmit: console.log, defaultValues: {} });
 
   return <form {...formProps} />;
 }`;
@@ -55,18 +55,21 @@ export default function Header() {
             <Separator light />
 
             <small className="text-white-50 mt-5 mb-4 d-block">
-              React Dumb Form is a small React hook library{" "}
+              React Dumb Form is a small React library designed as a hook{" "}
               {appSize ? <strong>({(Number(appSize) / 1000).toFixed(2)} kB) </strong> : ""} intended to handle form
-              usage in React while utilizing browser form management. It is designed to be framework agnostic,
-              performant, easy to learn and to handle even very complex forms easily while providing full type safety
-              and an amazing developer experience.{" "}
+              usage in React while incentivizing the usage of{" "}
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" className="text-white">
+                web forms
+              </a>
+              . It is designed to be flexible, performant, easy to learn and use and to handle even very complex forms
+              while providing full type safety and an amazing developer experience.{" "}
               <Link href="/frequently-asked-questions" className="text-white">
                 Read more in FAQ
               </Link>
               .
             </small>
 
-            <Card className="my-5 mx-auto" style={{ maxWidth: "800px" }}>
+            <Card className="my-5 mx-auto" style={{ maxWidth: "840px" }}>
               <pre className="line-numbers my-0 language-tsx" tabIndex={-1}>
                 <code className="language-tsx">{introExampleCode}</code>
               </pre>
