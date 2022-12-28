@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Separator from "ui/Separator";
-import { TipReactBootstrapDocs } from "ui/Tip";
+import Tip, { TipReactBootstrapDocs } from "ui/Tip";
 import fs from "fs/promises";
 
 // Form component
@@ -23,6 +23,12 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           If you need fields that act as they would with <code>onChange</code> mode, prefer using{" "}
           <code>liveChangeFields</code> only for those fields.
         </p>
+        <Tip variant="danger">
+          <strong>
+            Be mindful using <code>onChange</code> or live fields - every change in value triggers form hydration, type
+            transformation and validation.
+          </strong>
+        </Tip>
         <TipReactBootstrapDocs />
 
         <Separator />

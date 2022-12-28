@@ -7,7 +7,6 @@ import { FormGroup, FormTextarea, FormTextInput } from "ui/forms";
 
 const defaultValues = {
   name: "",
-  nickName: "",
   age: 18,
   jobTitle: "",
   jobDescription: "",
@@ -34,12 +33,9 @@ export function ExampleRequiredFields() {
     <form {...formProps}>
       <FormGroup>
         <FormTextInput label="Full name" name={names.name} error={errors.name} requiredMark />
-        <FormTextInput label="Nickname" name={names.nickName} error={errors.nickName} />
-      </FormGroup>
-      <FormGroup>
         <FormTextInput label="Age" type="number" name={names.age} error={errors.age} requiredMark />
-        <FormTextInput label="Job title" name={names.jobTitle} error={errors.jobTitle} requiredMark />
       </FormGroup>
+      <FormTextInput label="Job title" name={names.jobTitle} error={errors.jobTitle} requiredMark />
       <FormTextarea label="Job description" rows={3} name={names.jobDescription} error={errors.jobDescription} />
 
       <Button type="submit" size="sm">

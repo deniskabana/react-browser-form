@@ -30,10 +30,13 @@ export function transformValueType<Schema>(name: keyof Schema, value: any, dataF
   // 1. Default data transformation (built-in, input[type] based)
   if (!transformationSchema?.disableDefaultTransformation) {
     // 1.1. Get input's data type if specified
-    let inputType: string;
+    let inputType: string | null;
     const domFormElem = (document.forms as any)[dataFlowState.options.name];
     const domInputElem = domFormElem.elements[name] as HTMLInputElement | undefined;
     inputType = domInputElem?.type ?? "text"; // Default to texts like browsers do
+
+    // Explicitly let the user pass any form of data that are not tied to inputs
+    if (!domInputElem) inputType = null;
 
     // 1.2. Automatically return null values
     if (value === null || value === undefined) {
@@ -87,13 +90,15 @@ export function transformValueType<Schema>(name: keyof Schema, value: any, dataF
         case InputType.Url:
         case InputType.Tel:
         case InputType.Radio:
-        default:
           if (typeof value === "string") {
             definitiveValue = value;
           } else {
             definitiveValue = String(value);
           }
           break;
+
+        default:
+          definitiveValue = value;
       }
     }
   }

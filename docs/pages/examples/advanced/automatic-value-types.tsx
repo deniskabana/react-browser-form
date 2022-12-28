@@ -27,7 +27,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         </p>
         <Tip variant="danger">
           <strong>Warning:</strong> If you rely on correct types when validating or submitting be sure to use correct
-          input types or custom <code>transform</code>.
+          input types or custom <code>transformation</code>.
         </Tip>
         <TipReactBootstrapDocs />
 

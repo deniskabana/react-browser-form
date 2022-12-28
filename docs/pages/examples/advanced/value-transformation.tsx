@@ -20,8 +20,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           Use transformation to recast types manually or mutate values before being stored in <code>formState</code>.
         </p>
         <Tip variant="danger">
-          <strong>Warning:</strong> Input masking is currently <strong>not supported</strong>. Transformation will only
-          change values internally.
+          <strong>Warning:</strong> Transformation will only change values internally.
         </Tip>
         <TipReactBootstrapDocs />
 

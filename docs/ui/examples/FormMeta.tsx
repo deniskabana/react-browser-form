@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, OverlayTrigger, Table, Tooltip, TooltipProps } from "react-bootstrap";
 import { DebugData, DEBUG_CHANGE_EVENT } from "react-dumb-form";
 
-const renderTypeTooltip = (props: TooltipProps, value: any) => {
+const renderTypeTooltip = (props: TooltipProps, value: unknown) => {
   let type: string | JSX.Element;
 
   if (value === null) {
@@ -20,6 +20,15 @@ const renderTypeTooltip = (props: TooltipProps, value: any) => {
         </span>
       </>
     );
+  } else if (Array.isArray(value)) {
+    type = (
+      <>
+        {typeof value}{" "}
+        <span className="d-block">
+          <small className="text-warning fst-italic">instanceof</small> Array
+        </span>
+      </>
+    );
   } else {
     type = typeof value;
   }
@@ -32,6 +41,20 @@ const renderTypeTooltip = (props: TooltipProps, value: any) => {
       </code>
     </Tooltip>
   );
+};
+
+const renderValue = (value: unknown) => {
+  let displayedValue: string | JSX.Element;
+
+  if (typeof value === "string") {
+    displayedValue = `"${String(value)}"`;
+  } else if (Array.isArray(value)) {
+    displayedValue = `[${value.map(val => (typeof val === "string" ? `"${val}"` : val))}]`;
+  } else {
+    displayedValue = String(value);
+  }
+
+  return <span>{displayedValue}</span>;
 };
 
 export function FormMeta({ name }: { name: string }) {
@@ -145,9 +168,7 @@ export function FormMeta({ name }: { name: string }) {
                         </a>
                       </OverlayTrigger>
                       &nbsp;
-                      {typeof debugData.formState[field] === "string" ? '"' : ""}
-                      {String(debugData.formState[field])}
-                      {typeof debugData.formState[field] === "string" ? '"' : ""}
+                      {renderValue(debugData.formState[field])}
                     </td>
                   </tr>
                 ))

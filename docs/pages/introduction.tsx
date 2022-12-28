@@ -132,31 +132,20 @@ export default function Page() {
 
             <li className="mb-3">
               <strong>Weak i18n support</strong>
-              <Badge bg="info" className="ms-1" pill>
+              <Badge bg="success" className="ms-1" pill>
                 In the future
               </Badge>
               <p className="text-muted">
                 If you change strings inside validation schema for validation feedback, React Dumb Form will ignore
                 those as options are considered immutable right now.{" "}
-                <strong>For the time being, you can re-render the whole component.</strong>
-              </p>
-            </li>
-
-            <li className="mb-3">
-              <strong>No support for non-standard inputs.</strong>
-              <Badge bg="success" className="ms-1" pill>
-                Not planned yet
-              </Badge>
-              <p className="text-muted">
-                There no first-class support, however by utilizing <code>setValues</code> you can easily extend the
-                default APIs and behavior.
+                <strong>For the time being, you can re-render the whole component to re-initialize.</strong>
               </p>
             </li>
 
             <li className="mb-3">
               <strong>No 3rd party validator library support.</strong>
               <Badge bg="success" className="ms-1" pill>
-                Not planned yet
+                In the future
               </Badge>
               <p className="text-muted">
                 There is already a support added for transformation and validation, but no current first-class API for
