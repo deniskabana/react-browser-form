@@ -2,7 +2,7 @@ import React from "react";
 import { useDumbForm } from "react-dumb-form";
 
 const defaultValues = {
-  email: null as string | null,
+  email: "",
 };
 type Form = typeof defaultValues;
 

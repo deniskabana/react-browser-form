@@ -1,0 +1,124 @@
+import React, { ChangeEvent } from "react";
+import { TransformationSchema, useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+
+// UI for documentation only
+import { Form } from "react-bootstrap";
+import { FormGroupTitle, FormTextInput } from "ui/forms";
+import { FormTextInputCustom } from "ui/forms/FormTextInputCustom";
+import Separator from "ui/Separator";
+import Tip from "ui/Tip";
+
+// FORM SETUP AND TRANSFORMATION
+// --------------------------------------------------------------------------------
+
+const defaultValues = {
+  valueOnlyAToF: "",
+  valueWithUnderscores: "",
+  valueUppercase: "",
+  creditCardInput: "",
+};
+type Form = typeof defaultValues;
+
+const customValueTransformations: Partial<Record<keyof Form, (value: unknown) => any>> = {
+  valueOnlyAToF: value => String(value).replaceAll(/[^a-f]*/g, ""),
+  valueWithUnderscores: value => String(value).replaceAll(/\s/g, "_"),
+  valueUppercase: value => String(value).toUpperCase(),
+};
+
+const CREDIT_CARD_MASK = "____ ____ ____ ____";
+
+// COMPONENT
+// --------------------------------------------------------------------------------
+
+export function ExampleMaskedInputs() {
+  const [data, setData] = React.useState<Form & { [key: string]: any }>(defaultValues);
+
+  const { formProps, names, setValues } = useDumbForm<Form>({
+    name: "example-masked-inputs-form",
+    defaultValues,
+    onSubmit: setData,
+    onChange: setData,
+  });
+
+  const handleMaskedInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    // Re-use the transformator and leave it in place in case of user error
+    const transformator = customValueTransformations[name as keyof Form];
+    if (!transformator) return;
+    setValues({ [name]: transformator(value) });
+  };
+
+  // WARNING: In the real world, you would want to use a masking library or a more general purpose function
+  const handleCreditCardChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const name = names.creditCardInput;
+    const { value } = event.target;
+
+    let iVal = 0;
+    let iPat = 0;
+    let formattedValue = "";
+    let specialChars = "";
+
+    while (iVal < value.length && iPat < CREDIT_CARD_MASK.length) {
+      const charVal = value.charAt(iVal);
+      const charPat = CREDIT_CARD_MASK.charAt(iPat);
+      const isSameSpecialChar = charVal === charPat && charVal !== "_";
+
+      if (isSameSpecialChar || (charVal.match(/[0-9]/) && charPat === "_")) {
+        formattedValue += specialChars + charVal;
+        specialChars = "";
+        iVal++;
+        iPat++;
+      } else if (charPat !== "_") {
+        specialChars += charPat;
+        iPat++;
+      } else {
+        break;
+      }
+    }
+
+    // Apply formatted value
+    setValues({ [name]: formattedValue });
+    event.target.value = formattedValue;
+  };
+
+  return (
+    <form {...formProps}>
+      <FormGroupTitle>Transform input value (controlled)</FormGroupTitle>
+      <FormTextInputCustom
+        label="Only allow [a-f] characters"
+        onChange={handleMaskedInputChange}
+        name={names.valueOnlyAToF}
+        value={data.valueOnlyAToF}
+        small
+      />
+      <FormTextInputCustom
+        label="Replace spaces with underscores"
+        onChange={handleMaskedInputChange}
+        name={names.valueWithUnderscores}
+        value={data.valueWithUnderscores}
+        small
+      />
+      <FormTextInputCustom
+        label="Convert to uppercase"
+        onChange={handleMaskedInputChange}
+        name={names.valueUppercase}
+        value={data.valueUppercase}
+        small
+      />
+
+      <Separator dashed />
+
+      <FormGroupTitle>Masked credit card input</FormGroupTitle>
+      <FormTextInputCustom
+        label="Credit card number"
+        onChange={handleCreditCardChange}
+        name={names.creditCardInput}
+        placeholder={CREDIT_CARD_MASK}
+      />
+      <Tip variant="danger">
+        <strong>Warning: </strong> This implementation of a masked input is very naive and should serve solely as a
+        demonstration of possibility. In production, be sure to use more suitable solutions.
+      </Tip>
+    </form>
+  );
+}

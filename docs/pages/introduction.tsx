@@ -84,7 +84,7 @@ export default function Page() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:file-document-error-outline" height={36} className="me-2" />
-                Validation and transformation support - the simplest you have seen.
+                Validation and transformation support - the simplest you have seen in React forms.
               </h5>
               <span className="text-muted">
                 React Dumb Form transform data types automatically, but you can also transform values or not transform
@@ -118,6 +118,19 @@ export default function Page() {
             </li>
 
             <li className="mb-3">
+              <strong>Reassess ALL examples.</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
+              <p className="text-muted">
+                While writing the examples, a lot has changed since the first to last one. We need to go through all the
+                examples, clean them, remove redundant pieces and ideally split some forms into multiple examples, like
+                I have done with <Link href="/examples/basic/form-methods">Form methods exmaple</Link> for better
+                clarity.
+              </p>
+            </li>
+
+            <li className="mb-3">
               <strong>No field array API.</strong>
               <Badge bg="secondary" className="ms-1" pill>
                 Next minor release
@@ -127,6 +140,18 @@ export default function Page() {
                 <Link href="/examples/real-world-usage/invoice-array-fields">Invoice array fields</Link>, there is no
                 first-class support for using field arrays. While it is possible (and quite easy) to do without a
                 supported API, it goes against point 2 of philosophy.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>No input masking support</strong>
+              <Badge bg="success" className="ms-1" pill>
+                In the future
+              </Badge>
+              <p className="text-muted">
+                We can implement an input mask that will be used by the library internally that will handle implicit
+                data mutation. Though this needs to be thought through EXTENSIVELY for it to remain performant, flexible
+                and transparent to fit the project philosophy.
               </p>
             </li>
 

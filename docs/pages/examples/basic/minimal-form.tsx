@@ -20,6 +20,13 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         <p className="text-muted">
           This is the most basic usage example you can use. If you need a plain form, just copy and paste the code.
         </p>
+        <p className="text-muted">
+          <strong>
+            Object <code>names</code> is not mandatory
+          </strong>
+          , however it helps prevent errors so it's always included in the examples. More info about <code>names</code>{" "}
+          and other return types can be found in the <Link href="/documentation">Documentation section</Link>.
+        </p>
 
         <Tip variant="info">
           <strong>This example is only meant to show you how easy it is to start using React Dumb Form today.</strong>
@@ -64,16 +71,6 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           `}</style>
           <ExampleMinimalForm />
         </FormAndCodeTabs>
-
-        <Separator />
-
-        <p className="text-muted">
-          <strong>
-            Object <code>names</code> is not mandatory
-          </strong>
-          , however it helps prevent errors so it's always included in the examples. More info about <code>names</code>{" "}
-          and other return types can be found in the <Link href="/documentation">Documentation section</Link>.
-        </p>
       </main>
     </>
   );

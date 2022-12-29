@@ -34,7 +34,6 @@ const MENU: MenuItem[] = [
         children: [
           { title: "Minimal form", href: "/examples/basic/minimal-form" },
           { title: "Basic usage", href: "/examples/basic/basic-usage" },
-          { title: "Realistic basic usage", href: "/examples/basic/realistic-basic-usage" },
           { title: "Required fields", href: "/examples/basic/required-fields" },
           { title: "Form methods", href: "/examples/basic/form-methods" },
         ],
@@ -92,7 +91,7 @@ const MENU: MenuItem[] = [
   { title: "Contribute", href: "/contribute", icon: "ion:people-circle-outline" },
 ];
 
-const NEST_BACKGROUNDS = ["#ffffff", "#fff3f2", "#fee8e6", "#fadcd9"];
+const NEST_BACKGROUNDS = ["#ffffff", "#fff3f2", "#fee8e6", "#fadcd9", "#e9c7c4"];
 
 export default function Sidebar() {
   const router = useRouter();

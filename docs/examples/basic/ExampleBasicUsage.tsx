@@ -6,10 +6,10 @@ import { Button, Stack } from "react-bootstrap";
 import { FormCheckbox, FormGroup, FormGroupTitle, FormTextarea, FormTextInput } from "ui/forms";
 
 const defaultValues = {
-  name: "",
+  name: "Jonas",
   commentTitle: "",
   commentBody: "",
-  rememberMe: false,
+  rememberMe: true,
 };
 type Form = typeof defaultValues;
 

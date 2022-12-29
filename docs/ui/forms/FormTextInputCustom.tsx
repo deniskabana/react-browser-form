@@ -1,6 +1,7 @@
 import { Form, FormControlProps } from "react-bootstrap";
 
 interface FormTextInputCustomProps extends FormControlProps {
+  name?: string;
   requiredMark?: boolean;
   label?: string | React.ReactNode;
   error?: string;

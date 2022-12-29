@@ -6,7 +6,6 @@ import { Form } from "react-bootstrap";
 import { FormGroupTitle } from "ui/forms";
 import { FormTextInputCustom } from "ui/forms/FormTextInputCustom";
 import Separator from "ui/Separator";
-import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 import { FormMultiSelect } from "ui/forms/FormMultiSelect";
 
 // FORM SETUP AND VALIDATION

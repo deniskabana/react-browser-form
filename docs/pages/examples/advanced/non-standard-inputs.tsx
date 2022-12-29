@@ -18,8 +18,8 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         <h1>Non-standard inputs usage</h1>
         <p className="text-muted">
           You can implement non-standard inputs by using live fields, <code>setValues</code> and transformations,{" "}
-          <strong>you can handle any case with React Dumb Form</strong>. You will not miss out on the provided
-          transformations, error handling, and a lot of other features.
+          <strong>you can handle any case with React Dumb Form</strong>. Also, you will not miss out on the built-in
+          transformations, error handling, and all the other features.
         </p>
         <TipReactBootstrapDocs />
 

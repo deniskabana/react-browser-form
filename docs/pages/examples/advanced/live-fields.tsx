@@ -26,7 +26,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         <Tip variant="danger">
           <strong>
             Be mindful using <code>onChange</code> or live fields - every change in value triggers form hydration, type
-            transformation and validation.
+            transformation and validation for changed fields.
           </strong>
         </Tip>
         <TipReactBootstrapDocs />

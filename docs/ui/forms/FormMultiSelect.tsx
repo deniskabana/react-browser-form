@@ -70,7 +70,7 @@ export const FormMultiSelect = ({ options, name, onChange, requiredMark, label, 
           {requiredMark ? <span className="fw-bold text-danger">*</span> : null}
         </Form.Label>
       ) : null}
-      <div className="dropdown form-control p-0" ref={nodeRef}>
+      <div className={`dropdown form-control p-0 ${error ? "is-invalid" : ""}`} ref={nodeRef}>
         <button
           className="btn dropdown-toggle"
           type="button"
