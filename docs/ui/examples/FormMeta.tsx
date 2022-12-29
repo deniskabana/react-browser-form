@@ -112,12 +112,12 @@ export function FormMeta({ name }: { name: string }) {
               <td>Has errors?</td>
               <td>
                 {debugData?.returnData?.errorData?.count && debugData.returnData.errorData.count > 0 ? (
-                  <div className="text-danger d-flex align-items-center fw-bold">
-                    <Icon icon="material-symbols:check-circle-rounded" className="me-1" /> Yes
+                  <div className="text-warning d-flex align-items-center fw-bold">
+                    <Icon icon="ri:close-circle-fill" className="me-1" /> Yes
                   </div>
                 ) : (
                   <div className="text-success d-flex align-items-center fw-bold">
-                    <Icon icon="ri:close-circle-fill" className="me-1" /> No
+                    <Icon icon="material-symbols:check-circle-rounded" className="me-1" /> No
                   </div>
                 )}
               </td>

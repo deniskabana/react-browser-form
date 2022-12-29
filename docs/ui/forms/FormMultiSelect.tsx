@@ -18,7 +18,6 @@ export const FormMultiSelect = ({ options, name, onChange, requiredMark, label, 
 
   React.useEffect(() => {
     setPlaceholder(checked.length > 0 ? checked.join(", ") : "Pick a few options");
-    if (onChange) onChange(checked);
   }, [checked]);
 
   React.useEffect(() => {
@@ -53,6 +52,11 @@ export const FormMultiSelect = ({ options, name, onChange, requiredMark, label, 
           1,
         );
       }
+
+      // Doing this inside a state setter directly will lead to problems
+      setTimeout(() => {
+        if (onChange) onChange(newChecked);
+      });
 
       return newChecked;
     });
