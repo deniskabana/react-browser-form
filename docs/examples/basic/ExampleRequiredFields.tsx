@@ -2,14 +2,14 @@ import React from "react";
 import { useDumbForm } from "react-dumb-form";
 
 // UI for documentation only
-import { Button } from "react-bootstrap";
-import { FormGroup, FormTextarea, FormTextInput } from "ui/forms";
+import { Button, Stack } from "react-bootstrap";
+import { FormCheckbox, FormGroup, FormGroupTitle, FormTextarea, FormTextInput } from "ui/forms";
 
 const defaultValues = {
   name: "",
-  age: 18,
-  jobTitle: "",
-  jobDescription: "",
+  commentTitle: "",
+  commentBody: "",
+  rememberMe: false,
 };
 type Form = typeof defaultValues;
 
@@ -25,22 +25,28 @@ export function ExampleRequiredFields() {
     defaultValues,
     onSubmit: setData,
     validationSchema: {
-      required: { fields: ["name", "age", "jobTitle"], message: "An optional custom error message" },
+      required: { fields: ["name", "rememberMe"], message: "An optional custom error message" },
     },
   });
 
   return (
     <form {...formProps}>
+      <FormGroupTitle>Leave a comment</FormGroupTitle>
       <FormGroup>
-        <FormTextInput label="Full name" name={names.name} error={errors.name} requiredMark />
-        <FormTextInput label="Age" type="number" name={names.age} error={errors.age} requiredMark />
+        <FormTextInput label="Your name" requiredMark name={names.name} error={errors.name} />
+        <FormTextInput label="Comment title" name={names.commentTitle} />
       </FormGroup>
-      <FormTextInput label="Job title" name={names.jobTitle} error={errors.jobTitle} requiredMark />
-      <FormTextarea label="Job description" rows={3} name={names.jobDescription} error={errors.jobDescription} />
+      <FormTextarea placeholder="What's on your mind?" name={names.commentBody} rows={3} />
+      <FormCheckbox label="Remember me next time" requiredMark name={names.rememberMe} error={errors.rememberMe} />
 
-      <Button type="submit" size="sm">
-        Submit
-      </Button>
+      <Stack direction="horizontal" className="justify-content-end">
+        <Button type="reset" variant="outline-danger" className="me-1" size="sm">
+          Clear
+        </Button>
+        <Button type="submit" size="sm">
+          Post comment
+        </Button>
+      </Stack>
     </form>
   );
 }
