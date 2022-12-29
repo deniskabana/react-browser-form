@@ -48,15 +48,18 @@ export function ExampleMaskedInputs() {
     setValues({ [name]: transformator(value) });
   };
 
-  // WARNING: In the real world, you would want to use a masking library or a more general purpose function
+  // WARNING: In production usage, you should use a masking library or a more general-purpose function
   const handleCreditCardChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
     const name = names.creditCardInput;
-    const { value } = event.target;
+    const previousValue = data.creditCardInput.replaceAll(/[^0-9]/g, "");
+    const value = input.value.replaceAll(/[^0-9]/g, "");
 
     let iVal = 0;
     let iPat = 0;
     let formattedValue = "";
     let specialChars = "";
+    let cursorPos = Math.min(value.length, Number(input.selectionStart));
 
     while (iVal < value.length && iPat < CREDIT_CARD_MASK.length) {
       const charVal = value.charAt(iVal);
@@ -71,6 +74,7 @@ export function ExampleMaskedInputs() {
       } else if (charPat !== "_") {
         specialChars += charPat;
         iPat++;
+        if (previousValue.length < value.length) cursorPos++;
       } else {
         break;
       }
@@ -78,7 +82,14 @@ export function ExampleMaskedInputs() {
 
     // Apply formatted value
     setValues({ [name]: formattedValue });
-    event.target.value = formattedValue;
+
+    // Update input value - input value does not reflect value stored in form state, it includes the rest of the mask
+    input.value = `${formattedValue}${
+      formattedValue.length !== CREDIT_CARD_MASK.length
+        ? CREDIT_CARD_MASK.slice(formattedValue.length - CREDIT_CARD_MASK.length)
+        : ""
+    }`;
+    input.setSelectionRange(cursorPos, cursorPos);
   };
 
   return (
@@ -116,8 +127,8 @@ export function ExampleMaskedInputs() {
         placeholder={CREDIT_CARD_MASK}
       />
       <Tip variant="danger">
-        <strong>Warning: </strong> This implementation of a masked input is very naive and should serve solely as a
-        demonstration of possibility. In production, be sure to use more suitable solutions.
+        <strong>Warning: </strong> This implementation of a masked input is <strong>very naive</strong> and should serve
+        solely as a demonstration of possibility. In production, be sure to use more suitable solutions.
       </Tip>
     </form>
   );

@@ -6,9 +6,17 @@ interface FormTextInputCustomProps extends FormControlProps {
   label?: string | React.ReactNode;
   error?: string;
   small?: boolean;
+  type?: string;
 }
 
-export function FormTextInputCustom({ requiredMark, label, error, small, ...otherProps }: FormTextInputCustomProps) {
+export function FormTextInputCustom({
+  type = "text",
+  requiredMark,
+  label,
+  error,
+  small,
+  ...otherProps
+}: FormTextInputCustomProps) {
   return (
     <Form.Group className="mb-3 flex-grow-1 flex-shrink-0">
       {label ? (
@@ -17,7 +25,7 @@ export function FormTextInputCustom({ requiredMark, label, error, small, ...othe
           {requiredMark ? <span className="fw-bold text-danger">*</span> : null}
         </Form.Label>
       ) : null}
-      <Form.Control {...otherProps} className={error ? "is-invalid" : ""} size={small ? "sm" : undefined} />
+      <Form.Control {...otherProps} type={type} className={error ? "is-invalid" : ""} size={small ? "sm" : undefined} />
       {error ? (
         <Form.Control.Feedback type="invalid" style={{ fontSize: "0.7em" }}>
           {error}
