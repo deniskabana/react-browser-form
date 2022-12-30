@@ -57,7 +57,7 @@ export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput
     isDirty,
     setIsDirty,
   );
-  const formEventHandlers = useFormEventHandlers(handleDataFlow, options);
+  const formEventHandlers = useFormEventHandlers(handleDataFlow);
 
   // INITIALIZATION
   // --------------------------------------------------------------------------------

@@ -34,6 +34,7 @@ const MENU: MenuItem[] = [
         children: [
           { title: "Minimal form", href: "/examples/basic/minimal-form" },
           { title: "Basic usage", href: "/examples/basic/basic-usage" },
+          { title: "Form modes", href: "/examples/basic/form-modes" },
           { title: "Required fields", href: "/examples/basic/required-fields" },
           { title: "Form methods", href: "/examples/basic/form-methods" },
         ],
@@ -47,18 +48,6 @@ const MENU: MenuItem[] = [
           { title: "Value transformation", href: "/examples/advanced/value-transformation" },
           { title: "Non-standard inputs", href: "/examples/advanced/non-standard-inputs" },
           { title: "Masked inputs", href: "/examples/advanced/masked-inputs" },
-        ],
-      },
-      {
-        title: "Modes",
-        href: "/examples/modes",
-        children: [
-          { title: "onSubmitUnlessError (default)", href: "/examples/modes/onSubmitUnlessError" },
-          { title: "onSubmit", href: "/examples/modes/onSubmit" },
-          { title: "onBlurUnlessError", href: "/examples/modes/onBlurUnlessError" },
-          { title: "onBlur", href: "/examples/modes/onBlur" },
-          { title: "onChange", href: "/examples/modes/onChange" },
-          { title: "Live change fields", href: "/examples/modes/live-change-fields" },
         ],
       },
       {

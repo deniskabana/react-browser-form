@@ -1,5 +1,4 @@
 import {
-  DumbFormOptions,
   EventSource,
   EventType,
   FormEventHandler,
@@ -8,10 +7,7 @@ import {
   UserEventHandler,
 } from "../types";
 
-export function useFormEventHandlers<Schema>(
-  handleDataFlow: HandleDataFlow<Schema>,
-  options: DumbFormOptions<Schema>,
-): FormEventHandlers<Schema> {
+export function useFormEventHandlers<Schema>(handleDataFlow: HandleDataFlow<Schema>): FormEventHandlers<Schema> {
   // USER EVENTS
   // --------------------------------------------------------------------------------
   const handleUserSetValues: UserEventHandler<Schema> = value => {
@@ -34,9 +30,6 @@ export function useFormEventHandlers<Schema>(
     handleDataFlow({ source: EventSource.Form, type: EventType.Submit, nativeEvent: event });
   };
   const handleFormBlur: FormEventHandler = event => {
-    // Safely ignore this event unless it is needed
-    if (options.mode !== "onBlur" && options.mode !== "onBlurUnlessError" && options.errorRevalidateMode !== "onBlur")
-      return;
     handleDataFlow({ source: EventSource.Form, type: EventType.Blur, nativeEvent: event });
   };
   const handleFormReset: FormEventHandler = event => {
