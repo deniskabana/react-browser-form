@@ -26,7 +26,7 @@ export function ExampleLiveFields() {
 
   return (
     <form {...formProps}>
-      <FormGroupTitle>Live fields</FormGroupTitle>
+      <FormGroupTitle>Leave a comment</FormGroupTitle>
       <FormGroup>
         <FormTextInput label="Your name (live)" name={names.name} />
         <FormTextInput label="Comment title" name={names.commentTitle} />

@@ -52,7 +52,7 @@ export function ExampleComposedValidation() {
 
   return (
     <form {...formProps}>
-      <FormGroupTitle>User registration</FormGroupTitle>
+      <FormGroupTitle>Submit an application</FormGroupTitle>
       <FormGroup>
         <FormTextInput label="First name (6-12 chars)" requiredMark name={names.firstName} error={errors.firstName} />
         <FormTextInput label="Last name (6-12 chars)" requiredMark name={names.lastName} error={errors.lastName} />
