@@ -50,18 +50,6 @@ const MENU: MenuItem[] = [
         ],
       },
       {
-        title: "Validation",
-        href: "/examples/validation",
-        children: [
-          { title: "Basic validation", href: "/examples/validation/basic-validation" },
-          { title: "Composed validation", href: "/examples/validation/composed-validation" },
-          { title: "Dependent fields", href: "/examples/validation/dependent-fields" },
-          { title: "Complex validation", href: "/examples/validation/complex-validation" },
-          { title: "Validation on init", href: "/examples/validation/validation-on-init" },
-          { title: "Revalidation strategies", href: "/examples/validation/revalidation-strategies" },
-        ],
-      },
-      {
         title: "Modes",
         href: "/examples/modes",
         children: [
@@ -71,6 +59,16 @@ const MENU: MenuItem[] = [
           { title: "onBlur", href: "/examples/modes/onBlur" },
           { title: "onChange", href: "/examples/modes/onChange" },
           { title: "Live change fields", href: "/examples/modes/live-change-fields" },
+        ],
+      },
+      {
+        title: "Validation",
+        href: "/examples/validation",
+        children: [
+          { title: "Basic validation", href: "/examples/validation/basic-validation" },
+          { title: "Composed validation", href: "/examples/validation/composed-validation" },
+          { title: "Dependent fields", href: "/examples/validation/dependent-fields" },
+          { title: "Revalidation strategies", href: "/examples/validation/revalidation-strategies" },
         ],
       },
       {

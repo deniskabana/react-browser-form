@@ -35,7 +35,7 @@ export function useFormEventHandlers<Schema>(
   };
   const handleFormBlur: FormEventHandler = event => {
     // Safely ignore this event unless it is needed
-    if (options.mode !== "onBlur" && options.mode !== "onBlurUnlessError" && options.errorRevalidateMode === "onBlur")
+    if (options.mode !== "onBlur" && options.mode !== "onBlurUnlessError" && options.errorRevalidateMode !== "onBlur")
       return;
     handleDataFlow({ source: EventSource.Form, type: EventType.Blur, nativeEvent: event });
   };

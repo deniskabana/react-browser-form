@@ -131,7 +131,20 @@ export default function Page() {
             </li>
 
             <li className="mb-3">
-              <strong>No field array API.</strong>
+              <strong>Only works within browsers</strong>
+              <Badge bg="info" className="ms-1" pill>
+                Will not change
+              </Badge>
+              <p className="text-muted">
+                React Dumb Form is <strong>optimized for SSR</strong>, however it will only work in browser environemnt.
+                It utilizes and incentivizes the use of{" "}
+                <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">Web Forms</a>, which is a web browser
+                standard. It doesn't work with inputs, but with DOM form reference by name.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>No field array API</strong>
               <Badge bg="secondary" className="ms-1" pill>
                 Next minor release
               </Badge>
@@ -144,14 +157,14 @@ export default function Page() {
             </li>
 
             <li className="mb-3">
-              <strong>No input masking support</strong>
+              <strong>No input masking API</strong>
               <Badge bg="success" className="ms-1" pill>
                 In the future
               </Badge>
               <p className="text-muted">
-                We can implement an input mask that will be used by the library internally that will handle implicit
-                data mutation. Though this needs to be thought through EXTENSIVELY for it to remain performant, flexible
-                and transparent to fit the project philosophy.
+                Although a custom implementation can be done easily as show in the example{" "}
+                <Link href="/examples/advanced/masked-inputs">Masked inputs</Link>, it goes against point 2 of the
+                project philosophy. Consider creating a unified API for masked inputs or offering other options.
               </p>
             </li>
 

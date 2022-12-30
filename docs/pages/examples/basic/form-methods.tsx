@@ -38,7 +38,7 @@ export default function Page({
           <code>submit()</code> method
         </h4>
         <p>
-          This forms submits if name equals <strong>exactly</strong> <code>Adam</code>.
+          This form submits if name equals <strong>exactly</strong> <code>Adam</code>.
         </p>
         <FormAndCodeTabs sourceCode={submitSourceCode} name="example-form-methods-submit">
           <ExampleFormMethodsSubmit />
@@ -50,7 +50,7 @@ export default function Page({
           <code>reset()</code> method
         </h4>
         <p>
-          This forms resets if name equals <strong>exactly</strong> <code>Adam</code>.
+          This form resets if name equals <strong>exactly</strong> <code>Adam</code>.
         </p>
         <FormAndCodeTabs sourceCode={resetSourceCode} name="example-form-methods-reset">
           <ExampleFormMethodsReset />

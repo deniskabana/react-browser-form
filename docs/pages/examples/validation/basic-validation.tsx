@@ -5,9 +5,16 @@ import fs from "fs/promises";
 
 // Form component
 import { ExampleBasicValidation } from "examples/validation/ExampleBasicValidation";
+import { ExampleBasicValidationOnInit } from "examples/validation/ExampleBasicValidationOnInit";
 import { FormAndCodeTabs } from "ui/examples/FormAndCodeTabs";
 
-export default function Page({ sourceCode }: { sourceCode: string }) {
+export default function Page({
+  basicSourceCode,
+  onInitSourceCode,
+}: {
+  basicSourceCode: string;
+  onInitSourceCode: string;
+}) {
   return (
     <>
       <Head>
@@ -22,14 +29,26 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           submit. If there are errors, the invalid inputs are revalidated based on <code>revalidationStrategy</code> -
           the default used in this example is <code>onChange</code>. This will{" "}
           <strong>only revalidate invalid inputs when they change</strong>, never the whole form. As soon as the input
-          is valid, the revalidation will not happen again unless submitted with errors.
+          is valid, the revalidation will not happen again unless submitted or otherwise requested.
         </p>
         <TipReactBootstrapDocs />
 
         <Separator />
 
-        <FormAndCodeTabs sourceCode={sourceCode} name="example-basic-validation-form">
+        <h4>Basic validation</h4>
+        <p>Basic validation with custom validator functions for different fields.</p>
+        <FormAndCodeTabs sourceCode={basicSourceCode} name="example-basic-validation-form">
           <ExampleBasicValidation />
+        </FormAndCodeTabs>
+
+        <Separator />
+
+        <h4>Validation after init</h4>
+        <p>
+          This form is exactly the same as the first one, except for having <code>validateAfterInit</code> set to true.
+        </p>
+        <FormAndCodeTabs sourceCode={onInitSourceCode} name="example-basic-validation-on-init-form">
+          <ExampleBasicValidationOnInit />
         </FormAndCodeTabs>
       </main>
     </>
@@ -38,6 +57,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
 
 // Get component source code
 export async function getServerSideProps() {
-  const sourceCode = await fs.readFile("examples/validation/ExampleBasicValidation.tsx", "utf8");
-  return { props: { sourceCode } };
+  const basicSourceCode = await fs.readFile("examples/validation/ExampleBasicValidation.tsx", "utf8");
+  const onInitSourceCode = await fs.readFile("examples/validation/ExampleBasicValidationOnInit.tsx", "utf8");
+  return { props: { basicSourceCode, onInitSourceCode } };
 }
