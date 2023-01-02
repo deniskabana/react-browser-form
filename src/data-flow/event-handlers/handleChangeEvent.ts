@@ -62,10 +62,11 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     const hasOnChangeMode = options.mode === "onChange";
     const isLiveField = options.liveChangeFields.includes(fieldName as keyof Schema);
     const shouldRevalidate =
-      isLiveField ||
-      (options.errorRevalidateMode === "onChange" && dataFlowState.errorData.errors[fieldName as keyof Schema]);
+      dataFlowState.errorData.errors[fieldName as keyof Schema] &&
+      options.errorRevalidateMode === "onChange" &&
+      (options.mode === "onBlurUnlessError" || options.mode === "onSubmitUnlessError");
 
-    const shouldExecute = hasOnChangeMode || shouldRevalidate;
+    const shouldExecute = hasOnChangeMode || isLiveField || shouldRevalidate;
     if (!shouldExecute) return;
 
     // 2.3. Hydrate form state from DOM inputs
