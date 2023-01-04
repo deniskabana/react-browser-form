@@ -67,6 +67,9 @@ ol.breadcrumb {
 .text-success {
   color: #28dc88 !important;
 }
+.text-small {
+  font-size: 0.75em;
+}
 
 /* Fancy numbered list in introduction */
 ol.motivation-and-values {

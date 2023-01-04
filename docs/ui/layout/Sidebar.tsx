@@ -26,7 +26,7 @@ const MENU: MenuItem[] = [
     title: "Documentation",
     href: "/documentation",
     icon: "ph:tree-structure-bold",
-    children: [{ title: "Options API", href: "/options-api" }],
+    children: [{ title: "Options API", href: "/documentation/options-api" }],
   },
   {
     title: "Examples",

@@ -2,22 +2,22 @@
 // --------------------------------------------------------------------------------
 
 export interface DumbFormOptionsInput<Schema> {
-  /** Form DOM name attribute - **must be unique**. Used for DOM operations handling. */
+  /** Form DOM name attribute - **must be unique**. Used to access inputs through `document.forms`, to read all events and hydrate the form data and the browser inputs. */
   name: string;
 
-  /** Default values - need to match your schema. These are used for type inferrence, iteration and transformation. */
+  /** Default values need to match your schema. These are used for a lot of the iteration. */
   defaultValues: Schema & { [key: string]: any };
 
   /** A callback for when the form is submitted. **Will not trigger if there are errors during validation!** */
   onSubmit?: (data: Schema) => void;
 
-  /** **Optionally use this if you use `liveChangeFields` or validation**. */
+  /** This method is useful when using `onChange` mode, live fields, setting or resetting values, etc. */
   onChange?: (data: Schema) => void;
 
-  /** A dead-simple validation with a validator schema that has access to all the data. Throw `ValidationError` if validation fails. */
+  /** A dead-simple validation with a validator schema that has access to all the data. Throw `ValidationError` if field validation fails. */
   validationSchema?: ValidationSchema<Schema>;
 
-  /** A dead-simple value transformation schema. */
+  /** A dead-simple type and value transformation schema. Useful when you need easy data processing, input masking or just recast types. */
   transformationSchema?: TransformationSchema<Schema>;
 
   /** Whether to perform validation right after mounting the form - before the first render. */
