@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 
 interface FormTextInputProps {
-  options: Array<{ label: string; value: string }>;
+  options: Array<{ label: string; value: any }>;
   name: string;
   requiredMark?: boolean;
   label?: string | React.ReactNode;

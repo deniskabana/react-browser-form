@@ -9,7 +9,7 @@ interface FormGroupProps {
 export function FormGroup({ layout, children, className }: FormGroupProps) {
   if (Array.isArray(children)) {
     return (
-      <Row>
+      <Row className={className}>
         {children.map((child, index) => (
           <Col md={layout ? layout[index] : undefined} key={index}>
             {child}

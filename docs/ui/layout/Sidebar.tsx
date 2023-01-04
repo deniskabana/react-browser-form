@@ -22,7 +22,12 @@ const MENU: MenuItem[] = [
   { title: "Introduction", href: "/introduction", icon: "tabler:bulb" },
   { title: "FAQ", href: "/frequently-asked-questions", icon: "ph:question-bold" },
   { title: "Getting started", href: "/getting-started", icon: "tabler:terminal-2" },
-  { title: "Documentation", href: "/documentation", icon: "ph:tree-structure-bold" },
+  {
+    title: "Documentation",
+    href: "/documentation",
+    icon: "ph:tree-structure-bold",
+    children: [{ title: "Options API", href: "/options-api" }],
+  },
   {
     title: "Examples",
     href: "/examples",

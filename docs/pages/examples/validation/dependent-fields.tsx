@@ -20,6 +20,11 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           Use live fields for the field whose value you depend on and in the validation function, you can easily access
           the whole form state through the 2nd argument.
         </p>
+        <p>
+          There is a caveat with live fields and that is - when they are changed, the whole form has to be revalidated.
+          React Dumb Form does not know how you handle dependent fields in your validator methods, so instead of
+          Proxying the form data every time, it just re-validated the entire form.
+        </p>
         <TipReactBootstrapDocs />
 
         <Separator />
