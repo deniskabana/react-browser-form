@@ -53,7 +53,7 @@ export default function Page() {
                 <td className="font-monospace text-secondary text-small">string</td>
                 <td>
                   Form DOM name attribute - <strong>must be unique</strong>. Used to access inputs through{" "}
-                  <code>document.forms</code>, to read all events and hydrate the form data and the browser inputs.
+                  <code>document.forms</code>, to read all events and hydrate the form data and the DOM inputs.
                 </td>
               </tr>
 
@@ -102,8 +102,8 @@ export default function Page() {
                 <td>
                   <ul>
                     <li>
-                      <code>onSubmitUnlessError</code>: <strong>(default)</strong> Hydrate and validate upon form submit
-                      event. Inputs with errors re-validate on input change until the error is resolved.
+                      <code>onSubmitUnlessError</code>: Hydrate and validate upon form submit event. Inputs with errors
+                      re-validate on input change until the error is resolved.
                     </li>
                     <li>
                       <code>onSubmit</code>: Hydrate and validate upon form submit event. The fastest option if not
@@ -127,13 +127,16 @@ export default function Page() {
                       <Link href="/examples/basic/form-modes">Example</Link>
                     </li>
                   </ul>
+                  <strong>
+                    Default: <code>onSubmitUnlessError</code>
+                  </strong>
                 </td>
               </tr>
 
               {/* liveChangeFields */}
               <tr>
                 <td className="font-monospace fw-bold">liveChangeFields</td>
-                <td className="font-monospace text-secondary text-small">(keyof Schema)[]</td>
+                <td className="font-monospace text-secondary text-small">{"Array<keyof Schema>"}</td>
                 <td>
                   A subset of fields that will trigger update <strong>and validation of fields with errors</strong> on
                   every input change. Useful for conditional operations within forms, dependent fields, etc.
@@ -163,6 +166,24 @@ export default function Page() {
                 </td>
               </tr>
 
+              {/* revalidationStrategy */}
+              <tr>
+                <td className="font-monospace fw-bold">revalidationStrategy</td>
+                <td className="font-monospace text-secondary text-small">"onChange" | "onBlur"</td>
+                <td>
+                  A revalidation strategy for inputs with errors. To be used with any _unlessError mode. Choose{" "}
+                  <code>onBlur</code> if your validation is demanding.
+                  <ul className="mt-2">
+                    <li>
+                      <Link href="/examples/validation/revalidation-strategies">Example</Link>
+                    </li>
+                  </ul>
+                  <strong>
+                    Default: <code>onChange</code>
+                  </strong>
+                </td>
+              </tr>
+
               {/* transformationSchema */}
               <tr>
                 <td className="font-monospace fw-bold">transformationSchema</td>
@@ -186,16 +207,6 @@ export default function Page() {
                 <td className="font-monospace fw-bold">validateAfterInit</td>
                 <td className="font-monospace text-secondary text-small">boolean</td>
                 <td>Whether to perform validation right after mounting the form - before the first render.</td>
-              </tr>
-
-              {/* errorRevalidateMode */}
-              <tr>
-                <td className="font-monospace fw-bold">errorRevalidateMode</td>
-                <td className="font-monospace text-secondary text-small">"onChange" | "onBlur"</td>
-                <td>
-                  A revalidation strategy for inputs with errors. To be used with any _unlessError mode. Choose{" "}
-                  <code>onBlur</code> if your validation is demanding.
-                </td>
               </tr>
             </tbody>
           </Table>

@@ -2,7 +2,7 @@ import { DumbFormOptions } from "./types";
 
 export const DEFAULT_OPTIONS: Partial<DumbFormOptions<any>> = {
   mode: "onSubmitUnlessError",
-  errorRevalidateMode: "onChange",
+  revalidationStrategy: "onChange",
   liveChangeFields: [],
   validateAfterInit: false,
 };

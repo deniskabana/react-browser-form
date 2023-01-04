@@ -7,7 +7,8 @@ import { Icon } from "@iconify/react";
 // Inspiration:
 // https://dev.to/dan_starner/building-dynamic-breadcrumbs-in-nextjs-17oa
 
-const prettify = (str: string) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`.replaceAll("-", " ");
+const prettify = (str: string) =>
+  `${str.charAt(0).toUpperCase()}${str.slice(1)}`.replaceAll("-", " ").replaceAll(/api/g, "API");
 
 export default function Breadcrumbs() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function Breadcrumbs() {
       const asPathNestedRoutes = asPathWithoutQuery
         .replace(/#.*$/, "")
         .split("/")
-        .filter((v) => v.length > 0);
+        .filter(v => v.length > 0);
 
       const crumblist = asPathNestedRoutes.map((subpath, idx) => {
         const href = "/" + asPathNestedRoutes.slice(0, idx + 1).join("/");
@@ -26,7 +27,7 @@ export default function Breadcrumbs() {
 
       return [{ href: "/", text: "Home" }, ...crumblist];
     },
-    [router.asPath]
+    [router.asPath],
   );
 
   return (

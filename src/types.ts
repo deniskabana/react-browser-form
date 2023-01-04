@@ -2,7 +2,7 @@
 // --------------------------------------------------------------------------------
 
 export interface DumbFormOptionsInput<Schema> {
-  /** Form DOM name attribute - **must be unique**. Used to access inputs through `document.forms`, to read all events and hydrate the form data and the browser inputs. */
+  /** Form DOM name attribute - **must be unique**. Used to access inputs through `document.forms`, to read all events and hydrate the form data and the DOM inputs. */
   name: string;
 
   /** Default values need to match your schema. These are used for a lot of the iteration. */
@@ -37,7 +37,7 @@ export interface DumbFormOptionsInput<Schema> {
    * A revalidation strategy after an error is found. To be used with any unlessError mode. Choose `onBlur` if your validation is demanding.
    * @default "onChange"
    */
-  errorRevalidateMode?: "onChange" | "onBlur";
+  revalidationStrategy?: "onChange" | "onBlur";
 
   /** A subset of fields that will trigger update **and validation of fields with errors** on every input change. **Useful for conditional operations within forms.** */
   liveChangeFields?: (keyof Schema)[];
@@ -49,6 +49,9 @@ export interface DumbFormOptionsInput<Schema> {
 export type DumbFormOptions<Schema> = Required<DumbFormOptionsInput<Schema>>;
 
 export interface DumbFormReturnType<Schema> {
+  /** **Optional.** Name helpers to prevent errors during development. You can pass `name` as a string but you will not get warned if `password` does not exist in provided schema. */
+  names: Record<keyof Schema, string>;
+
   /**
    * Errors object that keeps tracks of errors and their count.
    * @example { count: 1, errors: { password: "Error message" } } */
@@ -56,9 +59,6 @@ export interface DumbFormReturnType<Schema> {
 
   /** Whether the form has been touched by the user. */
   isDirty: boolean;
-
-  /** **Optional.** Name helpers to prevent errors during development. You can pass `name` as a string but you will not get warned if `password` does not exist in provided schema. */
-  names: Record<keyof Schema, string>;
 
   /** Props to attach to your DOM form component. */
   formProps: FormComponentProps<Schema>;
@@ -68,14 +68,12 @@ export interface DumbFormReturnType<Schema> {
 
   /**
    * Programatically reset the form with optional values. Triggers the `onChange` event and validation.
-   * @param values **Optional**. Leave empty to clear data or provide values to reset to new values.
    */
   reset: ResetMethod<Schema>;
 
   /**
    * Allows to set a subset of values programmatically (this gets merged with form state).
    * It will trigger an `onChange` event and validation.
-   * @param values **Required**. A subset of the provided schema to update data with.
    */
   setValues: SetValuesMethod<Schema>;
 }

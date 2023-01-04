@@ -45,7 +45,7 @@ export function ExampleRevalidationStrategyOnChange() {
 
   const { formProps, names, errorData } = useDumbForm<Form>({
     name: "example-revalidation-strategy-onchange",
-    errorRevalidateMode: "onChange",
+    revalidationStrategy: "onChange",
     defaultValues,
     onSubmit: setData,
     validationSchema,

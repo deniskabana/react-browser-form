@@ -45,7 +45,7 @@ export function ExampleRevalidationStrategyOnBlur() {
 
   const { formProps, names, errorData } = useDumbForm<Form>({
     name: "example-revalidation-strategy-onblur",
-    errorRevalidateMode: "onBlur",
+    revalidationStrategy: "onBlur",
     defaultValues,
     onSubmit: setData,
     validationSchema,

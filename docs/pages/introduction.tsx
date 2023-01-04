@@ -107,6 +107,17 @@ export default function Page() {
           </p>
           <ol>
             <li className="mb-3">
+              <strong>Publish docs and update inline docs and add links to the docs.</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
+              <p className="text-muted">
+                Once the documentation is public, provide new descriptions (update them to reflect the docs) and include
+                links to docs and examples.
+              </p>
+            </li>
+
+            <li className="mb-3">
               <strong>Measure the amount of times each internal function ran.</strong>
               <Badge bg="danger" className="ms-1" pill>
                 Critical

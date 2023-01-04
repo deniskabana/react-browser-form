@@ -13,7 +13,7 @@ export function handleBlurEvent<Schema>(dataFlowState: DataFlowState<Schema>): v
   const hasOnBlurMode = options.mode === "onBlur" || options.mode === "onBlurUnlessError";
   const shouldRevalidate =
     dataFlowState.errorData.errors[targetInput.name as keyof Schema] &&
-    dataFlowState.options.errorRevalidateMode === "onBlur" &&
+    dataFlowState.options.revalidationStrategy === "onBlur" &&
     (options.mode === "onBlurUnlessError" || options.mode === "onSubmitUnlessError");
 
   const shouldExecute = hasOnBlurMode || shouldRevalidate;
