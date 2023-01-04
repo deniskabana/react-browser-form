@@ -44,7 +44,7 @@ export function ExampleNonStandardInputs() {
     defaultValues,
     onSubmit: setData,
     onChange: setData, // Used because of reset button
-    liveChangeFields: ["controlledInput", "multiSelect"],
+    liveFields: ["controlledInput", "multiSelect"],
     validationSchema,
   });
 

@@ -21,7 +21,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
             Avoid using <code>onChange</code> mode unless it's necessary. It is the slowest of all modes.
           </strong>{" "}
           If you need fields that act as they would with <code>onChange</code> mode, prefer using{" "}
-          <code>liveChangeFields</code> only for those fields.
+          <code>liveFields</code> only for those fields.
         </p>
         <Tip variant="danger">
           <strong>

@@ -11,7 +11,7 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
     transformationSchema,
     validateAfterInit,
     mode,
-    liveChangeFields,
+    liveFields,
     debug,
   } = options;
 
@@ -38,9 +38,9 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
   if (mode === "onChange" && typeof onChange !== "function")
     throw new Error("react-dumb-form: 'onChange' function is required if using mode 'onChange'.");
 
-  if (liveChangeFields && liveChangeFields.length > 0) {
+  if (liveFields && liveFields.length > 0) {
     if (typeof onChange !== "function")
-      throw new Error("react-dumb-form: 'onChange' function is required if using 'liveChangeFields'.");
+      throw new Error("react-dumb-form: 'onChange' function is required if using 'liveFields'.");
   }
 
   if (transformationSchema) {
@@ -57,7 +57,7 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
   if (process.env.NODE_ENV === "production") return;
 
   if (mode === "onChange") {
-    if (liveChangeFields && liveChangeFields.length > 0)
-      logError("init", "When using 'onChange' mode, liveChangeFields should be empty.");
+    if (liveFields && liveFields.length > 0)
+      logError("init", "When using 'onChange' mode, liveFields should be empty.");
   }
 }

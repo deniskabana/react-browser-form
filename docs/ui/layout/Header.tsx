@@ -20,7 +20,7 @@ const IconGitHub = () => (
 const introExampleCode = `type Form = { name: string };
 
 export function DumbForm() {
-  const { formProps } = useDumbForm<Form>({ name: "example", onSubmit: console.log, defaultValues: {} });
+  const { formProps } = useDumbForm<Form>({ name: "example", defaultValues: {} });
 
   return <form {...formProps} />;
 }`;

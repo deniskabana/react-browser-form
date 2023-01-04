@@ -60,7 +60,7 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
 
     // 2.2. Conditional execution and revalidation
     const hasOnChangeMode = options.mode === "onChange";
-    const isLiveField = options.liveChangeFields.includes(fieldName as keyof Schema);
+    const isLiveField = options.liveFields.includes(fieldName as keyof Schema);
     const shouldRevalidate =
       dataFlowState.errorData.errors[fieldName as keyof Schema] &&
       options.revalidationStrategy === "onChange" &&

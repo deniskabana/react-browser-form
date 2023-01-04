@@ -133,9 +133,9 @@ export default function Page() {
                 </td>
               </tr>
 
-              {/* liveChangeFields */}
+              {/* liveFields */}
               <tr>
-                <td className="font-monospace fw-bold">liveChangeFields</td>
+                <td className="font-monospace fw-bold">liveFields</td>
                 <td className="font-monospace text-secondary text-small">{"Array<keyof Schema>"}</td>
                 <td>
                   A subset of fields that will trigger update <strong>and validation of fields with errors</strong> on

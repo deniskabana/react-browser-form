@@ -79,7 +79,7 @@ export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: Invo
     onChange: setData,
     defaultValues: { ...defaultValues, ...data },
     validationSchema,
-    liveChangeFields: ["isActive", "quantity", "price"],
+    liveFields: ["isActive", "quantity", "price"],
   });
 
   const { errors } = errorData;

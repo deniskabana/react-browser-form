@@ -94,7 +94,7 @@ export function ExampleUserRegistration() {
     onChange: setData,
     defaultValues,
     validationSchema,
-    liveChangeFields: ["password"],
+    liveFields: ["password"],
   });
 
   const { errors } = errorData;

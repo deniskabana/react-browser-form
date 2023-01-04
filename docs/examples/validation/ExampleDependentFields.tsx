@@ -45,7 +45,7 @@ export function ExampleDependentFields() {
     onSubmit: setData,
     onChange: setData, // Used because of reset button
     validationSchema,
-    liveChangeFields: ["age", "shouldValidateFirst"],
+    liveFields: ["age", "shouldValidateFirst"],
   });
 
   const { errors, count } = errorData;

@@ -21,7 +21,7 @@ export function ExampleLiveFields() {
     defaultValues,
     onSubmit: setData,
     onChange: setData, // Because we use live fields
-    liveChangeFields: ["name", "rememberMe"],
+    liveFields: ["name", "rememberMe"],
   });
 
   return (

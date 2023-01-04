@@ -40,7 +40,7 @@ export interface DumbFormOptionsInput<Schema> {
   revalidationStrategy?: "onChange" | "onBlur";
 
   /** A subset of fields that will trigger update **and validation of fields with errors** on every input change. **Useful for conditional operations within forms.** */
-  liveChangeFields?: (keyof Schema)[];
+  liveFields?: (keyof Schema)[];
 
   /** **DO NOT USE IN PRODUCTION**. This is meant for tests, library development and docs. */
   debug?: boolean;

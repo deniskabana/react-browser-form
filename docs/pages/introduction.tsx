@@ -30,8 +30,8 @@ export default function Page() {
               </h5>
               <span className="text-muted">
                 React Dumb Form takes performance very seriously and aims to outperform other libraries by only ever
-                doing what it needs to. No data transformation, validation or collecting unless required. Read more at{" "}
-                <Link href="/getting-started/how-it-works">How it works?</Link>.
+                doing what it needs to. No data transformation, validation or collecting unless required. Read more at
+                How it works section in <Link href="/documentation">Documentation</Link>.
               </span>
             </li>
 
@@ -125,19 +125,6 @@ export default function Page() {
               <p className="text-muted">
                 Verify that the performance is top-notch and we still only rely on browsers to do what they need to do.
                 Optimize if necessary before public release.
-              </p>
-            </li>
-
-            <li className="mb-3">
-              <strong>Reassess ALL examples.</strong>
-              <Badge bg="danger" className="ms-1" pill>
-                Critical
-              </Badge>
-              <p className="text-muted">
-                While writing the examples, a lot has changed since the first to last one. We need to go through all the
-                examples, clean them, remove redundant pieces and ideally split some forms into multiple examples, like
-                I have done with <Link href="/examples/basic/form-methods">Form methods exmaple</Link> for better
-                clarity.
               </p>
             </li>
 

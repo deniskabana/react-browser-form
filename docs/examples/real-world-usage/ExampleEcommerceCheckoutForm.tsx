@@ -54,7 +54,7 @@ export function ExampleEcommerceCheckoutForm() {
     onChange: setData,
     defaultValues,
     validationSchema,
-    liveChangeFields: ["hasDifferentShipping"],
+    liveFields: ["hasDifferentShipping"],
   });
 
   const { errors } = errorData;

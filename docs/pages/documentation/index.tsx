@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Separator from "ui/Separator";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Head>
@@ -10,6 +11,13 @@ export default function Home() {
       <main>
         <h1>Documentation</h1>
         <p>Lorem ipsum dolor sit amet consectetur edipiscing elit.</p>
+
+        <Separator />
+
+        <div>
+          <h2 className="mb-4">How it works</h2>
+          <p>Lorem ipsum dolor sit amet consectetur edipiscing elit.</p>
+        </div>
       </main>
     </>
   );

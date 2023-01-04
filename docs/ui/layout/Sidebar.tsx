@@ -29,6 +29,7 @@ const MENU: MenuItem[] = [
     children: [
       { title: "Options API", href: "/documentation/options-api" },
       { title: "Return types API", href: "/documentation/return-types-api" },
+      { title: "Validation and transformation", href: "/documentation/validation-and-transformation" },
     ],
   },
   {
