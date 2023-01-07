@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Separator from "ui/Separator";
 
 export default function Page() {
   return (
@@ -9,7 +10,13 @@ export default function Page() {
 
       <main>
         <h1>Real-world usage examples</h1>
-        <p>Lorem ipsum dolor sit amet consectetur edipiscing elit.</p>
+
+        <Separator />
+
+        <p>
+          These are some examples of how React Dumb Form will handle actual, real-world scenarios with all the options
+          and features that we have shown in basic and advanced examples before.
+        </p>
       </main>
     </>
   );
