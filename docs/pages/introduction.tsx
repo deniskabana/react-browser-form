@@ -38,34 +38,35 @@ export default function Page() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:user-heart-outline" width={36} className="me-2" />
-                Developer-first experience. No learning curve. Junior-friendly.
+                Developer-first experience. Minimal and junior-friendly.
               </h5>
               <span className="text-muted">
-                Minimal, effective and easy to learn - anyone regardless of skill level can start using React Dumb Form
-                now. Visit <Link href="/examples/basic/minimal-form">Minimal form example</Link> to see what we mean by
-                minimal. A big part of our developer experience philosophy is maintaining very verbose documentation.
+                Minimal, effective and easy to learn - anyone regardless of their skill level can start using React Dumb
+                Form now. Visit <Link href="/examples/basic/minimal-form">Minimal form example</Link> to see what we
+                mean by minimal. A big part of our developer experience philosophy is maintaining a very verbose
+                documentation.
               </span>
             </li>
 
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="tabler:brand-typescript" width={36} className="me-2" />
-                TypeScript at the core. Type safety and informationon your side.
+                TypeScript-first. Type safety, hints and checks.
               </h5>
               <span className="text-muted">
-                Written entirely in TypeScript with heavy emphasis on type safety. Fully documented. With examples,
-                inline documentation and types to help you prevent errors.
+                Written entirely in TypeScript with a heavy emphasis on type safety. Fully documented. With examples,
+                inline documentation and types to help you prevent errors and improve developer experience.
               </span>
             </li>
 
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:package-variant" height={36} className="me-2" />
-                Small bundle size and a single dependency - React.
+                Small bundle size and a no dependencies.
               </h5>
               <span className="text-muted">
-                React Dumb Form stricly uses a single dependency (React) and has a small bundle size. This is a core
-                part of the project philosophy - let the browser handle the interactions for you.
+                React Dumb Form stricly uses React hooks and has a very small bundle size. This is a core part of the
+                project philosophy - let the browser handle what it can for us - developers.
               </span>
             </li>
 
@@ -84,7 +85,7 @@ export default function Page() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:file-document-error-outline" height={36} className="me-2" />
-                Validation and transformation support - the simplest you have seen in React forms.
+                Validation and transformation - simple, minimal, powerful.
               </h5>
               <span className="text-muted">
                 React Dumb Form transform data types automatically, but you can also transform values or not transform
