@@ -101,9 +101,6 @@ export interface TransformationSchema<Schema> {
   fields?: {
     [Field in keyof Schema]?: TransformationFn<Schema, Field> | "number" | "string" | "boolean";
   };
-
-  /** Transform all data en masse. Can not use `fields` if `transformAllData` is used. */
-  transformAllData?: TransformationAllFn<Schema>;
 }
 
 // VALIDATION AND ERROR HANDLING

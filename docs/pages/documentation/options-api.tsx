@@ -157,7 +157,7 @@ export default function Page() {
                   <code>ValidationError</code> if field validation fails.
                   <ul className="mt-2">
                     <li>
-                      <Link href="/documentation/validation-schema">Documentation</Link>
+                      <Link href="/documentation/validation-and-transformation">Documentation</Link>
                     </li>
                     <li>
                       <Link href="/examples/validation">Example</Link>
@@ -193,7 +193,7 @@ export default function Page() {
                   masking or just recast types.
                   <ul className="mt-2">
                     <li>
-                      <Link href="/documentation/transformation-schema">Documentation</Link>
+                      <Link href="/documentation/validation-and-transformation">Documentation</Link>
                     </li>
                     <li>
                       <Link href="/examples/advanced/value-transformation">Example</Link>
