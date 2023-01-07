@@ -33,15 +33,16 @@ export default function Breadcrumbs() {
   return (
     <Container className="my-4 py-2">
       <Row>
-        <Col md="3" className="d-flex align-items-center">
+        {/* <Col md="3" className="d-flex align-items-center">
           <InputGroup className="shadow-sm">
             <Form.Control placeholder="Quick search" />
             <InputGroup.Text className="bg-light">
               <Icon icon="mingcute:search-2-fill" />
             </InputGroup.Text>
           </InputGroup>
-        </Col>
-        <Col md="9" className="d-flex align-items-center">
+        </Col> */}
+        {/* <Col md="9" className="d-flex align-items-center"> */}
+        <Col className="d-flex align-items-center">
           <Breadcrumb>
             {breadcrumbs.map((crumb, idx) => (
               <Crumb {...crumb} key={idx} last={idx === breadcrumbs.length - 1} />
