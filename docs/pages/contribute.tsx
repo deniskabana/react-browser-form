@@ -3,7 +3,7 @@ import Link from "next/link";
 import Separator from "ui/Separator";
 import Tip from "ui/Tip";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Head>

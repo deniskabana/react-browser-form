@@ -37,7 +37,7 @@ const settingsValues = {
 };
 type SettingsForm = typeof settingsValues;
 
-export default function Home() {
+export default function Page() {
   const [settings, setSettings] = React.useState<SettingsForm>(settingsValues);
   const [shouldRenderForms, setShouldRenderForms] = React.useState(false);
 
