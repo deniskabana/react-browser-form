@@ -38,7 +38,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
 }
 
 // Get component source code
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const sourceCode = await fs.readFile("examples/real-world-usage/ExampleInvoiceArrayFields.tsx", "utf8");
   return { props: { sourceCode } };
 }

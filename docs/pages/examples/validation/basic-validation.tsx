@@ -56,7 +56,7 @@ export default function Page({
 }
 
 // Get component source code
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const basicSourceCode = await fs.readFile("examples/validation/ExampleBasicValidation.tsx", "utf8");
   const onInitSourceCode = await fs.readFile("examples/validation/ExampleBasicValidationOnInit.tsx", "utf8");
   return { props: { basicSourceCode, onInitSourceCode } };

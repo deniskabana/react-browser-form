@@ -59,7 +59,7 @@ export default function Page({
 }
 
 // Get component source code
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const minimalSourceCode = await fs.readFile("examples/basic/ExampleBasicMinimal.tsx", "utf8");
   const realisticSourceCode = await fs.readFile("examples/basic/ExampleBasicUsage.tsx", "utf8");
   return { props: { minimalSourceCode, realisticSourceCode } };

@@ -60,7 +60,7 @@ export default function Page({
 }
 
 // Get component source code
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const onChangeSourceCode = await fs.readFile("examples/validation/ExampleRevalidationStrategyOnChange.tsx", "utf8");
   const onBlurSourceCode = await fs.readFile("examples/validation/ExampleRevalidationStrategyOnBlur.tsx", "utf8");
   return { props: { onChangeSourceCode, onBlurSourceCode } };

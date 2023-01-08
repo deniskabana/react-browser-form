@@ -86,7 +86,7 @@ export default function Page({
 }
 
 // Get component source code
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const submitSourceCode = await fs.readFile("examples/basic/ExampleFormMethodsSubmit.tsx", "utf8");
   const resetSourceCode = await fs.readFile("examples/basic/ExampleFormMethodsReset.tsx", "utf8");
   const resetValuesSourceCode = await fs.readFile("examples/basic/ExampleFormMethodsResetValues.tsx", "utf8");

@@ -26,7 +26,7 @@ export function setDebugData<Schema>(
   options: DumbFormOptions<any>,
   shouldDispatch = false,
 ) {
-  if (!options.debug || typeof window === "undefined" || process.env.NODE_ENV === "production") return;
+  if (!options.debug || typeof window === "undefined") return;
 
   const rdfDebugChangeEvent = new CustomEvent(DEBUG_CHANGE_EVENT, { detail: options.name });
 

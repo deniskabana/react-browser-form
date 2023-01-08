@@ -101,7 +101,7 @@ export default function Page({
 }
 
 // Get component source code
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const onSubmitUnlessErrorSourceCode = await fs.readFile("examples/basic/ExampleModeOnSubmitUnlessError.tsx", "utf8");
   const onSubmitSourceCode = await fs.readFile("examples/basic/ExampleModeOnSubmit.tsx", "utf8");
   const onBlurUnlessErrorSourceCode = await fs.readFile("examples/basic/ExampleModeOnBlurUnlessError.tsx", "utf8");

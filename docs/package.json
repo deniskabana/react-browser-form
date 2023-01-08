@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "NODE_ENV=production next build && next export && cp -r ./out ../published-docs",
     "start": "next start",
     "lint": "next lint"
   },

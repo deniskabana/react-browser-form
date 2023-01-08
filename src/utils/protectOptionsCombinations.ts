@@ -3,7 +3,7 @@ import { logError } from "./logError";
 
 /** TypeScript will try to catch these errors build-time, but some users might still use the any type to override our constraints. */
 export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schema>) {
-  const { name, defaultValues, onChange, validationSchema, validateAfterInit, mode, liveFields, debug } = options;
+  const { name, defaultValues, onChange, validationSchema, validateAfterInit, mode, liveFields } = options;
 
   // ERRORS - prevent further execution to prevent bugs
   // --------------------------------------------------------------------------------
@@ -32,9 +32,6 @@ export function protectOptionsCominations<Schema>(options: DumbFormOptions<Schem
     if (typeof onChange !== "function")
       throw new Error("react-dumb-form: 'onChange' function is required if using 'liveFields'.");
   }
-
-  if (debug && process.env.NODE_ENV === "production")
-    throw new Error("react-dumb-form: DO NOT USE debug IN PRODUCTION! VERY UNSAFE!");
 
   // WARNINGS - should not stop exeuction in production environment
   // --------------------------------------------------------------------------------

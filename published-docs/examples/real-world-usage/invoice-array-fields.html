@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="description" content="React dumb form documentation, APIs and examples" class="jsx-3008537926"/><meta name="viewport" content="width=device-width, initial-scale=1" class="jsx-3008537926"/><link rel="icon" href="/favicon.ico" class="jsx-3008537926"/><title>Invoice array fields - React Dumb Form Docs</title><meta name="next-head-count" content="5"/><link rel="preload" href="/_next/static/media/b89f66ecdb077e7f.p.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="/_next/static/media/114f4891ad22b47f.p.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="/_next/static/css/6698c5783b943f59.css" as="style"/><link rel="stylesheet" href="/_next/static/css/6698c5783b943f59.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-ee7e63bc15b31913.js" defer=""></script><script src="/_next/static/chunks/framework-114634acb84f8baa.js" defer=""></script><script src="/_next/static/chunks/main-66ca454f7bdf962f.js" defer=""></script><script src="/_next/static/chunks/pages/_app-f8560d72d71a4ed5.js" defer=""></script><script src="/_next/static/chunks/100-5fd5ff9198d43996.js" defer=""></script><script src="/_next/static/chunks/214-754251f678fbd0b7.js" defer=""></script><script src="/_next/static/chunks/479-4ed09ad600f24b51.js" defer=""></script><script src="/_next/static/chunks/pages/examples/real-world-usage/invoice-array-fields-ea898fe020eb899e.js" defer=""></script><script src="/_next/static/UfOzbXYeNhyD4EtxiKRuv/_buildManifest.js" defer=""></script><script src="/_next/static/UfOzbXYeNhyD4EtxiKRuv/_ssgManifest.js" defer=""></script><style id="__jsx-3008537926">h1,h2,h3,h4,h5,h6,p,#mainNav .navbar-brand,.tooltip-inner,body{letter-spacing:.2px;font-family:'__Nunito_23bd3b', '__Nunito_Fallback_23bd3b';--bs-font-monospace:'__Ubuntu_Mono_b8ef7f', '__Ubuntu_Mono_Fallback_b8ef7f'}pre,code[class*="language-"],pre[class*="language-"]{font-family:'__Ubuntu_Mono_b8ef7f', '__Ubuntu_Mono_Fallback_b8ef7f'!important}</style></head><body><div id="__next"><nav id="mainNav" class="navbar navbar-expand-lg navbar-dark"><div class="container"><a href="/" class="fw-bold navbar-brand">📝 React Dumb Form</a><button aria-controls="basic-navbar-nav" type="button" aria-label="Toggle navigation" class="navbar-toggler collapsed"><span class="navbar-toggler-icon"></span></button><div class="navbar-collapse collapse" id="basic-navbar-nav"><div class="ms-auto navbar-nav"><a role="button" tabindex="0" href="https://github.com/deniskabana/react-dumb-form" class="rounded-pill btn btn-light"><div class="d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg><span class="small">GitHub</span></div></a></div></div></div></nav><div class="my-4 py-2 container"><div class="row"><div class="d-flex align-items-center col"><nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><span><a href="/">Home</a></span></li><li class="breadcrumb-item"><span><a href="/examples">Examples</a></span></li><li class="breadcrumb-item"><span><a href="/examples/real-world-usage">Real world usage</a></span></li><li class="breadcrumb-item active" aria-current="page"><strong>Invoice array fields</strong></li></ol></nav></div></div></div><div style="padding-bottom:4rem" class="container"><div class="row"><div class="col-md-3"><div class="card"><div class="shadow-sm list-group list-group-flush"><div style="min-height:3rem;padding-left:0.9166666666666666rem;font-size:0.96em;background-color:#ffffff" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/introduction"><span></span>Introduction</a></div><div style="min-height:3rem;padding-left:0.9166666666666666rem;font-size:0.96em;background-color:#ffffff" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/frequently-asked-questions"><span></span>FAQ</a></div><div style="min-height:3rem;padding-left:0.9166666666666666rem;font-size:0.96em;background-color:#ffffff" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/getting-started"><span></span>Getting started</a></div><div style="min-height:3rem;padding-left:0.9166666666666666rem;font-size:0.96em;background-color:#ffffff" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/documentation"><span></span>Documentation</a><button type="button" class="ms-auto border btn btn-light btn-sm"><span></span></button></div><div style="min-height:3rem;padding-left:0.9166666666666666rem;font-size:0.96em;background-color:#ffffff" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-secondary fw-bold" href="/examples"><span></span>Examples</a><button type="button" class="ms-auto border btn btn-light btn-sm"><span></span></button></div><div style="background-color:#380fa71a" class="border-bottom list-group list-group-flush"><div style="min-height:3rem;padding-left:1.5833333333333333rem;font-size:0.92em;background-color:#fff3f2" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/examples/basic"><span></span>Basic</a><button type="button" class="ms-auto border btn btn-light btn-sm"><span></span></button></div><div style="min-height:3rem;padding-left:1.5833333333333333rem;font-size:0.92em;background-color:#fff3f2" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/examples/advanced"><span></span>Advanced</a><button type="button" class="ms-auto border btn btn-light btn-sm"><span></span></button></div><div style="min-height:3rem;padding-left:1.5833333333333333rem;font-size:0.92em;background-color:#fff3f2" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/examples/validation"><span></span>Validation</a><button type="button" class="ms-auto border btn btn-light btn-sm"><span></span></button></div><div style="min-height:3rem;padding-left:1.5833333333333333rem;font-size:0.92em;background-color:#fff3f2" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-secondary fw-bold" href="/examples/real-world-usage"><span></span>Real-world usage</a><button type="button" class="ms-auto border btn btn-light btn-sm"><span></span></button></div><div style="background-color:#380fa71a" class="border-bottom list-group list-group-flush"><div style="min-height:3rem;padding-left:2.25rem;font-size:0.88em;background-color:#fee8e6" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/examples/real-world-usage/user-registration"><span></span>User registration</a></div><div style="min-height:3rem;padding-left:2.25rem;font-size:0.88em;background-color:#fee8e6" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/examples/real-world-usage/ecommerce-checkout"><span></span>Ecommerce checkout</a></div><div style="min-height:3rem;padding-left:2.25rem;font-size:0.88em;background-color:#fee8e6" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-secondary fw-bold" href="/examples/real-world-usage/invoice-array-fields"><span></span>Invoice array fields</a></div></div><div style="min-height:3rem;padding-left:1.5833333333333333rem;font-size:0.92em;background-color:#fff3f2" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/examples/performance-showcase"><span></span>Performance showcase</a></div></div><div style="min-height:3rem;padding-left:0.9166666666666666rem;font-size:0.96em;background-color:#ffffff" class="d-flex align-items-center list-group-item"><a style="line-height:1.2" class="text-decoration-none d-flex align-items-center text-body" href="/contribute"><span></span>Contribute</a></div></div></div></div><div class="col-md-9"><main><h1>Invoice array fields</h1><p class="text-muted">An invoice creation example. This is a real-world example of how to approach array fields before there is any higher level API with abstractions implemented.</p><div role="alert" class="fade shadow-sm mb-3 p-2 alert alert-danger show" style="font-size:0.75rem"><div class="hstack minBreakpoint-xs"><div><span></span></div><div><p class="mb-0"><strong>This example is non-standard!</strong> It does not use the form meta and state table since it uses more underlying forms.</p></div></div></div><div role="alert" class="fade shadow-sm mb-3 p-2 alert alert-info show" style="font-size:0.75rem"><div class="hstack minBreakpoint-xs"><div><span></span></div><div><p class="mb-0">This example uses <code>react-bootstrap</code> for styling purposes and some custom UI components for visual aspects.</p></div></div></div><div style="margin:2rem 0;opacity:0.25;border-top:1px solid var(--bs-gray-800)"></div><div class="mt-4 form-code-and-tabs row"><div class="col-md-12 col-sm-12"><ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><button type="button" id="example-minimal-form-tabs-tab-form" role="tab" data-rr-ui-event-key="form" aria-controls="example-minimal-form-tabs-tabpane-form" aria-selected="true" class="nav-link active">Form</button></li><li class="nav-item" role="presentation"><button type="button" id="example-minimal-form-tabs-tab-code" role="tab" data-rr-ui-event-key="code" aria-controls="example-minimal-form-tabs-tabpane-code" aria-selected="false" tabindex="-1" class="nav-link">Code</button></li></ul><div class="tab-content"><div role="tabpanel" id="example-minimal-form-tabs-tabpane-form" aria-labelledby="example-minimal-form-tabs-tab-form" class="p-4 bg-white border border-top-0 shadow-sm tab-pane active"><h6 class="mb-3">Invoice details</h6><div style="margin:1rem 0;opacity:0.25;border-top:1px solid var(--bs-gray-800)"></div><div><form name="example-invoice-array-fields-form-0"><div class="align-items-center hstack minBreakpoint-xs"><div class="mt-3 me-2"><div class="mb-2 flex-fill"><div class="form-check form-switch"><input name="isActive" type="checkbox" id="switch-isActive-undefined" class="form-check-input"/><label title="" for="switch-isActive-undefined" class="form-check-label"><span style="font-size:0.8em;user-select:none"></span></label></div></div></div><div class="row"><div class="col-md-7"><div class="row"><div class="col-md-8"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Title</label><input name="title" type="text" class="form-control form-control-sm"/></div></div><div class="col-md-4"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Type</label><select name="type" class="form-select form-select-sm"><option value="service">Service</option><option value="goods">Goods</option></select></div></div></div></div><div class="col-md-5"><div class="row"><div class="col"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Quantity</label><input name="quantity" type="number" class="form-control form-control-sm"/></div></div><div class="col"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Unit</label><select name="unit" class="form-select form-select-sm"><option value="hours">hrs</option><option value="pieces">pcs</option></select></div></div><div class="col"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Price</label><input name="price" type="text" class="form-control form-control-sm"/></div></div></div></div></div></div><div class="align-items-center justify-content-end hstack minBreakpoint-xs"><small class="me-3" style="text-decoration-line:none"><strong>Line total: </strong><span class="text-muted"></span></small><button type="button" class="btn btn-outline-danger btn-sm"><span></span>Remove</button></div></form><div style="margin:1rem 0;opacity:0.25;border-top:1px dashed var(--bs-gray-800)"></div><form name="example-invoice-array-fields-form-1"><div class="align-items-center hstack minBreakpoint-xs"><div class="mt-3 me-2"><div class="mb-2 flex-fill"><div class="form-check form-switch"><input name="isActive" type="checkbox" id="switch-isActive-undefined" class="form-check-input"/><label title="" for="switch-isActive-undefined" class="form-check-label"><span style="font-size:0.8em;user-select:none"></span></label></div></div></div><div class="row"><div class="col-md-7"><div class="row"><div class="col-md-8"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Title</label><input name="title" disabled="" type="text" class="form-control form-control-sm"/></div></div><div class="col-md-4"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Type</label><select name="type" disabled="" class="form-select form-select-sm"><option value="service">Service</option><option value="goods">Goods</option></select></div></div></div></div><div class="col-md-5"><div class="row"><div class="col"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Quantity</label><input name="quantity" disabled="" type="number" class="form-control form-control-sm"/></div></div><div class="col"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Unit</label><select name="unit" disabled="" class="form-select form-select-sm"><option value="hours">hrs</option><option value="pieces">pcs</option></select></div></div><div class="col"><div class="mb-3 flex-grow-1 flex-shrink-0"><label class="mb-1 fw-bold form-label" style="font-size:0.8em">Price</label><input name="price" disabled="" type="text" class="form-control form-control-sm"/></div></div></div></div></div></div><div class="align-items-center justify-content-end hstack minBreakpoint-xs"><small class="me-3" style="text-decoration-line:line-through"><strong>Line total: </strong><span class="text-muted"></span></small><button type="button" class="btn btn-outline-danger btn-sm"><span></span>Remove</button></div></form><div style="margin:1rem 0;opacity:0.25;border-top:1px dashed var(--bs-gray-800)"></div><div class="text-center"><button type="button" class="btn btn-outline-primary btn-sm"><span></span>Add invoice line</button></div></div><div style="margin:1rem 0;opacity:0.25;border-top:1px solid var(--bs-gray-800)"></div><div><div class="hstack minBreakpoint-xs"><div class="ms-auto hstack minBreakpoint-xs"><div class="me-3"><strong>Invoice total: </strong><span class="text-muted fw-bold"></span></div><button type="button" class="btn btn-primary btn-sm"><span></span>Finish invoice</button></div></div></div></div><div role="tabpanel" id="example-minimal-form-tabs-tabpane-code" aria-labelledby="example-minimal-form-tabs-tab-code" class="bg-white border border-top-0 shadow-sm position-relative tab-pane"><div style="position:absolute;bottom:0.6rem;right:0.6rem;z-index:1"><button type="button" class="shadow-sm btn btn-dark btn-sm"><span></span>Copy code</button></div><div style="max-height:38rem;overflow:scroll"><pre class="m-0 line-numbers language-tsx" tabindex="-1"><code class="language-tsx">// THIS CODE IS TEMPORARY, BEFORE FIELD ARRAY IS IMPLEMENTED
+
+import React, { useEffect, useLayoutEffect, useState } from &quot;react&quot;;
+import { useDumbForm, ValidationError, ValidationSchema } from &quot;react-dumb-form&quot;;
+
+// UI for documentation only
+import { Button, Form, Stack, Table } from &quot;react-bootstrap&quot;;
+import { FormTextInput, FormGroup, FormGroupTitle, FormSelect, FormCheckbox } from &quot;ui/forms&quot;;
+import { Icon } from &quot;@iconify/react&quot;;
+import Separator from &quot;ui/Separator&quot;;
+
+// MOCK DATA &amp; FORM SETUP
+// --------------------------------------------------------------------------------
+
+// Mock data (in a real-world scenario this should come from a backend API)
+enum Types {
+  Service = &quot;service&quot;,
+  Goods = &quot;goods&quot;,
+}
+const TYPES = [
+  { value: Types.Service, label: &quot;Service&quot; },
+  { value: Types.Goods, label: &quot;Goods&quot; },
+];
+
+// Mock data (in a real-world scenario this should come from a backend API)
+enum Units {
+  Hours = &quot;hours&quot;,
+  Pieces = &quot;pieces&quot;,
+}
+const UNITS = [
+  { value: Units.Hours, label: &quot;hrs&quot; },
+  { value: Units.Pieces, label: &quot;pcs&quot; },
+];
+
+const defaultValues = {
+  isActive: true,
+  title: &quot;&quot;,
+  type: &quot;&quot; as Types,
+  price: 0,
+  quantity: 0,
+  unit: &quot;&quot; as Units,
+};
+type Form = typeof defaultValues;
+
+// VALIDATION
+// --------------------------------------------------------------------------------
+
+function validateNumMinZero(number: number) {
+  if (number &lt; 0) throw new ValidationError(&quot;Number must be greater than 0.&quot;);
+}
+
+const validationSchema: ValidationSchema&lt;Form&gt; = {
+  required: { fields: [&quot;type&quot;, &quot;price&quot;, &quot;quantity&quot;, &quot;unit&quot;] },
+
+  validators: {
+    price: validateNumMinZero,
+    quantity: validateNumMinZero,
+    title: title =&gt; {
+      if (title.length &lt; 10) throw new ValidationError(&quot;Title must be at least 10 characters long.&quot;);
+    },
+  },
+};
+
+// LINE FIELDS COMPONENT WITH FORM
+// --------------------------------------------------------------------------------
+
+interface InvoiceLineFormProps {
+  index: number;
+  data: Form;
+  setData: (data: Form) =&gt; void;
+  handleRemoveLine: VoidFunction;
+}
+
+export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: InvoiceLineFormProps) {
+  const { formProps, names, errorData, setValues } = useDumbForm&lt;Form&gt;({
+    name: `example-invoice-array-fields-form-${index}`,
+    mode: &quot;onBlurUnlessError&quot;,
+    onSubmit: setData,
+    onChange: setData,
+    defaultValues: { ...defaultValues, ...data },
+    validationSchema,
+    liveFields: [&quot;isActive&quot;, &quot;quantity&quot;, &quot;price&quot;],
+  });
+
+  const { errors } = errorData;
+  const { isActive } = data;
+
+  // Automatically set quantity unit when switching between goods and services
+  useEffect(() =&gt; {
+    if (data.type === Types.Service) {
+      setValues({ unit: Units.Hours });
+    }
+    if (data.type === Types.Goods) {
+      setValues({ unit: Units.Pieces });
+    }
+  }, [data.type]);
+
+  // Calculate new formatted line total
+  const [sumTotal, setSumTotal] = React.useState&lt;string | null&gt;(null);
+  useLayoutEffect(() =&gt; {
+    const naiveTotal = data.price * data.quantity;
+    setSumTotal(`${Number(Number.isNaN(naiveTotal) ? 0 : naiveTotal).toFixed(2)} €`);
+  }, [data.price, data.quantity]);
+
+  return (
+    &lt;&gt;
+      &lt;form {...formProps}&gt;
+        &lt;Stack direction=&quot;horizontal&quot; className=&quot;align-items-center&quot;&gt;
+          &lt;div className=&quot;mt-3 me-2&quot;&gt;
+            &lt;FormCheckbox type=&quot;switch&quot; name={names.isActive} /&gt;
+          &lt;/div&gt;
+
+          &lt;FormGroup layout={[7, 5]}&gt;
+            &lt;FormGroup layout={[8, 4]}&gt;
+              &lt;FormTextInput label=&quot;Title&quot; small disabled={!isActive} name={names.title} error={errors.title} /&gt;
+              &lt;FormSelect
+                options={TYPES}
+                label=&quot;Type&quot;
+                small
+                disabled={!isActive}
+                name={names.type}
+                error={errors.type}
+              /&gt;
+            &lt;/FormGroup&gt;
+
+            &lt;FormGroup&gt;
+              &lt;FormTextInput
+                label=&quot;Quantity&quot;
+                small
+                disabled={!isActive}
+                type=&quot;number&quot;
+                name={names.quantity}
+                error={errors.quantity}
+              /&gt;
+              &lt;FormSelect
+                options={UNITS}
+                label=&quot;Unit&quot;
+                small
+                disabled={!isActive}
+                name={names.unit}
+                error={errors.unit}
+              /&gt;
+              &lt;FormTextInput label=&quot;Price&quot; small disabled={!isActive} name={names.price} error={errors.price} /&gt;
+            &lt;/FormGroup&gt;
+          &lt;/FormGroup&gt;
+        &lt;/Stack&gt;
+
+        &lt;Stack direction=&quot;horizontal&quot; className=&quot;align-items-center justify-content-end&quot;&gt;
+          &lt;small className=&quot;me-3&quot; style={{ textDecorationLine: isActive ? &quot;none&quot; : &quot;line-through&quot; }}&gt;
+            &lt;strong&gt;Line total: &lt;/strong&gt;
+            &lt;span className=&quot;text-muted&quot;&gt;{sumTotal}&lt;/span&gt;
+          &lt;/small&gt;
+          &lt;Button variant=&quot;outline-danger&quot; size=&quot;sm&quot; onClick={handleRemoveLine}&gt;
+            &lt;Icon icon=&quot;tabler:trash&quot; className=&quot;me-1&quot; /&gt;
+            Remove
+          &lt;/Button&gt;
+        &lt;/Stack&gt;
+      &lt;/form&gt;
+    &lt;/&gt;
+  );
+}
+
+// MAIN COMPONENT (WRAPPER)
+// --------------------------------------------------------------------------------
+
+export function ExampleInvoiceArrayFields() {
+  // Imagine this coming from an API endpoint to populate initial state
+  const [data, setData] = useState&lt;Form[]&gt;([
+    {
+      isActive: true,
+      title: &quot;iPhone 13, 128GB, Blue&quot;,
+      type: Types.Goods,
+      quantity: 2,
+      unit: Units.Pieces,
+      price: 899,
+    },
+    {
+      isActive: false,
+      title: &quot;Extended warranty (36 months)&quot;,
+      type: Types.Service,
+      quantity: 2,
+      unit: Units.Pieces,
+      price: 99,
+    },
+  ]);
+  const [total, setTotal] = useState(&quot;&quot;);
+  const [wasSubmitted, setWasSubmitted] = useState(false);
+
+  useEffect(() =&gt; {
+    const total = data.reduce((total, line) =&gt; (line.isActive ? line.price * line.quantity + total : total), 0);
+    setTotal(Number.isNaN(total) ? &quot;-&quot; : total.toFixed(2) + &quot; €&quot;);
+  }, [data]);
+
+  const handleSetData = (index: number, dataToSet: Form) =&gt; {
+    setData(data =&gt; {
+      const newData = [...data];
+      newData[index] = dataToSet;
+      return newData;
+    });
+  };
+
+  const handleAddLine = () =&gt; {
+    setData(data =&gt; [...data, defaultValues]);
+  };
+
+  const handleRemoveLine = (index: number) =&gt; {
+    setData(data =&gt; {
+      const newData = [...data];
+      newData.splice(index, 1);
+      return newData;
+    });
+  };
+
+  const handleInvoiceSubmitToggle = () =&gt; setWasSubmitted(!wasSubmitted);
+
+  return (
+    &lt;&gt;
+      &lt;FormGroupTitle&gt;Invoice details&lt;/FormGroupTitle&gt;
+
+      &lt;Separator small /&gt;
+
+      {wasSubmitted ? (
+        &lt;Table striped className=&quot;mb-4&quot;&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;
+                &lt;small&gt;Title&lt;/small&gt;
+              &lt;/th&gt;
+              &lt;th&gt;
+                &lt;small&gt;Type&lt;/small&gt;
+              &lt;/th&gt;
+              &lt;th&gt;
+                &lt;small&gt;Quantity&lt;/small&gt;
+              &lt;/th&gt;
+              &lt;th&gt;
+                &lt;small&gt;Price&lt;/small&gt;
+              &lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            {data.map((line, index) =&gt; (
+              &lt;tr key={index} style={{ textDecorationLine: line.isActive ? &quot;none&quot; : &quot;line-through&quot; }}&gt;
+                &lt;td&gt;
+                  &lt;small className=&quot;fw-bold&quot;&gt;
+                    {line.title || &lt;span className=&quot;text-muted&quot;&gt;No description provided.&lt;/span&gt;}
+                  &lt;/small&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                  &lt;small&gt;{TYPES.find(type =&gt; type.value === line.type)?.label ?? &quot;-&quot;}&lt;/small&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                  &lt;small&gt;
+                    {line.quantity} {line.unit}
+                  &lt;/small&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                  &lt;small&gt;{line.price.toFixed(2)} €&lt;/small&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            ))}
+          &lt;/tbody&gt;
+        &lt;/Table&gt;
+      ) : (
+        &lt;div&gt;
+          {/* TODO: Not the nicest hack using `key` to force re-render when length changes. Implement a better solution. */}
+          {data.map((line, index) =&gt; (
+            &lt;React.Fragment key={`${index}-${data.length}`}&gt;
+              &lt;InvoiceLineForm
+                index={index}
+                data={line}
+                setData={data =&gt; handleSetData(index, data)}
+                handleRemoveLine={() =&gt; handleRemoveLine(index)}
+              /&gt;
+              &lt;Separator dashed small /&gt;
+            &lt;/React.Fragment&gt;
+          ))}
+          &lt;div className=&quot;text-center&quot;&gt;
+            &lt;Button variant=&quot;outline-primary&quot; size=&quot;sm&quot; onClick={handleAddLine} disabled={wasSubmitted}&gt;
+              &lt;Icon icon=&quot;material-symbols:add-circle-outline-rounded&quot; className=&quot;me-1&quot; /&gt;
+              Add invoice line
+            &lt;/Button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      )}
+
+      {!wasSubmitted &amp;&amp; &lt;Separator small /&gt;}
+
+      &lt;div&gt;
+        &lt;Stack direction=&quot;horizontal&quot;&gt;
+          &lt;Stack direction=&quot;horizontal&quot; className=&quot;ms-auto&quot;&gt;
+            &lt;div className=&quot;me-3&quot;&gt;
+              &lt;strong&gt;Invoice total: &lt;/strong&gt;
+              &lt;span className=&quot;text-muted fw-bold&quot;&gt;{total}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;Button size=&quot;sm&quot; onClick={handleInvoiceSubmitToggle}&gt;
+              {wasSubmitted ? (
+                &lt;&gt;
+                  &lt;Icon icon=&quot;mdi:pencil&quot; className=&quot;me-1&quot; /&gt;
+                  Edit lines
+                &lt;/&gt;
+              ) : (
+                &lt;&gt;
+                  &lt;Icon icon=&quot;material-symbols:check-circle-outline-rounded&quot; className=&quot;me-1&quot; /&gt;
+                  Finish invoice
+                &lt;/&gt;
+              )}
+            &lt;/Button&gt;
+          &lt;/Stack&gt;
+        &lt;/Stack&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre></div></div></div></div></div></main></div></div></div><footer class="text-center py-5 shadow-sm mt-auto mb-0"><div class="py-5 my-4 container"><p class="fs-3 text-white">Enjoying React Dumb Form?<!-- --> <a href="https://github.com/deniskabana/react-dumb-form" class="fw-bold text-secondary">Star us on GitHub.</a></p><p class="text-white-50">By leaving us a star on GitHub or contributing you can support React Dumb Form&#x27;s growth and help stabilize it&#x27;s future.</p></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"sourceCode":"// THIS CODE IS TEMPORARY, BEFORE FIELD ARRAY IS IMPLEMENTED\n\nimport React, { useEffect, useLayoutEffect, useState } from \"react\";\nimport { useDumbForm, ValidationError, ValidationSchema } from \"react-dumb-form\";\n\n// UI for documentation only\nimport { Button, Form, Stack, Table } from \"react-bootstrap\";\nimport { FormTextInput, FormGroup, FormGroupTitle, FormSelect, FormCheckbox } from \"ui/forms\";\nimport { Icon } from \"@iconify/react\";\nimport Separator from \"ui/Separator\";\n\n// MOCK DATA \u0026 FORM SETUP\n// --------------------------------------------------------------------------------\n\n// Mock data (in a real-world scenario this should come from a backend API)\nenum Types {\n  Service = \"service\",\n  Goods = \"goods\",\n}\nconst TYPES = [\n  { value: Types.Service, label: \"Service\" },\n  { value: Types.Goods, label: \"Goods\" },\n];\n\n// Mock data (in a real-world scenario this should come from a backend API)\nenum Units {\n  Hours = \"hours\",\n  Pieces = \"pieces\",\n}\nconst UNITS = [\n  { value: Units.Hours, label: \"hrs\" },\n  { value: Units.Pieces, label: \"pcs\" },\n];\n\nconst defaultValues = {\n  isActive: true,\n  title: \"\",\n  type: \"\" as Types,\n  price: 0,\n  quantity: 0,\n  unit: \"\" as Units,\n};\ntype Form = typeof defaultValues;\n\n// VALIDATION\n// --------------------------------------------------------------------------------\n\nfunction validateNumMinZero(number: number) {\n  if (number \u003c 0) throw new ValidationError(\"Number must be greater than 0.\");\n}\n\nconst validationSchema: ValidationSchema\u003cForm\u003e = {\n  required: { fields: [\"type\", \"price\", \"quantity\", \"unit\"] },\n\n  validators: {\n    price: validateNumMinZero,\n    quantity: validateNumMinZero,\n    title: title =\u003e {\n      if (title.length \u003c 10) throw new ValidationError(\"Title must be at least 10 characters long.\");\n    },\n  },\n};\n\n// LINE FIELDS COMPONENT WITH FORM\n// --------------------------------------------------------------------------------\n\ninterface InvoiceLineFormProps {\n  index: number;\n  data: Form;\n  setData: (data: Form) =\u003e void;\n  handleRemoveLine: VoidFunction;\n}\n\nexport function InvoiceLineForm({ index, data, setData, handleRemoveLine }: InvoiceLineFormProps) {\n  const { formProps, names, errorData, setValues } = useDumbForm\u003cForm\u003e({\n    name: `example-invoice-array-fields-form-${index}`,\n    mode: \"onBlurUnlessError\",\n    onSubmit: setData,\n    onChange: setData,\n    defaultValues: { ...defaultValues, ...data },\n    validationSchema,\n    liveFields: [\"isActive\", \"quantity\", \"price\"],\n  });\n\n  const { errors } = errorData;\n  const { isActive } = data;\n\n  // Automatically set quantity unit when switching between goods and services\n  useEffect(() =\u003e {\n    if (data.type === Types.Service) {\n      setValues({ unit: Units.Hours });\n    }\n    if (data.type === Types.Goods) {\n      setValues({ unit: Units.Pieces });\n    }\n  }, [data.type]);\n\n  // Calculate new formatted line total\n  const [sumTotal, setSumTotal] = React.useState\u003cstring | null\u003e(null);\n  useLayoutEffect(() =\u003e {\n    const naiveTotal = data.price * data.quantity;\n    setSumTotal(`${Number(Number.isNaN(naiveTotal) ? 0 : naiveTotal).toFixed(2)} €`);\n  }, [data.price, data.quantity]);\n\n  return (\n    \u003c\u003e\n      \u003cform {...formProps}\u003e\n        \u003cStack direction=\"horizontal\" className=\"align-items-center\"\u003e\n          \u003cdiv className=\"mt-3 me-2\"\u003e\n            \u003cFormCheckbox type=\"switch\" name={names.isActive} /\u003e\n          \u003c/div\u003e\n\n          \u003cFormGroup layout={[7, 5]}\u003e\n            \u003cFormGroup layout={[8, 4]}\u003e\n              \u003cFormTextInput label=\"Title\" small disabled={!isActive} name={names.title} error={errors.title} /\u003e\n              \u003cFormSelect\n                options={TYPES}\n                label=\"Type\"\n                small\n                disabled={!isActive}\n                name={names.type}\n                error={errors.type}\n              /\u003e\n            \u003c/FormGroup\u003e\n\n            \u003cFormGroup\u003e\n              \u003cFormTextInput\n                label=\"Quantity\"\n                small\n                disabled={!isActive}\n                type=\"number\"\n                name={names.quantity}\n                error={errors.quantity}\n              /\u003e\n              \u003cFormSelect\n                options={UNITS}\n                label=\"Unit\"\n                small\n                disabled={!isActive}\n                name={names.unit}\n                error={errors.unit}\n              /\u003e\n              \u003cFormTextInput label=\"Price\" small disabled={!isActive} name={names.price} error={errors.price} /\u003e\n            \u003c/FormGroup\u003e\n          \u003c/FormGroup\u003e\n        \u003c/Stack\u003e\n\n        \u003cStack direction=\"horizontal\" className=\"align-items-center justify-content-end\"\u003e\n          \u003csmall className=\"me-3\" style={{ textDecorationLine: isActive ? \"none\" : \"line-through\" }}\u003e\n            \u003cstrong\u003eLine total: \u003c/strong\u003e\n            \u003cspan className=\"text-muted\"\u003e{sumTotal}\u003c/span\u003e\n          \u003c/small\u003e\n          \u003cButton variant=\"outline-danger\" size=\"sm\" onClick={handleRemoveLine}\u003e\n            \u003cIcon icon=\"tabler:trash\" className=\"me-1\" /\u003e\n            Remove\n          \u003c/Button\u003e\n        \u003c/Stack\u003e\n      \u003c/form\u003e\n    \u003c/\u003e\n  );\n}\n\n// MAIN COMPONENT (WRAPPER)\n// --------------------------------------------------------------------------------\n\nexport function ExampleInvoiceArrayFields() {\n  // Imagine this coming from an API endpoint to populate initial state\n  const [data, setData] = useState\u003cForm[]\u003e([\n    {\n      isActive: true,\n      title: \"iPhone 13, 128GB, Blue\",\n      type: Types.Goods,\n      quantity: 2,\n      unit: Units.Pieces,\n      price: 899,\n    },\n    {\n      isActive: false,\n      title: \"Extended warranty (36 months)\",\n      type: Types.Service,\n      quantity: 2,\n      unit: Units.Pieces,\n      price: 99,\n    },\n  ]);\n  const [total, setTotal] = useState(\"\");\n  const [wasSubmitted, setWasSubmitted] = useState(false);\n\n  useEffect(() =\u003e {\n    const total = data.reduce((total, line) =\u003e (line.isActive ? line.price * line.quantity + total : total), 0);\n    setTotal(Number.isNaN(total) ? \"-\" : total.toFixed(2) + \" €\");\n  }, [data]);\n\n  const handleSetData = (index: number, dataToSet: Form) =\u003e {\n    setData(data =\u003e {\n      const newData = [...data];\n      newData[index] = dataToSet;\n      return newData;\n    });\n  };\n\n  const handleAddLine = () =\u003e {\n    setData(data =\u003e [...data, defaultValues]);\n  };\n\n  const handleRemoveLine = (index: number) =\u003e {\n    setData(data =\u003e {\n      const newData = [...data];\n      newData.splice(index, 1);\n      return newData;\n    });\n  };\n\n  const handleInvoiceSubmitToggle = () =\u003e setWasSubmitted(!wasSubmitted);\n\n  return (\n    \u003c\u003e\n      \u003cFormGroupTitle\u003eInvoice details\u003c/FormGroupTitle\u003e\n\n      \u003cSeparator small /\u003e\n\n      {wasSubmitted ? (\n        \u003cTable striped className=\"mb-4\"\u003e\n          \u003cthead\u003e\n            \u003ctr\u003e\n              \u003cth\u003e\n                \u003csmall\u003eTitle\u003c/small\u003e\n              \u003c/th\u003e\n              \u003cth\u003e\n                \u003csmall\u003eType\u003c/small\u003e\n              \u003c/th\u003e\n              \u003cth\u003e\n                \u003csmall\u003eQuantity\u003c/small\u003e\n              \u003c/th\u003e\n              \u003cth\u003e\n                \u003csmall\u003ePrice\u003c/small\u003e\n              \u003c/th\u003e\n            \u003c/tr\u003e\n          \u003c/thead\u003e\n          \u003ctbody\u003e\n            {data.map((line, index) =\u003e (\n              \u003ctr key={index} style={{ textDecorationLine: line.isActive ? \"none\" : \"line-through\" }}\u003e\n                \u003ctd\u003e\n                  \u003csmall className=\"fw-bold\"\u003e\n                    {line.title || \u003cspan className=\"text-muted\"\u003eNo description provided.\u003c/span\u003e}\n                  \u003c/small\u003e\n                \u003c/td\u003e\n                \u003ctd\u003e\n                  \u003csmall\u003e{TYPES.find(type =\u003e type.value === line.type)?.label ?? \"-\"}\u003c/small\u003e\n                \u003c/td\u003e\n                \u003ctd\u003e\n                  \u003csmall\u003e\n                    {line.quantity} {line.unit}\n                  \u003c/small\u003e\n                \u003c/td\u003e\n                \u003ctd\u003e\n                  \u003csmall\u003e{line.price.toFixed(2)} €\u003c/small\u003e\n                \u003c/td\u003e\n              \u003c/tr\u003e\n            ))}\n          \u003c/tbody\u003e\n        \u003c/Table\u003e\n      ) : (\n        \u003cdiv\u003e\n          {/* TODO: Not the nicest hack using `key` to force re-render when length changes. Implement a better solution. */}\n          {data.map((line, index) =\u003e (\n            \u003cReact.Fragment key={`${index}-${data.length}`}\u003e\n              \u003cInvoiceLineForm\n                index={index}\n                data={line}\n                setData={data =\u003e handleSetData(index, data)}\n                handleRemoveLine={() =\u003e handleRemoveLine(index)}\n              /\u003e\n              \u003cSeparator dashed small /\u003e\n            \u003c/React.Fragment\u003e\n          ))}\n          \u003cdiv className=\"text-center\"\u003e\n            \u003cButton variant=\"outline-primary\" size=\"sm\" onClick={handleAddLine} disabled={wasSubmitted}\u003e\n              \u003cIcon icon=\"material-symbols:add-circle-outline-rounded\" className=\"me-1\" /\u003e\n              Add invoice line\n            \u003c/Button\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n      )}\n\n      {!wasSubmitted \u0026\u0026 \u003cSeparator small /\u003e}\n\n      \u003cdiv\u003e\n        \u003cStack direction=\"horizontal\"\u003e\n          \u003cStack direction=\"horizontal\" className=\"ms-auto\"\u003e\n            \u003cdiv className=\"me-3\"\u003e\n              \u003cstrong\u003eInvoice total: \u003c/strong\u003e\n              \u003cspan className=\"text-muted fw-bold\"\u003e{total}\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cButton size=\"sm\" onClick={handleInvoiceSubmitToggle}\u003e\n              {wasSubmitted ? (\n                \u003c\u003e\n                  \u003cIcon icon=\"mdi:pencil\" className=\"me-1\" /\u003e\n                  Edit lines\n                \u003c/\u003e\n              ) : (\n                \u003c\u003e\n                  \u003cIcon icon=\"material-symbols:check-circle-outline-rounded\" className=\"me-1\" /\u003e\n                  Finish invoice\n                \u003c/\u003e\n              )}\n            \u003c/Button\u003e\n          \u003c/Stack\u003e\n        \u003c/Stack\u003e\n      \u003c/div\u003e\n    \u003c/\u003e\n  );\n}\n"},"__N_SSG":true},"page":"/examples/real-world-usage/invoice-array-fields","query":{},"buildId":"UfOzbXYeNhyD4EtxiKRuv","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
