@@ -1,79 +1,151 @@
 // DUMB FORM HOOK TYPES
 // --------------------------------------------------------------------------------
 
+/** An options object to configure how you use this form.
+ * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+ */
 export interface BrowserFormOptionsInput<Schema> {
-  /** Form DOM name attribute - **must be unique**. Used to access inputs through `document.forms`, to read all events and hydrate the form data and the DOM inputs. */
+  /**
+   * Form DOM name attribute - **must be unique**. Used to access inputs through `document.forms`, to read all events and hydrate the form data and the DOM inputs.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   */
   name: string;
 
-  /** Default values need to match your schema. These are used for a lot of the iteration. */
+  /**
+   * Default values need to match your schema. These are used for a lot of the iteration.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   */
   defaultValues: Schema & { [key: string]: any };
 
-  /** A callback for when the form is submitted. **Will not trigger if there are errors during validation!** */
+  /**
+   * A callback for when the form is submitted. **Will not trigger if there are errors during validation!**
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   */
   onSubmit?: (data: Schema) => void;
 
-  /** This method is useful when using `onChange` mode, live fields, setting or resetting values, etc. */
+  /**
+   * This method is useful when using `onChange` mode, live fields, setting or resetting values, etc.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   */
   onChange?: (data: Schema) => void;
 
-  /** A dead-simple validation with a validator schema that has access to all the data. Throw `ValidationError` if field validation fails. */
+  /**
+   * A dead-simple validation with a validator schema that has access to single field and all form data. Throw `ValidationError` with an error message if field validation fails.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   * - [Documentation](https://deniskabana.github.io/react-browser-form/documentation/validation-and-transformation)
+   * - [Examples](https://deniskabana.github.io/react-browser-form/examples/validation)
+   */
   validationSchema?: ValidationSchema<Schema>;
 
-  /** A dead-simple type and value transformation schema. Useful when you need easy data processing, input masking or just recast types. */
+  /**
+   * A dead-simple type and value transformation schema. Useful when you need easy data processing, input masking or just recast types.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   * - [Documentation](https://deniskabana.github.io/react-browser-form/documentation/validation-and-transformation)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/advanced/value-transformation)
+   */
   transformationSchema?: TransformationSchema<Schema>;
 
-  /** Whether to perform validation right after mounting the form - before the first render. */
+  /**
+   * Whether to perform validation right after mounting the form - before the first render.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   */
   validateAfterInit?: boolean;
 
   /**
-   * - `onSubmitUnlessError` **(DEFAULT)**: Hydrate and validate upon form submit event. Inputs with errors re-validate on input change until the error is resolved. **Reliant on browser handling and keeping inputs mounted**.
-   * - `onSubmit`: Hydrate and validate upon form submit event. **The fastest option if not validating, reliant on browser handling and keeping inputs mounted**.
-   * - `onBlur`: Hydrate and validate the form on every input blur. **Very fast. Recommended for forms with more complex validation logic.**
+   * Options:
+   * - `onSubmitUnlessError`: Hydrate and validate upon form submit event. Inputs with errors re-validate on input change until the error is resolved.
+   * - `onSubmit`: Hydrate and validate upon form submit event. The fastest option if not validating, reliant on browser handling and keeping inputs mounted.
    * - `onBlurUnlessError`: Hydrate and validate the form on every input blur. Inputs with errors re-validate on input change until the error is resolved.
-   * - `onChange`: The de facto original React way of handling forms. **The slowest method. Only good for live data handling.** Good use-cases could be auto-suggestion, prefetching, etc.
+   * - `onBlur`: Hydrate and validate the form on every input blur. Recommended for forms with more complex validation logic.
+   * - `onChange`: The React way of handling forms. - the slowest method. Only good for live data handling. It is recommended to use live fields instead.
+   *
+   * Further reading:
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-modes)
+   *
    * @default "onSubmitUnlessError"
    */
   mode?: "onSubmitUnlessError" | "onSubmit" | "onBlurUnlessError" | "onBlur" | "onChange";
 
   /**
-   * A revalidation strategy after an error is found. To be used with any unlessError mode. Choose `onBlur` if your validation is demanding.
+   * A revalidation strategy for inputs with errors. To be used with any *unlessError mode. Choose `onBlur` if your validation is demanding.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/validation/revalidation-strategies)
+   *
    * @default "onChange"
    */
   revalidationStrategy?: "onChange" | "onBlur";
 
-  /** A subset of fields that will trigger update **and validation of fields with errors** on every input change. **Useful for conditional operations within forms.** */
+  /**
+   * A subset of fields that will trigger update and validation of specified fields on every input change. Useful for conditional operations within forms, dependent fields, etc.
+   * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/advanced/live-fields)
+   */
   liveFields?: (keyof Schema)[];
 
-  /** **DO NOT USE IN PRODUCTION**. This is meant for tests, library development and docs. */
+  /** **DO NOT USE IN PRODUCTION**. UNDOCUMENTED ON PURPOSE. This is meant for tests, library development and docs. */
   debug?: boolean;
 }
 
 export type BrowserFormOptions<Schema> = Required<BrowserFormOptionsInput<Schema>>;
 
+/** An object returned after initialization.
+ * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+ */
 export interface BrowserFormReturnType<Schema> {
-  /** **Optional.** Name helpers to prevent errors during development. You can pass `name` as a string but you will not get warned if `password` does not exist in provided schema. */
+  // REQUIRED TO USE
+  // --------------------------------------------------------------------------------
+
+  /**
+   * Props that will attach to DOM form node - `<form {...formProps} />`. This is necessary for React Browser Form to function as it uses the built-in browser form management mechanisms an React events.
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   */
+  formProps: FormComponentProps<Schema>;
+
+  // OPTIONAL TO USE
+  // --------------------------------------------------------------------------------
+
+  /**
+   * **Optional but recommended.** Names object prevents errors during development. You can pass name as a string to inputs optionally, but you will lose out on compile-time errors.
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   */
   names: Record<keyof Schema, string>;
 
   /**
    * Errors object that keeps tracks of errors and their count.
-   * @example { count: 1, errors: { password: "Error message" } } */
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   *
+   * @example { count: 1, errors: { password: "Error message" } }
+   */
   errorData: ErrorsObject<Schema>;
 
-  /** Whether the form has been touched by the user. */
+  /**
+   * Whether the form has been touched by the user. Be mindful, this only reacts to the first change and will not reset afterwards. No deep comparisons happen internally.
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   */
   isDirty: boolean;
 
-  /** Props to attach to your DOM form component. */
-  formProps: FormComponentProps<Schema>;
+  // METHODS
+  // --------------------------------------------------------------------------------
 
-  /** Programatically submit the form. */
+  /**
+   * Lets you programatically submit the form. Useful when using non-standard or controlled inputs.
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
+   */
   submit: SubmitMethod;
 
   /**
-   * Programatically reset the form with optional values. Triggers the `onChange` event and validation.
+   * Programatically reset the form. If no values are provided, `defaultValues` are used. If values are provided, they need to cover the entire Schema. Triggers the `onChange` event and validation.
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
    */
   reset: ResetMethod<Schema>;
 
   /**
-   * Allows to set a subset of values programmatically (this gets merged with form state).
-   * It will trigger an `onChange` event and validation.
+   * Allows to set a subset of values programmatically (this gets merged with the current form state). It will trigger an `onChange` event and validation.
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
    */
   setValues: SetValuesMethod<Schema>;
 }
@@ -81,8 +153,25 @@ export interface BrowserFormReturnType<Schema> {
 // EXPOSED METHODS
 // --------------------------------------------------------------------------------
 
+/**
+ * Lets you programatically submit the form. Useful when using non-standard or controlled inputs.
+ * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+ * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
+ */
 export type SubmitMethod = VoidFunction;
+
+/**
+ * Programatically reset the form. If no values are provided, `defaultValues` are used. If values are provided, they need to cover the entire Schema. Triggers the `onChange` event and validation.
+ * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+ * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
+ */
 export type ResetMethod<Schema> = (values?: Schema) => void;
+
+/**
+ * Allows to set a subset of values programmatically (this gets merged with the current form state). It will trigger an `onChange` event and validation.
+ * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+ * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
+ */
 export type SetValuesMethod<Schema> = (values: Partial<Schema>) => void;
 
 // VALUE TRANSFORMATION
@@ -90,9 +179,12 @@ export type SetValuesMethod<Schema> = (values: Partial<Schema>) => void;
 
 export type TransformationFn<Schema, Key extends keyof Schema> = (fieldData: unknown) => Schema[Key];
 
-export type TransformationAllFn<Schema> = (formState: Schema) => any;
-
-/** Transform your values either to a type or provide your own transformations. */
+/**
+ * A dead-simple type and value transformation schema. Useful when you need easy data processing, input masking or just recast types.
+ * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+ * - [Documentation](https://deniskabana.github.io/react-browser-form/documentation/validation-and-transformation)
+ * - [Example](https://deniskabana.github.io/react-browser-form/examples/advanced/value-transformation)
+ */
 export interface TransformationSchema<Schema> {
   /** By default a transformation based on input[type] is applied, managing the correct types for primitive types. */
   disableDefaultTransformation?: boolean;
@@ -111,9 +203,15 @@ export interface ErrorManager<Schema> {
   setErrors: (errors: Partial<Record<keyof Schema, string>>) => void;
 }
 
+/**
+ * Errors object that keeps tracks of errors and their count.
+ * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+ *
+ * @example { count: 1, errors: { password: "Error message" } }
+ */
 export interface ErrorsObject<Schema> {
   count: number;
-  /** Contains an object that ties field name to a custom error message (if any) */
+  /** Contains an object that ties field name to a custom error message (if any). */
   errors: Partial<Record<keyof Schema, string>>;
 }
 
@@ -131,7 +229,12 @@ export type ValidationValidatorsFields<Schema> = {
 
 export type ValidationRequiredFields<Schema> = { fields: (keyof Schema)[]; message?: string };
 
-/** You can use either validators, required or both. */
+/**
+ * A dead-simple validation with a validator schema that has access to single field and all form data. Throw `ValidationError` with an error message if field validation fails.
+ * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
+ * - [Documentation](https://deniskabana.github.io/react-browser-form/documentation/validation-and-transformation)
+ * - [Examples](https://deniskabana.github.io/react-browser-form/examples/validation)
+ */
 export type ValidationSchema<Schema> =
   | {
       validators?: ValidationValidatorsFields<Schema>;
@@ -151,6 +254,10 @@ export interface FieldsData<Schema> {
   validated: (keyof Schema)[];
 }
 
+/**
+ * Props that will attach to DOM form node - `<form {...formProps} />`. This is necessary for React Browser Form to function as it uses the built-in browser form management mechanisms an React events.
+ * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+ */
 export type FormComponentProps<Schema> = FormEventHandlers<Schema>[EventSource.Form] & {
   name: BrowserFormOptions<Schema>["name"];
 };

@@ -107,7 +107,7 @@ export default function Page() {
                     </li>
                     <li>
                       <code>onSubmit</code>: Hydrate and validate upon form submit event. The fastest option if not
-                      validating, reliant on browser handling and keeping inputs mounted .
+                      validating, reliant on browser handling and keeping inputs mounted.
                     </li>
                     <li>
                       <code>onBlurUnlessError</code>: Hydrate and validate the form on every input blur. Inputs with
@@ -138,8 +138,8 @@ export default function Page() {
                 <td className="font-monospace fw-bold">liveFields</td>
                 <td className="font-monospace text-secondary text-small">{"Array<keyof Schema>"}</td>
                 <td>
-                  A subset of fields that will trigger update <strong>and validation of fields with errors</strong> on
-                  every input change. Useful for conditional operations within forms, dependent fields, etc.
+                  A subset of fields that will trigger update and validation of specified fields on every input change.
+                  Useful for conditional operations within forms, dependent fields, etc.
                   <ul className="mt-2">
                     <li>
                       <Link href="/examples/advanced/live-fields">Example</Link>
@@ -153,14 +153,14 @@ export default function Page() {
                 <td className="font-monospace fw-bold">validationSchema</td>
                 <td className="font-monospace text-secondary text-small">{`ValidationSchema<Schema>`}</td>
                 <td>
-                  A dead-simple validation with a validator schema that has access to all the data. Throw{" "}
-                  <code>ValidationError</code> if field validation fails.
+                  A dead-simple validation with a validator schema that has access to single field and all form data.
+                  Throw <code>ValidationError</code> with an error message if field validation fails.
                   <ul className="mt-2">
                     <li>
                       <Link href="/documentation/validation-and-transformation">Documentation</Link>
                     </li>
                     <li>
-                      <Link href="/examples/validation">Example</Link>
+                      <Link href="/examples/validation">Examples</Link>
                     </li>
                   </ul>
                 </td>
@@ -171,7 +171,7 @@ export default function Page() {
                 <td className="font-monospace fw-bold">revalidationStrategy</td>
                 <td className="font-monospace text-secondary text-small">"onChange" | "onBlur"</td>
                 <td>
-                  A revalidation strategy for inputs with errors. To be used with any _unlessError mode. Choose{" "}
+                  A revalidation strategy for inputs with errors. To be used with any *unlessError mode. Choose{" "}
                   <code>onBlur</code> if your validation is demanding.
                   <ul className="mt-2">
                     <li>

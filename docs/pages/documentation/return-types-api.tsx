@@ -52,9 +52,9 @@ export default function Page() {
                 </td>
                 <td className="font-monospace text-secondary text-small">boolean</td>
                 <td>
-                  Props that will attach to the DOM form you provide - <code>{"<form {...formProps} />"}</code>. This is
-                  necessary for React Browser Form to function as it uses the built-in browser form management
-                  mechanisms an React events.
+                  Props that will attach to DOM form node - <code>{"<form {...formProps} />"}</code>. This is necessary
+                  for React Browser Form to function as it uses the built-in browser form management mechanisms an React
+                  events.
                 </td>
               </tr>
 
@@ -70,7 +70,7 @@ export default function Page() {
                 <td className="font-monospace text-secondary text-small">{"Record<keyof Schema, string>"}</td>
                 <td>
                   <strong>Optional but recommended.</strong> Names object prevents errors during development. You can
-                  pass <code>name</code> as a string to inputs optionally, but will lose out on compile-time errors.
+                  pass <code>name</code> as a string to inputs optionally, but you will lose out on compile-time errors.
                 </td>
               </tr>
 

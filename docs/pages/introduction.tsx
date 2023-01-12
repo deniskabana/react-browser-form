@@ -122,16 +122,6 @@ export default function Page() {
             </li>
 
             <li className="mb-3">
-              <strong>Publish the library on npm</strong>
-              <Badge bg="danger" className="ms-1" pill>
-                Critical
-              </Badge>
-              <p className="text-muted">
-                As soon as README.md is finished, publish the library even though it's not stable or production-ready.
-              </p>
-            </li>
-
-            <li className="mb-3">
               <strong>Measure the amount of times each internal function ran.</strong>
               <Badge bg="danger" className="ms-1" pill>
                 Critical
@@ -152,7 +142,7 @@ export default function Page() {
                 React Browser Form is <strong>optimized for SSR</strong>, however it will only work in browser
                 environemnt. It utilizes and incentivizes the use of{" "}
                 <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">Web Forms</a>, which is a web browser
-                standard. It doesn't work with inputs, but with DOM form reference by name.
+                standard. It doesn't work with inputs, but with <code>document.forms</code>.
               </p>
             </li>
 
@@ -170,13 +160,13 @@ export default function Page() {
             </li>
 
             <li className="mb-3">
-              <strong>Weak i18n support</strong>
+              <strong>No i18n support</strong>
               <Badge bg="success" className="ms-1" pill>
                 In the future
               </Badge>
               <p className="text-muted">
                 If you change strings inside validation schema for validation feedback, React Browser Form will ignore
-                those as options are considered immutable right now.{" "}
+                those as options are considered immutable right now due to the initial architecture.{" "}
                 <strong>For the time being, you can re-render the whole component to re-initialize.</strong>
               </p>
             </li>

@@ -19,11 +19,11 @@ import { setDebugData } from "./utils/setDebugData";
 import { uniqueNameProtection } from "./utils/uniqueNameProtection";
 
 /**
- * **React Browser Form** - The simplest forms wrapper you will ever use in React.
- * - [GitHub](https://github.com/deniskabana/react-browser-form).
- * - [Documentation](https://deniskabana.github.io/react-browser-form/).
- * - [Examples](https://deniskabana.github.io/react-browser-form/examples).
- * @param options **Options can not be changed once initialized to prevent side effects.**
+ * **React Browser Form** - React form state management written in TypeScript with performance and developer experience in mind.
+ * Flexible and with built-in validation.
+ * - [GitHub](https://github.com/deniskabana/react-browser-form)
+ * - [Documentation](https://deniskabana.github.io/react-browser-form/)
+ * - [Examples](https://deniskabana.github.io/react-browser-form/examples)
  */
 export function useBrowserForm<Schema extends {}>(
   userOptions: BrowserFormOptionsInput<Schema>,
