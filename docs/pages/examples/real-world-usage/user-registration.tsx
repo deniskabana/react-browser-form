@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>User registration example - React Dumb Form Docs</title>
+        <title>User registration example - React Browser Form Docs</title>
       </Head>
 
       <main>

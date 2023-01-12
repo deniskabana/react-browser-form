@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm } from "react-dumb-form";
+import { useBrowserForm } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Stack } from "react-bootstrap";
@@ -16,7 +16,7 @@ type Form = typeof defaultValues;
 export function ExampleBasicUsage() {
   const [data, setData] = React.useState<Form>();
 
-  const { formProps, names } = useDumbForm<Form>({
+  const { formProps, names } = useBrowserForm<Form>({
     name: "example-basic-usage-form",
     defaultValues,
     onSubmit: setData,

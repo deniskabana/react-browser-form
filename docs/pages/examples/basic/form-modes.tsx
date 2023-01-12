@@ -27,7 +27,7 @@ export default function Page({
   return (
     <>
       <Head>
-        <title>Form modes example - React Dumb Form Docs</title>
+        <title>Form modes example - React Browser Form Docs</title>
       </Head>
 
       <main>

@@ -26,7 +26,7 @@ export default function App({ Component, pageProps}: AppProps ) {
   return (
     <SSRProvider>
       <Head>
-        <meta name="description" content="React dumb form documentation, APIs and examples" />
+        <meta name="description" content="React browser form documentation, APIs and examples" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

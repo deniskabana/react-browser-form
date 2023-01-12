@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Stack } from "react-bootstrap";
-import { useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { FormCheckbox, FormGroup, FormGroupTitle, FormTextarea, FormTextInput } from "ui/forms";
@@ -34,7 +34,7 @@ export function ExampleModeOnSubmit() {
     formProps,
     names,
     errorData: { errors },
-  } = useDumbForm<Form>({
+  } = useBrowserForm<Form>({
     name: "example-mode-onSubmit",
     mode: "onSubmit",
     defaultValues,

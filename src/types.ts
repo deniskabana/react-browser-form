@@ -1,7 +1,7 @@
 // DUMB FORM HOOK TYPES
 // --------------------------------------------------------------------------------
 
-export interface DumbFormOptionsInput<Schema> {
+export interface BrowserFormOptionsInput<Schema> {
   /** Form DOM name attribute - **must be unique**. Used to access inputs through `document.forms`, to read all events and hydrate the form data and the DOM inputs. */
   name: string;
 
@@ -46,9 +46,9 @@ export interface DumbFormOptionsInput<Schema> {
   debug?: boolean;
 }
 
-export type DumbFormOptions<Schema> = Required<DumbFormOptionsInput<Schema>>;
+export type BrowserFormOptions<Schema> = Required<BrowserFormOptionsInput<Schema>>;
 
-export interface DumbFormReturnType<Schema> {
+export interface BrowserFormReturnType<Schema> {
   /** **Optional.** Name helpers to prevent errors during development. You can pass `name` as a string but you will not get warned if `password` does not exist in provided schema. */
   names: Record<keyof Schema, string>;
 
@@ -152,7 +152,7 @@ export interface FieldsData<Schema> {
 }
 
 export type FormComponentProps<Schema> = FormEventHandlers<Schema>[EventSource.Form] & {
-  name: DumbFormOptions<Schema>["name"];
+  name: BrowserFormOptions<Schema>["name"];
 };
 
 export interface UserCallbacks<Schema> {
@@ -208,7 +208,7 @@ export interface DataFlowEvent<Schema> {
 export interface DataFlowState<Schema> {
   hasErrors: boolean;
   event: DataFlowEvent<Schema>;
-  options: DumbFormOptions<Schema>;
+  options: BrowserFormOptions<Schema>;
   changedData: Partial<Schema>;
   changeReason: string;
   formState: Schema;
@@ -222,5 +222,5 @@ export interface DataFlowState<Schema> {
 
 export type DataFlowFn<Schema> = (dataFlowState: DataFlowState<Schema>) => void;
 
-// Function used in dumb-form wrapper
+// Function used in browser-form wrapper
 export type HandleDataFlow<Schema> = (event: DataFlowEvent<Schema>) => void;

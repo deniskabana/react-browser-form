@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Masked inputs example - React Dumb Form Docs</title>
+        <title>Masked inputs example - React Browser Form Docs</title>
       </Head>
 
       <main>

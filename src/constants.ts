@@ -1,6 +1,6 @@
-import { DumbFormOptions } from "./types";
+import { BrowserFormOptions } from "./types";
 
-export const DEFAULT_OPTIONS: Partial<DumbFormOptions<any>> = {
+export const DEFAULT_OPTIONS: Partial<BrowserFormOptions<any>> = {
   mode: "onSubmitUnlessError",
   revalidationStrategy: "onChange",
   liveFields: [],

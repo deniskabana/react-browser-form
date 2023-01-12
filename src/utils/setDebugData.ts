@@ -1,4 +1,4 @@
-import { DataFlowEvent, DumbFormOptions, DumbFormReturnType } from "../types";
+import { DataFlowEvent, BrowserFormOptions, BrowserFormReturnType } from "../types";
 
 export const DEBUG_CHANGE_EVENT = "rdf_debug_change";
 
@@ -6,10 +6,10 @@ export const DEBUG_CHANGE_EVENT = "rdf_debug_change";
 // Most fields are populated when an action was initiated
 export interface DebugData<Schema> {
   /** All of the returned data - includes listeners, isDirty, errors, names, etc. */
-  returnData: DumbFormReturnType<Schema>;
+  returnData: BrowserFormReturnType<Schema>;
   /** The reason for change the event handlers provide */
   changeReason?: string;
-  /** React dumb form's internal data flow event - includes source and type of the event */
+  /** React browser form's internal data flow event - includes source and type of the event */
   event?: DataFlowEvent<Schema>;
   /** Updated formState after event transformations */
   formState?: Schema;
@@ -23,7 +23,7 @@ export interface DebugData<Schema> {
  */
 export function setDebugData<Schema>(
   data: Partial<DebugData<Schema>>,
-  options: DumbFormOptions<any>,
+  options: BrowserFormOptions<any>,
   shouldDispatch = false,
 ) {
   if (!options.debug || typeof window === "undefined") return;

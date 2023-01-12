@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Real-world examples - React Dumb Form Docs</title>
+        <title>Real-world examples - React Browser Form Docs</title>
       </Head>
 
       <main>
@@ -14,8 +14,8 @@ export default function Page() {
         <Separator />
 
         <p>
-          These are some examples of how React Dumb Form will handle actual, real-world scenarios with all the options
-          and features that we have shown in basic and advanced examples before.
+          These are some examples of how React Browser Form will handle actual, real-world scenarios with all the
+          options and features that we have shown in basic and advanced examples before.
         </p>
       </main>
     </>

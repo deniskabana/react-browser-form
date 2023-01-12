@@ -8,12 +8,12 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Return types API - React Dumb Form Docs</title>
+        <title>Return types API - React Browser Form Docs</title>
       </Head>
 
       <main>
         <h1>Return types API</h1>
-        <p>Here is a full list of options you can use with React Dumb Form.</p>
+        <p>Here is a full list of options you can use with React Browser Form.</p>
         <p>
           Options combinations that could potentially break your application or might be severe oversights are also
           verified at runtime.{" "}
@@ -23,7 +23,7 @@ export default function Page() {
         </p>
 
         <Tip>
-          You can find all of these explanations as inline comments (JSDoc) when using React Dumb Form in your code.
+          You can find all of these explanations as inline comments (JSDoc) when using React Browser Form in your code.
         </Tip>
 
         <Separator />
@@ -53,8 +53,8 @@ export default function Page() {
                 <td className="font-monospace text-secondary text-small">boolean</td>
                 <td>
                   Props that will attach to the DOM form you provide - <code>{"<form {...formProps} />"}</code>. This is
-                  necessary for React Dumb Form to function as it uses the built-in browser form management mechanisms
-                  an React events.
+                  necessary for React Browser Form to function as it uses the built-in browser form management
+                  mechanisms an React events.
                 </td>
               </tr>
 

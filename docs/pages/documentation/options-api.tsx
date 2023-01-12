@@ -8,12 +8,12 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Options API - React Dumb Form Docs</title>
+        <title>Options API - React Browser Form Docs</title>
       </Head>
 
       <main>
         <h1>Options API</h1>
-        <p>Here is a full list of options you can use with React Dumb Form.</p>
+        <p>Here is a full list of options you can use with React Browser Form.</p>
         <p>
           Options combinations that could potentially break your application or might be severe oversights are also
           verified at runtime.{" "}
@@ -23,7 +23,7 @@ export default function Page() {
         </p>
 
         <Tip>
-          You can find all of these explanations as inline comments (JSDoc) when using React Dumb Form in your code.
+          You can find all of these explanations as inline comments (JSDoc) when using React Browser Form in your code.
         </Tip>
 
         <Separator />

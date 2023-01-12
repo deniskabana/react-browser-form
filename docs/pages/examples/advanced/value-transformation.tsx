@@ -12,7 +12,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Value transformation - React Dumb Form Docs</title>
+        <title>Value transformation - React Browser Form Docs</title>
       </Head>
 
       <main>

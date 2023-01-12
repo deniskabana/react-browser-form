@@ -19,8 +19,8 @@ const IconGitHub = () => (
 
 export const introExampleCode = `type Form = { name: string };
 
-export function DumbForm() {
-  const { formProps } = useDumbForm<Form>({ name: "example", defaultValues: {} });
+export function BrowserForm() {
+  const { formProps } = useBrowserForm<Form>({ name: "example", defaultValues: {} });
 
   return <form {...formProps} />;
 }`;
@@ -57,7 +57,7 @@ export default function Header() {
             <Separator light />
 
             <small className="text-white-50 mt-5 mb-4 d-block">
-              React Dumb Form is a small React library designed as a hook{" "}
+              React Browser Form is a small React library designed as a hook{" "}
               {appSize ? <strong>({(Number(appSize) / 1000).toFixed(2)} kB) </strong> : ""} intended to handle form
               usage in React while incentivizing the usage of{" "}
               <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" className="text-white">
@@ -81,7 +81,7 @@ export default function Header() {
               variant="light"
               className="rounded-pill"
               as="a"
-              href="https://github.com/deniskabana/react-dumb-form"
+              href="https://github.com/deniskabana/react-browser-form"
               size="lg"
             >
               <div className="d-flex align-items-center">
@@ -95,7 +95,7 @@ export default function Header() {
         <Navbar variant="dark" expand="lg" id="mainNav">
           <Container>
             <Navbar.Brand href="/" className="fw-bold">
-              📝 React Dumb Form
+              📝 React Browser Form
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -105,7 +105,7 @@ export default function Header() {
                   variant="light"
                   className="rounded-pill"
                   as="a"
-                  href="https://github.com/deniskabana/react-dumb-form"
+                  href="https://github.com/deniskabana/react-browser-form"
                 >
                   <div className="d-flex align-items-center">
                     <IconGitHub />

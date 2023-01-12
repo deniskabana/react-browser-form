@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Live fields example - React Dumb Form Docs</title>
+        <title>Live fields example - React Browser Form Docs</title>
       </Head>
 
       <main>

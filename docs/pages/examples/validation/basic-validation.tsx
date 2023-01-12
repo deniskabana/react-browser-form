@@ -18,7 +18,7 @@ export default function Page({
   return (
     <>
       <Head>
-        <title>Basic validation example - React Dumb Form Docs</title>
+        <title>Basic validation example - React Browser Form Docs</title>
       </Head>
 
       <main>

@@ -37,6 +37,11 @@ header {
   align-items: center;
 }
 
+#mainNav .navbar-brand:hover,
+#mainNav .navbar-brand:active {
+  color: white;
+}
+
 /* Code and monospace settings */
 code,
 .font-monospace {

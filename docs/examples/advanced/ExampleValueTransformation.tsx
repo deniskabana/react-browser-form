@@ -1,5 +1,5 @@
 import React from "react";
-import { TransformationSchema, useDumbForm } from "react-dumb-form";
+import { TransformationSchema, useBrowserForm } from "react-browser-form";
 
 // UI for documentation only
 import { FormGroupTitle, FormTextInput } from "ui/forms";
@@ -37,7 +37,7 @@ const transformationSchema: TransformationSchema<Form> = {
 export function ExampleValueTransformation() {
   const [data, setData] = React.useState<Form>();
 
-  const { formProps, names } = useDumbForm<Form>({
+  const { formProps, names } = useBrowserForm<Form>({
     name: "example-value-transformation",
     mode: "onChange",
     onSubmit: setData,

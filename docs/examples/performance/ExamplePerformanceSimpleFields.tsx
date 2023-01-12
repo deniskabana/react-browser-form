@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm } from "react-dumb-form";
+import { useBrowserForm } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Stack } from "react-bootstrap";
@@ -20,7 +20,7 @@ export function ExamplePerformanceSimpleFields({ index }: { index: number }) {
     setSubmitted(true);
   };
 
-  const { formProps, names } = useDumbForm<Form>({
+  const { formProps, names } = useBrowserForm<Form>({
     name: `example-performance-simple-fields-form-${index}`,
     defaultValues,
     onSubmit: handleSubmit,

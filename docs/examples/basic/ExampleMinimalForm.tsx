@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm } from "react-dumb-form";
+import { useBrowserForm } from "react-browser-form";
 
 const defaultValues = {
   email: "",
@@ -9,7 +9,7 @@ type Form = typeof defaultValues;
 export function ExampleMinimalForm() {
   const [data, setData] = React.useState<Form>();
 
-  const { formProps, names } = useDumbForm<Form>({
+  const { formProps, names } = useBrowserForm<Form>({
     name: "example-minimal-form",
     defaultValues,
     onSubmit: setData,

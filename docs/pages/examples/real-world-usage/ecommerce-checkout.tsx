@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Ecommerce checkout - React Dumb Form Docs</title>
+        <title>Ecommerce checkout - React Browser Form Docs</title>
       </Head>
 
       <main>

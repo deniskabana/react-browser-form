@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm } from "react-dumb-form";
+import { useBrowserForm } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Stack } from "react-bootstrap";
@@ -16,7 +16,7 @@ type Form = typeof defaultValues;
 export function ExampleFormMethodsSetValues() {
   const [data, setData] = React.useState<Form>();
 
-  const { formProps, names, setValues } = useDumbForm<Form>({
+  const { formProps, names, setValues } = useBrowserForm<Form>({
     name: "example-form-methods-set-values",
     defaultValues,
     onSubmit: setData,

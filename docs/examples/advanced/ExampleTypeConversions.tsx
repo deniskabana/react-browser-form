@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm } from "react-dumb-form";
+import { useBrowserForm } from "react-browser-form";
 
 // UI for documentation only
 import { FormCheckbox, FormGroup, FormGroupTitle, FormRange, FormTextInput } from "ui/forms";
@@ -31,7 +31,7 @@ type Form = typeof defaultValues;
 export function ExampleAutomaticTypes() {
   const [data, setData] = React.useState<Form>();
 
-  const { formProps, names } = useDumbForm<Form>({
+  const { formProps, names } = useBrowserForm<Form>({
     name: "example-type-conversions-form",
     mode: "onChange",
     onSubmit: setData,

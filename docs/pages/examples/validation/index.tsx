@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Validation examples - React Dumb Form Docs</title>
+        <title>Validation examples - React Browser Form Docs</title>
       </Head>
 
       <main>
@@ -15,8 +15,8 @@ export default function Page() {
         <Separator />
 
         <p>
-          Validation is made to be very easy, effective and minimal with React Dumb Form. These examples will guide you
-          through the easiest to the most complex usage of validation so you can see it in action.
+          Validation is made to be very easy, effective and minimal with React Browser Form. These examples will guide
+          you through the easiest to the most complex usage of validation so you can see it in action.
         </p>
 
         <Tip variant="info">

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { Form } from "react-bootstrap";
@@ -39,7 +39,7 @@ export function ExampleNonStandardInputs() {
     names,
     errorData: { errors },
     setValues,
-  } = useDumbForm<Form>({
+  } = useBrowserForm<Form>({
     name: "example-non-standard-inputs-form",
     defaultValues,
     onSubmit: setData,

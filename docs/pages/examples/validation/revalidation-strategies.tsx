@@ -18,7 +18,7 @@ export default function Page({
   return (
     <>
       <Head>
-        <title>Revalidation strategies example - React Dumb Form Docs</title>
+        <title>Revalidation strategies example - React Browser Form Docs</title>
       </Head>
 
       <main>

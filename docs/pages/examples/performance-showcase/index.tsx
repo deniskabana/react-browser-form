@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Separator from "ui/Separator";
 import React from "react";
-import { useDumbForm } from "react-dumb-form";
+import { useBrowserForm } from "react-browser-form";
 import { Button, Card, Table } from "react-bootstrap";
 import { FormGroup, FormSelect } from "ui/forms";
 
@@ -46,7 +46,7 @@ export default function Page() {
     setShouldRenderForms(true);
   };
 
-  const { formProps, names } = useDumbForm<SettingsForm>({
+  const { formProps, names } = useBrowserForm<SettingsForm>({
     name: "performance-showcase-settings",
     defaultValues: settingsValues,
     onSubmit: handleFormSubmit,
@@ -91,14 +91,14 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Performance showcase example - React Dumb Form Docs</title>
+        <title>Performance showcase example - React Browser Form Docs</title>
       </Head>
 
       <main>
         <h1>Performance showcase example</h1>
         <p className="text-muted">
-          This section serves as a showcase of how much stress React Dumb Form can handle. Feel free to experiment with
-          various options to see what your device can handle when running optimized forms.
+          This section serves as a showcase of how much stress React Browser Form can handle. Feel free to experiment
+          with various options to see what your device can handle when running optimized forms.
         </p>
 
         <Separator />

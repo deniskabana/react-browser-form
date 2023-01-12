@@ -11,13 +11,13 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Automatic value types - React Dumb Form Docs</title>
+        <title>Automatic value types - React Browser Form Docs</title>
       </Head>
 
       <main>
         <h1>Automatic value types</h1>
         <p className="text-muted">
-          React Dumb Form incentivizes developers to use default browser APIs and form handling mechanisms. We use{" "}
+          React Browser Form incentivizes developers to use default browser APIs and form handling mechanisms. We use{" "}
           <code>input.type</code> to resolve the correct return types that are applied to <code>formState</code>.
         </p>
         <p className="text-muted">

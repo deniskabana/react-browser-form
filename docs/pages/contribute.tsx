@@ -7,13 +7,13 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Contribute - React Dumb Form Docs</title>
+        <title>Contribute - React Browser Form Docs</title>
       </Head>
 
       <main>
         <h1>Contribute</h1>
         <p>
-          Everyone is welcome to contribute to React Dumb Form in any way. Creating a good environment for passionate
+          Everyone is welcome to contribute to React Browser Form in any way. Creating a good environment for passionate
           developers is one of the philosophical values we hold onto.
         </p>
 
@@ -24,7 +24,7 @@ export default function Page() {
           <p>
             <strong>
               Before reporting a bug, please verify that it doesn't already exits in our{" "}
-              <a href="https://github.com/deniskabana/react-dumb-form/issues">GitHub issues</a> and{" "}
+              <a href="https://github.com/deniskabana/react-browser-form/issues">GitHub issues</a> and{" "}
               <Link href="/frequently-asked-questions">FAQ page</Link>.
             </strong>{" "}
           </p>
@@ -40,7 +40,7 @@ export default function Page() {
         <div>
           <h4 className="mb-4">Developing new features</h4>
           <Tip variant="info">
-            Always check <a href="https://github.com/deniskabana/react-dumb-form/issues">GitHub issues</a> and{" "}
+            Always check <a href="https://github.com/deniskabana/react-browser-form/issues">GitHub issues</a> and{" "}
             <Link href="/frequently-asked-questions">FAQ page</Link> page before you begin development to verify your
             work will not be dismissed.
           </Tip>

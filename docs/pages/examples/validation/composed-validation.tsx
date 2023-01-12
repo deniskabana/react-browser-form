@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Composed validation example - React Dumb Form Docs</title>
+        <title>Composed validation example - React Browser Form Docs</title>
       </Head>
 
       <main>

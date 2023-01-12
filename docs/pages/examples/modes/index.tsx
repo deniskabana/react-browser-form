@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Modes examples - React Dumb Form Docs</title>
+        <title>Modes examples - React Browser Form Docs</title>
       </Head>
 
       <main>

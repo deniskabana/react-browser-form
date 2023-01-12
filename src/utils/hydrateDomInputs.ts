@@ -1,6 +1,6 @@
-import { DumbFormOptions } from "../types";
+import { BrowserFormOptions } from "../types";
 
-export function hydrateDomInputs<Schema>(options: DumbFormOptions<Schema>, formState: Schema): void {
+export function hydrateDomInputs<Schema>(options: BrowserFormOptions<Schema>, formState: Schema): void {
   // Explicit "any" because of TS issue - https://github.com/microsoft/TypeScript/issues/19437
   const domFormElem = (document.forms as any)[options.name];
 

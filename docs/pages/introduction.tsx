@@ -9,13 +9,13 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Introduction - React Dumb Form Docs</title>
+        <title>Introduction - React Browser Form Docs</title>
       </Head>
 
       <main>
         <Tip variant="danger">
-          <strong>React Dumb Form is not officially ready for production use yet.</strong> Some breaking changes might
-          still come before a public release statement.
+          <strong>React Browser Form is not officially ready for production use yet.</strong> Some breaking changes
+          might still come before a public release statement.
         </Tip>
 
         <Separator />
@@ -29,7 +29,7 @@ export default function Page() {
                 Super fast. Written with performance in mind.
               </h5>
               <span className="text-muted">
-                React Dumb Form takes performance very seriously and aims to outperform other libraries by only ever
+                React Browser Form takes performance very seriously and aims to outperform other libraries by only ever
                 doing what it needs to. No data transformation, validation or collecting unless required. Read more at
                 How it works section in <Link href="/documentation">Documentation</Link>.
               </span>
@@ -41,9 +41,9 @@ export default function Page() {
                 Developer-first experience. Minimal and junior-friendly.
               </h5>
               <span className="text-muted">
-                Minimal, effective and easy to learn - anyone regardless of their skill level can start using React Dumb
-                Form now. Visit <Link href="/examples/basic/minimal-form">Minimal form example</Link> to see what we
-                mean by minimal. A big part of our developer experience philosophy is maintaining a very verbose
+                Minimal, effective and easy to learn - anyone regardless of their skill level can start using React
+                Browser Form now. Visit <Link href="/examples/basic/minimal-form">Minimal form example</Link> to see
+                what we mean by minimal. A big part of our developer experience philosophy is maintaining a very verbose
                 documentation.
               </span>
             </li>
@@ -65,7 +65,7 @@ export default function Page() {
                 Small bundle size and a no dependencies.
               </h5>
               <span className="text-muted">
-                React Dumb Form stricly uses React hooks and has a very small bundle size. This is a core part of the
+                React Browser Form stricly uses React hooks and has a very small bundle size. This is a core part of the
                 project philosophy - let the browser handle what it can for us - developers.
               </span>
             </li>
@@ -88,9 +88,9 @@ export default function Page() {
                 Validation and transformation - simple, minimal, powerful.
               </h5>
               <span className="text-muted">
-                React Dumb Form transform data types automatically, but you can also transform values or not transform
-                anything at all. Or validate - use required fields, write one-line validators, write chainable and
-                composable validators for complex logic. See{" "}
+                React Browser Form transform data types automatically, but you can also transform values or not
+                transform anything at all. Or validate - use required fields, write one-line validators, write chainable
+                and composable validators for complex logic. See{" "}
                 <Link href="/documentation/validation-and-transformation">Validation and transformation</Link> for more
                 info.
               </span>
@@ -104,7 +104,7 @@ export default function Page() {
           <h1 className="mb-4">Limitations & known issues</h1>
           <p>
             This is a list of all the current limitations and known issues you need to be aware of when working with
-            React Dumb Form. As adoption rate grows, we will keep this list up-to-date.
+            React Browser Form. As adoption rate grows, we will keep this list up-to-date.
           </p>
           <ol>
             <li className="mb-3">
@@ -149,8 +149,8 @@ export default function Page() {
                 Will not change
               </Badge>
               <p className="text-muted">
-                React Dumb Form is <strong>optimized for SSR</strong>, however it will only work in browser environemnt.
-                It utilizes and incentivizes the use of{" "}
+                React Browser Form is <strong>optimized for SSR</strong>, however it will only work in browser
+                environemnt. It utilizes and incentivizes the use of{" "}
                 <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">Web Forms</a>, which is a web browser
                 standard. It doesn't work with inputs, but with DOM form reference by name.
               </p>
@@ -175,7 +175,7 @@ export default function Page() {
                 In the future
               </Badge>
               <p className="text-muted">
-                If you change strings inside validation schema for validation feedback, React Dumb Form will ignore
+                If you change strings inside validation schema for validation feedback, React Browser Form will ignore
                 those as options are considered immutable right now.{" "}
                 <strong>For the time being, you can re-render the whole component to re-initialize.</strong>
               </p>
@@ -221,7 +221,7 @@ export default function Page() {
           <div>
             <h5>Have suggestions?</h5>
             <p className="text-muted">
-              Raise an issue in the <a href="https://github.com/deniskabana/react-dumb-form">GitHub repository</a> to
+              Raise an issue in the <a href="https://github.com/deniskabana/react-browser-form">GitHub repository</a> to
               spark a discussion or open a pull request to suggest changes.
             </p>
           </div>

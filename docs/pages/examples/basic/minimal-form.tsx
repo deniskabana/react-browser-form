@@ -12,7 +12,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Minimal form - React Dumb Form Docs</title>
+        <title>Minimal form - React Browser Form Docs</title>
       </Head>
 
       <main>
@@ -29,9 +29,11 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         </p>
 
         <Tip variant="info">
-          <strong>This example is only meant to show you how easy it is to start using React Dumb Form today.</strong>
+          <strong>
+            This example is only meant to show you how easy it is to start using React Browser Form today.
+          </strong>
           <br />
-          To see what React Dumb Form can do, consider viewing{" "}
+          To see what React Browser Form can do, consider viewing{" "}
           <Link href="/examples/real-world-usage">Real-world usage examples</Link>.
         </Tip>
 

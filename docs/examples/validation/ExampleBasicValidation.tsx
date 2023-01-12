@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Stack } from "react-bootstrap";
@@ -43,7 +43,7 @@ const validationSchema: ValidationSchema<Form> = {
 export function ExampleBasicValidation() {
   const [data, setData] = React.useState<Form>();
 
-  const { formProps, names, errorData } = useDumbForm<Form>({
+  const { formProps, names, errorData } = useBrowserForm<Form>({
     name: "example-basic-validation-form",
     defaultValues,
     onSubmit: setData,

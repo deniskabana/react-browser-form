@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>FAQ - React Dumb Form Docs</title>
+        <title>FAQ - React Browser Form Docs</title>
       </Head>
 
       <main>
@@ -20,15 +20,15 @@ export default function Page() {
         <div>
           <ol>
             <li>
-              <h5>Can React Dumb Form be used outside of React?</h5>
+              <h5>Can React Browser Form be used outside of React?</h5>
               <p className="text-muted">
                 It has been specifically designed for React - as a React hooks that implements other React hooks. We do
-                not advise trying to use React Dumb Form outside of React.
+                not advise trying to use React Browser Form outside of React.
               </p>
             </li>
 
             <li>
-              <h5>Can React Dumb Form be used in React native?</h5>
+              <h5>Can React Browser Form be used in React native?</h5>
               <p className="text-muted">
                 Unfortunately not. The whole point of this library is to utilize what web browsers already have
                 implemented. This is a design decision that is not a subject to change anytime soon.

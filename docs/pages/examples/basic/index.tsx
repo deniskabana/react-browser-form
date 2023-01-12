@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Basic examples - React Dumb Form Docs</title>
+        <title>Basic examples - React Browser Form Docs</title>
       </Head>
 
       <main>
@@ -15,7 +15,7 @@ export default function Page() {
 
         <p>
           All the examples for basic usage strive to demonstrate the most basic and commonly used features and options
-          of React Dumb Form in a way, where you can easily understand how it works.
+          of React Browser Form in a way, where you can easily understand how it works.
         </p>
         <p>
           You can monitor what the form is doing with the meta table displayed next to it and can also inspect the code

@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Dependent fields example - React Dumb Form Docs</title>
+        <title>Dependent fields example - React Browser Form Docs</title>
       </Head>
 
       <main>
@@ -22,7 +22,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
         </p>
         <p>
           There is a caveat with live fields and that is - when they are changed, the whole form has to be revalidated.
-          React Dumb Form does not know how you handle dependent fields in your validator methods, so instead of
+          React Browser Form does not know how you handle dependent fields in your validator methods, so instead of
           Proxying the form data every time, it just re-validated the entire form.
         </p>
         <TipReactBootstrapDocs />

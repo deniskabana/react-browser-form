@@ -16,7 +16,7 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "react-dumb-form": ["./utils/useDumbFormWithDebug.ts"]
+      "react-browser-form": ["./utils/useBrowserFormWithDebug.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

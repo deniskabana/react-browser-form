@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Form, Stack } from "react-bootstrap";
@@ -88,7 +88,7 @@ export function ExampleUserRegistration() {
     },
   };
 
-  const { formProps, names, errorData, setValues } = useDumbForm<Form>({
+  const { formProps, names, errorData, setValues } = useBrowserForm<Form>({
     name: "example-user-registration-form",
     onSubmit: setData,
     onChange: setData,

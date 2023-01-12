@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Card, OverlayTrigger, Table, Tooltip, TooltipProps } from "react-bootstrap";
-import { DebugData, DEBUG_CHANGE_EVENT } from "react-dumb-form";
+import { DebugData, DEBUG_CHANGE_EVENT } from "react-browser-form";
 
 const renderTypeTooltip = (props: TooltipProps, value: unknown) => {
   let type: string | JSX.Element;

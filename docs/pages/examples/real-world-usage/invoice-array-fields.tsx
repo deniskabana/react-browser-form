@@ -11,7 +11,7 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
   return (
     <>
       <Head>
-        <title>Invoice array fields - React Dumb Form Docs</title>
+        <title>Invoice array fields - React Browser Form Docs</title>
       </Head>
 
       <main>

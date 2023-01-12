@@ -1,6 +1,6 @@
-import { DumbFormOptions, FieldsData } from "../types";
+import { BrowserFormOptions, FieldsData } from "../types";
 
-export function getFieldsData<Schema extends {}>(options: DumbFormOptions<Schema>): FieldsData<Schema> {
+export function getFieldsData<Schema extends {}>(options: BrowserFormOptions<Schema>): FieldsData<Schema> {
   return {
     // Names of fields, enum-like
     names: Object.keys(options.defaultValues).reduce((names, key) => ({ ...names, [key]: key }), {}) as any,

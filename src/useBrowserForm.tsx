@@ -4,9 +4,9 @@ import { useDataFlowHandler } from "./hooks/useDataFlowHandler";
 import { useErrorManager } from "./hooks/useErrorManager";
 import { useFormEventHandlers } from "./hooks/useFormEventHandlers";
 import {
-  DumbFormOptions,
-  DumbFormOptionsInput,
-  DumbFormReturnType,
+  BrowserFormOptions,
+  BrowserFormOptionsInput,
+  BrowserFormReturnType,
   EventSource,
   EventType,
   FieldsData,
@@ -26,11 +26,11 @@ import { uniqueNameProtection } from "./utils/uniqueNameProtection";
  * @param options **Options can not be changed once initialized to prevent side effects.**
  */
 export function useBrowserForm<Schema extends {}>(
-  userOptions: DumbFormOptionsInput<Schema>,
-): DumbFormReturnType<Schema> {
+  userOptions: BrowserFormOptionsInput<Schema>,
+): BrowserFormReturnType<Schema> {
   // INTERNAL STATE AND CONFIG
   // --------------------------------------------------------------------------------
-  const options = useRef<DumbFormOptions<Schema>>({
+  const options = useRef<BrowserFormOptions<Schema>>({
     ...DEFAULT_OPTIONS,
     ...(userOptions as any),
   }).current;
@@ -76,7 +76,7 @@ export function useBrowserForm<Schema extends {}>(
 
   // RETURN
   // --------------------------------------------------------------------------------
-  const returnData: DumbFormReturnType<Schema> = {
+  const returnData: BrowserFormReturnType<Schema> = {
     // Values
     errorData,
     isDirty,

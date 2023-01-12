@@ -1,5 +1,5 @@
 import React from "react";
-import { useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Stack } from "react-bootstrap";
@@ -39,7 +39,7 @@ export function ExamplePerformanceValidatedFields({ index }: { index: number }) 
     formProps,
     names,
     errorData: { errors },
-  } = useDumbForm<Form>({
+  } = useBrowserForm<Form>({
     name: `example-performance-validated-fields-form-${index}`,
     defaultValues,
     onSubmit: handleSubmit,

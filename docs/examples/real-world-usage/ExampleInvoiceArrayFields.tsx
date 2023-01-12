@@ -1,7 +1,7 @@
 // THIS CODE IS TEMPORARY, BEFORE FIELD ARRAY IS IMPLEMENTED
 
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { Button, Form, Stack, Table } from "react-bootstrap";
@@ -72,7 +72,7 @@ interface InvoiceLineFormProps {
 }
 
 export function InvoiceLineForm({ index, data, setData, handleRemoveLine }: InvoiceLineFormProps) {
-  const { formProps, names, errorData, setValues } = useDumbForm<Form>({
+  const { formProps, names, errorData, setValues } = useBrowserForm<Form>({
     name: `example-invoice-array-fields-form-${index}`,
     mode: "onBlurUnlessError",
     onSubmit: setData,

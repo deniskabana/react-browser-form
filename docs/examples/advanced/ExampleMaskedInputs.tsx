@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { TransformationSchema, useDumbForm, ValidationError, ValidationSchema } from "react-dumb-form";
+import { TransformationSchema, useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
 
 // UI for documentation only
 import { Form } from "react-bootstrap";
@@ -33,7 +33,7 @@ const CREDIT_CARD_MASK = "____ ____ ____ ____";
 export function ExampleMaskedInputs() {
   const [data, setData] = React.useState<Form & { [key: string]: any }>(defaultValues);
 
-  const { formProps, names, setValues } = useDumbForm<Form>({
+  const { formProps, names, setValues } = useBrowserForm<Form>({
     name: "example-masked-inputs-form",
     defaultValues,
     onSubmit: setData,
