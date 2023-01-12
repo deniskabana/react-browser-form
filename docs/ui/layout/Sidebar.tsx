@@ -20,7 +20,6 @@ interface MenuItem {
 
 const MENU: MenuItem[] = [
   { title: "Introduction", href: "/introduction", icon: "tabler:bulb" },
-  { title: "FAQ", href: "/frequently-asked-questions", icon: "ph:question-bold" },
   { title: "Getting started", href: "/getting-started", icon: "tabler:terminal-2" },
   {
     title: "Documentation",
@@ -84,6 +83,7 @@ const MENU: MenuItem[] = [
       },
     ],
   },
+  { title: "FAQ", href: "/frequently-asked-questions", icon: "ph:question-bold" },
   { title: "Contribute", href: "/contribute", icon: "ion:people-circle-outline" },
 ];
 
