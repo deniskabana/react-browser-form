@@ -17,10 +17,11 @@ const IconGitHub = () => (
   </svg>
 );
 
-export const introExampleCode = `type Form = { name: string };
+export const introExampleCode = `const defaultValues = { name: "John" };
+type Form = typeof defaultValues;
 
-export function BrowserForm() {
-  const { formProps } = useBrowserForm<Form>({ name: "example", defaultValues: {} });
+function Component() {
+  const { formProps } = useBrowserForm<Form>({ name: "example", defaultValues });
 
   return <form {...formProps} />;
 }`;
