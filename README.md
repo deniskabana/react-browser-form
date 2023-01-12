@@ -7,6 +7,7 @@
 <div align="center">
 
 ![Build status](https://img.shields.io/github/actions/workflow/status/deniskabana/react-browser-form/main.yml?branch=main&style=for-the-badge)
+![Size](https://img.shields.io/bundlephobia/minzip/react-browser-form?style=for-the-badge)
 ![License](https://img.shields.io/github/license/deniskabana/react-browser-form?style=for-the-badge)
 
 </div>

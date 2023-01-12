@@ -30,6 +30,3 @@ jobs:
 
       - name: Unit tests
         run: yarn test:unit --ci --coverage --maxWorkers=2
-
-      - name: Run build without further testing
-        run: yarn build:notest
