@@ -44,12 +44,14 @@ export default function Header() {
         <header className="text-white text-center">
           <div className="container">
             <div className="text-white-50 my-2">Welcome to the documentation for</div>
-            <h1>📝 React Dumb Form</h1>
+            <h1>🌐📝 React Browser Form</h1>
             <div className="fs-5 text-white-50 mt-4 mb-5">
-              The simplest React forms handler - with primary focus on{" "}
-              <strong className="text-secondary">TypeScript</strong>,{" "}
+              React form state management written in <strong className="text-secondary">TypeScript</strong> with{" "}
               <strong className="text-secondary">performance</strong> and{" "}
-              <strong className="text-secondary">developer experience</strong>.
+              <strong className="text-secondary">developer experience</strong> in mind.
+              <br />
+              <strong className="text-secondary">Flexible</strong> and with{" "}
+              <strong className="text-secondary">built-in validation</strong>.
             </div>
 
             <Separator light />
