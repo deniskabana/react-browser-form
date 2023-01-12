@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { DEFAULT_OPTIONS } from "./constants";
-import { useDataFlowHandler } from "./hooks/useDataFlowHandler";
-import { useErrorManager } from "./hooks/useErrorManager";
-import { useFormEventHandlers } from "./hooks/useFormEventHandlers";
+import { DEFAULT_OPTIONS } from "../constants";
+import { useDataFlowHandler } from "../hooks/useDataFlowHandler";
+import { useErrorManager } from "../hooks/useErrorManager";
+import { useFormEventHandlers } from "../hooks/useFormEventHandlers";
 import {
   BrowserFormOptions,
   BrowserFormOptionsInput,
@@ -12,11 +12,11 @@ import {
   FieldsData,
   FormComponentProps,
   UserCallbacks,
-} from "./types";
-import { getFieldsData } from "./utils/getFieldsData";
-import { protectOptionsCominations } from "./utils/protectOptionsCombinations";
-import { setDebugData } from "./utils/setDebugData";
-import { uniqueNameProtection } from "./utils/uniqueNameProtection";
+} from "../types";
+import { getFieldsData } from "../utils/getFieldsData";
+import { protectOptionsCominations } from "../utils/protectOptionsCombinations";
+import { setDebugData } from "../utils/setDebugData";
+import { uniqueNameProtection } from "../utils/uniqueNameProtection";
 
 /**
  * **React Browser Form** - React form state management written in TypeScript with performance and developer experience in mind.

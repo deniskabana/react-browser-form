@@ -1,6 +1,7 @@
 import { BrowserFormOptions } from "./types";
 
-export const DEFAULT_OPTIONS: Partial<BrowserFormOptions<any>> = {
+/** Default options according to the schema */
+export const DEFAULT_OPTIONS: Partial<BrowserFormOptions<unknown>> = {
   mode: "onSubmitUnlessError",
   revalidationStrategy: "onChange",
   liveFields: [],

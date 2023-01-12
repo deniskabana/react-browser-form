@@ -1,6 +1,6 @@
 import { DEFAULT_REQUIRED_ERROR_MESSAGE, DEFAULT_VALIDATION_ERROR_MESSAGE } from "../constants";
 import { DataFlowState } from "../types";
-import { ValidationError } from "../ValidationError";
+import { ValidationError } from "../errors/ValidationError";
 
 /** Validate **changed** data only. */
 export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>): void {

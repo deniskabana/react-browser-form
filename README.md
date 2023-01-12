@@ -1,3 +1,11 @@
+## NOT READY FOR PRODUCTION USE YET!
+
+**Wait until the release of version `1.0.0` before adopting React Browser Form into your codebase.**
+
+There might be some breaking changes introduced before an official release statement is put out. Current usage is only recommended for testing, developing or contributing.
+
+---
+
 <div align="center">
   <a href="https://deniskabana.github.io/react-browser-form/introduction" title="React Browser Form - Form management in React made simple for browsers.">
     <img src="https://raw.githubusercontent.com/deniskabana/react-browser-form/main/docs/public/github-logo.png" alt="🌐📝 React Browser Form - React hook for form management in web browsers." />
@@ -8,6 +16,7 @@
 
 ![Build status](https://img.shields.io/github/actions/workflow/status/deniskabana/react-browser-form/main.yml?branch=main&style=for-the-badge)
 ![Size](https://img.shields.io/bundlephobia/minzip/react-browser-form?style=for-the-badge)
+![Version](https://img.shields.io/npm/v/react-browser-form?style=for-the-badge)
 ![License](https://img.shields.io/github/license/deniskabana/react-browser-form?style=for-the-badge)
 
 </div>
