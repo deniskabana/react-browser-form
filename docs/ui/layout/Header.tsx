@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { Container, Nav, Navbar, Button, Card } from "react-bootstrap";
 import Separator from "ui/Separator";
 
@@ -27,17 +26,7 @@ function Component() {
 }`;
 
 export default function Header() {
-  const [appSize, setAppSize] = useState("");
   const { pathname } = useRouter();
-
-  // Load app size
-  useEffect(() => {
-    async function loadAppSize() {
-      const size = await fetch("/meta_pkgsize");
-      setAppSize(await size.json());
-    }
-    loadAppSize();
-  });
 
   return (
     <>
@@ -58,9 +47,8 @@ export default function Header() {
             <Separator light />
 
             <small className="text-white-50 mt-5 mb-4 d-block">
-              React Browser Form is a small React library designed as a hook{" "}
-              {appSize ? <strong>({(Number(appSize) / 1000).toFixed(2)} kB) </strong> : ""} intended to handle form
-              usage in React while incentivizing the usage of{" "}
+              React Browser Form is a small React library designed as a hook intended to handle form usage in React
+              while incentivizing the usage of{" "}
               <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" className="text-white">
                 web forms
               </a>
