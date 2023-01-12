@@ -46,7 +46,7 @@ const defaultValues = {
 type Form = typeof defaultValues;
 
 export function Component() {
-  const { formProps, names } = useBrowserForm < Form > { name: "example", defaultValues };
+  const { formProps, names } = useBrowserForm<Form>{ name: "example", defaultValues };
 
   return (
     <form {...formProps}>
