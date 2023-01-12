@@ -62,7 +62,7 @@ export default function Page() {
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="mdi:package-variant" height={36} className="me-2" />
-                Small bundle size and a no dependencies.
+                Small bundle size and 0 dependencies.
               </h5>
               <span className="text-muted">
                 React Browser Form stricly uses React hooks and has a very small bundle size. This is a core part of the

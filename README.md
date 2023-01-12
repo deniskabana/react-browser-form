@@ -19,3 +19,48 @@
   <a href="https://deniskabana.github.io/react-browser-form/frequently-asked-questions">FAQs</a> |
   <a href="https://deniskabana.github.io/react-browser-form/examples">Examples</a>
 </p>
+
+### Features
+
+1. Written with performance, developer experience and UX in mind
+2. TypeScript-first. Type safety, hints and checks
+3. [Small size](https://bundlephobia.com/result?p=react-browser-form@latest) and no [dependencies](./package.json)
+4. Compatible with UI libraries and framework
+5. Flexible, extensible, unopinionated
+6. Validation and transformation support
+
+### Install
+
+    npm install react-browser-form
+    # OR
+    yarn add react-browser-form
+
+### Quickstart
+
+See the [Getting started](https://deniskabana.github.io/react-browser-form/getting-started) page in our Docs for more information.
+
+```jsx
+const defaultValues = {
+  email: "roberta_warren@znation.com",
+};
+type Form = typeof defaultValues;
+
+export function Component() {
+  const { formProps, names } = useBrowserForm < Form > { name: "example", defaultValues };
+
+  return (
+    <form {...formProps}>
+      <input type="email" placeholder="E-mail address" name={names.email} />
+      <button type="submit">Subscribe</button>
+    </form>
+  );
+}
+```
+
+### Sponsors
+
+**Proudly sponsored by:**
+
+<a href='https://nekastores.eu/'>
+  <img src='https://nekastores.eu/logo-letter.jpeg' height='96' />
+</a>
