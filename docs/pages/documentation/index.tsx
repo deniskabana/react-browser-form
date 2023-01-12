@@ -28,6 +28,7 @@ export default function Page() {
             <a
               href="https://github.com/deniskabana/react-browser-form/blob/main/src/useBrowserForm.tsx"
               target="_blank"
+              rel="noreferrer"
             >
               source code of <code>useBrowserForm.tsx</code> in our GitHub repo
             </a>

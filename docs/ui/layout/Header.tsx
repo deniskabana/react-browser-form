@@ -94,7 +94,7 @@ export default function Header() {
       ) : (
         <Navbar variant="dark" expand="lg" id="mainNav">
           <Container>
-            <Navbar.Brand href="/" className="fw-bold">
+            <Navbar.Brand href="https://deniskabana.github.io/react-browser-form/" className="fw-bold">
               📝 React Browser Form
             </Navbar.Brand>
 

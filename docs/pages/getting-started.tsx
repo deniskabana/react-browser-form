@@ -1,7 +1,37 @@
 import Head from "next/head";
 import Link from "next/link";
-import { introExampleCode } from "ui/layout/Header";
 import Separator from "ui/Separator";
+
+const codeExampleInit = `const { formProps } = useBrowserForm<{}>({ name: "example", defaultValues: {} });
+
+return <form {...formProps} />;`;
+
+const codeExampleDefaultValues = `const defaultValues = {
+  email: "roberta_warren@znation.com",
+};
+type Form = typeof defaultValues;
+
+export function Component() {
+  const { formProps } = useBrowserForm<Form>({ name: "example", defaultValues });
+
+  return <form {...formProps} />;
+}`;
+
+const codeExampleInputs = `const defaultValues = {
+  email: "roberta_warren@znation.com",
+};
+type Form = typeof defaultValues;
+
+export function Component() {
+  const { formProps, names } = useBrowserForm<Form>({ name: "example", defaultValues });
+
+  return (
+    <form {...formProps}>
+      <input type="email" placeholder="E-mail address" name={names.email} />
+      <button type="submit">Subscribe</button>
+    </form>
+  );
+}`;
 
 export default function Page() {
   return (
@@ -30,9 +60,27 @@ export default function Page() {
         <Separator />
 
         <div>
-          <h4 className="mb-4">Initialize a form with a hook</h4>
+          <h4 className="mb-4">Initialize the form with a hook</h4>
           <pre className="m-0 line-numbers language-tsx" tabIndex={-1}>
-            <code className="language-tsx">{introExampleCode}</code>
+            <code className="language-tsx">{codeExampleInit}</code>
+          </pre>
+        </div>
+
+        <Separator />
+
+        <div>
+          <h4 className="mb-4">Add default values and schema type</h4>
+          <pre className="m-0 line-numbers language-tsx" tabIndex={-1}>
+            <code className="language-tsx">{codeExampleDefaultValues}</code>
+          </pre>
+        </div>
+
+        <Separator />
+
+        <div>
+          <h4 className="mb-4">Add inputs with name checking</h4>
+          <pre className="m-0 line-numbers language-tsx" tabIndex={-1}>
+            <code className="language-tsx">{codeExampleInputs}</code>
           </pre>
         </div>
 
