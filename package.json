@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "test:tsc": "tsc --noEmit",
     "test": "yarn test:tsc && yarn test:lint && yarn test:unit",
     "postinstall": "yarn prepare",
-    "prepare": "tsdx build && husky install",
+    "prepare": "tsdx build",
     "size": "size-limit",
     "writemeta": "yarn size --json | grep size\\\" | tail -1 | sed 's/.*\"size\": \\([0-9]*\\)\\,/\\1/' > ./docs/public/meta_pkgsize"
   },
@@ -34,17 +34,27 @@
       "pre-commit": "yarn test"
     }
   },
-  "name": "react-dumb-form",
-  "author": "Denis Kabana <github.com/deniskabana>",
-  "repository": "https://github.com/deniskabana/react-dumb-form",
-  "module": "dist/react-dumb-form.esm.js",
+  "name": "react-browser-form",
+  "author": "deniskabana",
+  "repository": "https://github.com/deniskabana/react-browser-form",
+  "homepage": "https://deniskabana.github.io/react-browser-form/",
+  "keywords": [
+    "react",
+    "typescript",
+    "validation",
+    "ux",
+    "dx",
+    "form-validation-react",
+    "react-hook"
+  ],
+  "module": "dist/react-browser-form.esm.js",
   "size-limit": [
     {
-      "path": "dist/react-dumb-form.cjs.production.min.js",
+      "path": "dist/react-browser-form.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/react-dumb-form.esm.js",
+      "path": "dist/react-browser-form.esm.js",
       "limit": "10 KB"
     }
   ],

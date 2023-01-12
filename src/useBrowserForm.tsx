@@ -19,13 +19,15 @@ import { setDebugData } from "./utils/setDebugData";
 import { uniqueNameProtection } from "./utils/uniqueNameProtection";
 
 /**
- * **React Dumb Form** - The simplest forms wrapper you will ever use in React.
- * LINKS (TODO):
- * - [API and documentation](https://github.com/deniskabana/react-dumb-form).
- * - [Examples](https://github.com/deniskabana/react-dumb-form/tree/main/examples).
+ * **React Browser Form** - The simplest forms wrapper you will ever use in React.
+ * - [GitHub](https://github.com/deniskabana/react-browser-form).
+ * - [Documentation](https://deniskabana.github.io/react-browser-form/).
+ * - [Examples](https://deniskabana.github.io/react-browser-form/examples).
  * @param options **Options can not be changed once initialized to prevent side effects.**
  */
-export function useDumbForm<Schema extends {}>(userOptions: DumbFormOptionsInput<Schema>): DumbFormReturnType<Schema> {
+export function useBrowserForm<Schema extends {}>(
+  userOptions: DumbFormOptionsInput<Schema>,
+): DumbFormReturnType<Schema> {
   // INTERNAL STATE AND CONFIG
   // --------------------------------------------------------------------------------
   const options = useRef<DumbFormOptions<Schema>>({
