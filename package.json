@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,8 +21,7 @@
     "test:lint": "tsdx lint src",
     "test:tsc": "tsc --noEmit",
     "test": "yarn test:tsc && yarn test:lint && yarn test:unit",
-    "postinstall": "yarn prepare",
-    "prepare": "tsdx build",
+    "prepublish": "yarn test && yarn build:notest",
     "size": "size-limit",
     "writemeta": "yarn size --json | grep size\\\" | tail -1 | sed 's/.*\"size\": \\([0-9]*\\)\\,/\\1/' > ./docs/public/meta_pkgsize"
   },

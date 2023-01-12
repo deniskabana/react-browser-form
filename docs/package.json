@@ -1,5 +1,5 @@
 {
-  "name": "react-dumb-form-docs",
+  "name": "react-browser-form-docs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "next": "13.0.7",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.0",
+    "react-browser-form": "0.1.2",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"
   },
