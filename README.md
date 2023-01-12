@@ -5,7 +5,10 @@
 </div>
 
 <div align="center">
-  Shields.io badges
+
+![Build status](https://img.shields.io/github/actions/workflow/status/deniskabana/react-browser-form/main.yml?branch=main&style=for-the-badge)
+![License](https://img.shields.io/github/license/deniskabana/react-browser-form?style=for-the-badge)
+
 </div>
 
 <p align="center">
