@@ -113,8 +113,21 @@ export default function Page() {
                 Critical
               </Badge>
               <p className="text-muted">
-                Once the documentation is public, provide new descriptions (update them to reflect the docs) and include
-                links to docs and examples.
+                Once the documentation is public, provide new JSDoc comments (update them to reflect the docs) and
+                include links to docs and examples.
+              </p>
+              <p className="text-muted">
+                Also make sure the documentation is on-par with React Hook Form with some performance measurements.
+              </p>
+            </li>
+
+            <li className="mb-3">
+              <strong>Publish the library on npm</strong>
+              <Badge bg="danger" className="ms-1" pill>
+                Critical
+              </Badge>
+              <p className="text-muted">
+                As soon as README.md is finished, publish the library even though it's not stable or production-ready.
               </p>
             </li>
 
@@ -125,7 +138,8 @@ export default function Page() {
               </Badge>
               <p className="text-muted">
                 Verify that the performance is top-notch and we still only rely on browsers to do what they need to do.
-                Optimize if necessary before public release.
+                Optimize if necessary before public release. Also document this and provide all that in "How it works"
+                separate docs page with screenshots and examples.
               </p>
             </li>
 
@@ -150,20 +164,8 @@ export default function Page() {
               <p className="text-muted">
                 As shown in the example{" "}
                 <Link href="/examples/real-world-usage/invoice-array-fields">Invoice array fields</Link>, there is no
-                first-class support for using field arrays. While it is possible (and quite easy) to do without a
-                supported API, it goes against point 2 of philosophy.
-              </p>
-            </li>
-
-            <li className="mb-3">
-              <strong>No input masking API</strong>
-              <Badge bg="success" className="ms-1" pill>
-                In the future
-              </Badge>
-              <p className="text-muted">
-                Although a custom implementation can be done easily as show in the example{" "}
-                <Link href="/examples/advanced/masked-inputs">Masked inputs</Link>, it goes against point 2 of the
-                project philosophy. Consider creating a unified API for masked inputs or offering other options.
+                first-class support for using field arrays <strong>yet</strong>. While it is possible (and quite easy)
+                to do without a supported API, it goes against point 2 of the philosophy.
               </p>
             </li>
 
@@ -180,13 +182,15 @@ export default function Page() {
             </li>
 
             <li className="mb-3">
-              <strong>No 3rd party validator library support.</strong>
+              <strong>No 3rd party validator library support yet.</strong>
               <Badge bg="success" className="ms-1" pill>
                 In the future
               </Badge>
               <p className="text-muted">
                 There is already a support added for transformation and validation, but no current first-class API for
-                3rd party libraries, like <code>Zod</code>, <code>Yup</code> or <code>Joi</code>.
+                3rd party libraries, like <code>Zod</code>, <code>Yup</code> or <code>Joi</code>. Implementing these
+                might set up a need to overwrite the current behavior and possibly modify the data flow so it still
+                makes sense.
               </p>
             </li>
           </ol>
