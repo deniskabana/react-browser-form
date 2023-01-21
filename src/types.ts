@@ -1,4 +1,4 @@
-// DUMB FORM HOOK TYPES
+// BROWSER FORM HOOK TYPES
 // --------------------------------------------------------------------------------
 
 /** An options object to configure how you use this form.
