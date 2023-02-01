@@ -1,3 +1,4 @@
+import { ERRORS } from "../constants";
 import { BrowserFormOptions } from "../types";
 import { logError } from "./logError";
 
@@ -8,38 +9,35 @@ export function protectOptionsCominations<Schema>(options: BrowserFormOptions<Sc
   // ERRORS - prevent further execution to prevent bugs
   // --------------------------------------------------------------------------------
 
-  if (!name || name.length < 1) throw new Error("Option 'name' required!");
-  if (!defaultValues) throw new Error("Option 'defaultValues' required!");
-  if (validateAfterInit && !validationSchema)
-    throw new Error("react-browser-form: Option 'validationSchema' is required if 'validateAfterInit' is true.");
+  // Missing or invalid name
+  if (!name || name.length < 1) throw new Error(ERRORS.NAME_INVALID);
+  // Missing default values
+  if (!defaultValues) throw new Error(ERRORS.MISSING_DEFAULT_VALUES);
+  // Missing validationSchema if validateAfterInit is used
+  if (validateAfterInit && !validationSchema) throw new Error(ERRORS.VALIDATION_SCHEMA_REQUIRED);
 
+  // TODO: Add more options to take 3rd party validators into account
+
+  // Verify validation schema if provided
   if (validationSchema) {
     const validationKeys = Object.keys(validationSchema);
-    if (validationKeys.length === 0 || validationKeys.length > 2)
-      throw new Error("react-browser-form: Incorrect 'validationSchema' structure. Check the documentation.");
+    // Verify structure - we always want 1 or 2 entries
+    if (validationKeys.length === 0 || validationKeys.length > 2) throw new Error(ERRORS.INCORRECT_VALIDATION_SCHEMA);
 
-    const validationKeysSet = new Set(validationKeys);
-    validationKeysSet.delete("required");
-    validationKeysSet.delete("validators");
-    if (validationKeysSet.size !== 0)
-      throw new Error("react-browser-form: Incorrect 'validationSchema' structure. Check the documentation.");
-  }
-
-  if (mode === "onChange" && typeof onChange !== "function")
-    throw new Error("react-browser-form: 'onChange' function is required if using mode 'onChange'.");
-
-  if (liveFields && liveFields.length > 0) {
-    if (typeof onChange !== "function")
-      throw new Error("react-browser-form: 'onChange' function is required if using 'liveFields'.");
+    // TODO:  Add more validations to make sure everything is provided - only ifs
   }
 
   // WARNINGS - should not stop exeuction in production environment
   // --------------------------------------------------------------------------------
-
   if (process.env.NODE_ENV === "production") return;
 
-  if (mode === "onChange") {
-    if (liveFields && liveFields.length > 0)
-      logError("init", "When using 'onChange' mode, liveFields should be empty.");
-  }
+  // Warn if onChange mode is used without an onChange function
+  if (mode === "onChange" && typeof onChange !== "function") logError("init", ERRORS.ONCHANGE_MODE_ONCHANGE_FN);
+
+  // Warn if liveFields are used without an onChange function
+  if (liveFields && liveFields.length > 0 && typeof onChange !== "function")
+    logError("init", ERRORS.LIVE_FIELDS_ONCHANGE_FN);
+
+  // Warn not to use onChange and liveFields together
+  if (mode === "onChange" && liveFields && liveFields.length > 0) logError("init", ERRORS.ONCHANGE_AND_LIVEFIELDS);
 }
