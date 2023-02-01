@@ -1,9 +1,9 @@
 import { ERRORS } from "../constants";
-import { BrowserFormOptions } from "../types";
+import { BrowserFormOptionsInput } from "../types";
 import { logError } from "./logError";
 
 /** TypeScript will try to catch these errors build-time, but some users might still use the any type to override our constraints. */
-export function protectOptionsCominations<Schema>(options: BrowserFormOptions<Schema>) {
+export function protectOptionsCominations<Schema>(options: BrowserFormOptionsInput<Schema>) {
   const { name, defaultValues, onChange, validationSchema, validateAfterInit, mode, liveFields } = options;
 
   // ERRORS - prevent further execution to prevent bugs
@@ -32,12 +32,14 @@ export function protectOptionsCominations<Schema>(options: BrowserFormOptions<Sc
   if (process.env.NODE_ENV === "production") return;
 
   // Warn if onChange mode is used without an onChange function
-  if (mode === "onChange" && typeof onChange !== "function") logError("init", ERRORS.ONCHANGE_MODE_ONCHANGE_FN);
+  if (mode === "onChange" && typeof onChange !== "function")
+    logError("init", ERRORS.ONCHANGE_MODE_ONCHANGE_FN, "warning");
 
   // Warn if liveFields are used without an onChange function
   if (liveFields && liveFields.length > 0 && typeof onChange !== "function")
-    logError("init", ERRORS.LIVE_FIELDS_ONCHANGE_FN);
+    logError("init", ERRORS.LIVE_FIELDS_ONCHANGE_FN, "warning");
 
   // Warn not to use onChange and liveFields together
-  if (mode === "onChange" && liveFields && liveFields.length > 0) logError("init", ERRORS.ONCHANGE_AND_LIVEFIELDS);
+  if (mode === "onChange" && liveFields && liveFields.length > 0)
+    logError("init", ERRORS.ONCHANGE_AND_LIVEFIELDS, "warning");
 }

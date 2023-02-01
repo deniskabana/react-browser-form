@@ -13,7 +13,7 @@ export const DEFAULT_REQUIRED_ERROR_MESSAGE = "This field is required.";
 export const DEFAULT_VALIDATION_ERROR_MESSAGE = "This field is incorrect.";
 
 /** Errors returned from options combination protection */
-const ERROR_PREFIX = "[react-browser-form]:";
+export const ERROR_PREFIX = "[react-browser-form]:";
 export const ERRORS = {
   // ERRORS
   NAME_INVALID: `${ERROR_PREFIX} Option 'name' required!`,

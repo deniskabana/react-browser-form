@@ -28,12 +28,15 @@ import { uniqueNameProtection } from "../utils/uniqueNameProtection";
 export function useBrowserForm<Schema extends {}>(
   userOptions: BrowserFormOptionsInput<Schema>,
 ): BrowserFormReturnType<Schema> {
+  protectOptionsCominations(userOptions);
+
   // INTERNAL STATE AND CONFIG
   // --------------------------------------------------------------------------------
   const options = useRef<BrowserFormOptions<Schema>>({
     ...DEFAULT_OPTIONS,
     ...(userOptions as any),
   }).current;
+
   const formState = useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
   const { errorData, setErrors } = useErrorManager<Schema>();
@@ -64,7 +67,6 @@ export function useBrowserForm<Schema extends {}>(
   // INITIALIZATION
   // --------------------------------------------------------------------------------
   useEffect(() => {
-    protectOptionsCominations(options);
     uniqueNameProtection(options);
     handleDataFlow({ source: EventSource.User, type: EventType.FormInit, value: options.defaultValues });
     // eslint-disable-next-line react-hooks/exhaustive-deps
