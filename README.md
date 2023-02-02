@@ -34,9 +34,9 @@ There might be some breaking changes introduced before an official release state
 1. Written with performance, developer experience and UX in mind
 2. TypeScript-first. Type safety, hints and checks
 3. [Small size](https://bundlephobia.com/result?p=react-browser-form@latest) and no [dependencies](./package.json)
-4. Compatible with UI libraries and framework
-5. Flexible, extensible, unopinionated
-6. Validation and transformation support
+4. Compatible with UI libraries and frameworks and 3rd party validators *(coming soon...)*
+5. Validation and transformation support
+6. Minimal API with focus on best practices, flexible usage
 
 ### Install
 
