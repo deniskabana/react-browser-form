@@ -41,12 +41,13 @@ describe("Form modes are working correctly", () => {
 
   it("should update mode: 'onSubmit' correctly", async () => {
     let formState: FormSchema = { ...DEFAULT_FORM_STATE };
+    const onChangeCallback = jest.fn();
 
     const options: BrowserFormOptionsInput<FormSchema> = {
       name: "test-form",
       defaultValues: formState,
       mode: "onSubmit",
-      onChange: () => new Error(),
+      onChange: onChangeCallback,
       onSubmit: data => {
         formState = { ...formState, ...data };
       },
@@ -56,13 +57,14 @@ describe("Form modes are working correctly", () => {
     const testForm = await screen.findByTestId("testForm");
     const testField1 = await screen.findByTestId("testField1");
 
+    // Change should not mutate state
     fireEvent.change(testField1, { target: { value: testValue } });
     fireEvent.blur(testField1, { target: { value: testValue } });
-    // Change should not mutate state
     expect(formState.testField1).toEqual(DEFAULT_FORM_STATE.testField1);
-    fireEvent.submit(testForm);
     // Submit should mutate state
+    fireEvent.submit(testForm);
     expect(formState.testField1).toEqual(testValue);
+    expect(onChangeCallback).not.toBeCalled();
   });
 
   it("should update mode: 'onSubmitUnlessError' correctly", async () => {
@@ -71,6 +73,7 @@ describe("Form modes are working correctly", () => {
       count: 0,
       errors: {},
     };
+    const onChangeCallback = jest.fn();
 
     const options: BrowserFormOptionsInput<FormSchema> = {
       name: "test-form",
@@ -79,7 +82,7 @@ describe("Form modes are working correctly", () => {
       validationSchema: {
         required: { fields: ["testField2"], message: testValidationError },
       },
-      onChange: () => new Error(),
+      onChange: onChangeCallback,
       onSubmit: data => {
         formState = { ...formState, ...data };
       },
@@ -110,6 +113,7 @@ describe("Form modes are working correctly", () => {
     expect(errorState.count).toEqual(0);
     fireEvent.submit(testForm);
     expect(formState.testField1).toEqual(testValue);
+    expect(onChangeCallback).not.toBeCalled();
   });
 
   it("should update mode: 'onBlur' correctly", async () => {

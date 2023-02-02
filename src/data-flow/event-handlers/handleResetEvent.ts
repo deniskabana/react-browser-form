@@ -40,5 +40,7 @@ export function handleResetEvent<Schema>(dataFlowState: DataFlowState<Schema>): 
   }
 
   // 5. Trigger callback
-  dataFlowState.callbacks.onChange(dataFlowState.formState);
+  if (dataFlowState.event.type !== EventType.FormInit) {
+    dataFlowState.callbacks.onChange(dataFlowState.formState);
+  }
 }

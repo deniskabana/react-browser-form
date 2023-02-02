@@ -7,7 +7,9 @@ import { EMPTY_DEFAULTS } from "./utils/constants";
  */
 describe("Basic usage", () => {
   it("is initialized without errors", () => {
-    const { result } = renderHook(() => useBrowserForm(EMPTY_DEFAULTS));
+    const callback = jest.fn();
+    const { result } = renderHook(() => useBrowserForm({ ...EMPTY_DEFAULTS, onChange: callback, onSubmit: callback }));
     expect(result.current.isDirty).toBe(false);
+    expect(callback).not.toBeCalled();
   });
 });
