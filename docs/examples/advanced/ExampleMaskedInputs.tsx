@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from "react";
-import { TransformationSchema, useBrowserForm, ValidationError, ValidationSchema } from "react-browser-form";
+import { useBrowserForm } from "react-browser-form";
 
 // UI for documentation only
 import { Form } from "react-bootstrap";
-import { FormGroupTitle, FormTextInput } from "ui/forms";
+import { FormGroupTitle } from "ui/forms";
 import { FormTextInputCustom } from "ui/forms/FormTextInputCustom";
 import Separator from "ui/Separator";
 import Tip from "ui/Tip";
