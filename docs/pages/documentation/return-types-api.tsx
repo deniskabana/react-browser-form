@@ -100,6 +100,13 @@ export default function Page() {
                 </td>
               </tr>
 
+              {/* dirtyFields */}
+              <tr>
+                <td className="font-monospace fw-bold">dirtyFields</td>
+                <td className="font-monospace text-secondary text-small">{"Array<keyof Schema>"}</td>
+                <td>An array of strings referencing the names of inputs considered "dirty"</td>
+              </tr>
+
               <tr style={{ background: "rgba(0,0,0,0.1)" }}>
                 <td colSpan={4}>
                   <h6 className="my-2">Methods</h6>

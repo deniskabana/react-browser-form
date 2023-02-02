@@ -1,5 +1,5 @@
-import { useBrowserForm as RBF, BrowserFormOptionsInput, BrowserFormReturnType } from "node_modules/react-browser-form";
-export * from "node_modules/react-browser-form";
+import { useBrowserForm as RBF, BrowserFormOptionsInput, BrowserFormReturnType } from "../../dist";
+export * from "../../dist";
 
 export function useBrowserForm<Schema extends {}>(
   options: BrowserFormOptionsInput<Schema>,

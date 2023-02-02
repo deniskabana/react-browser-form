@@ -125,6 +125,12 @@ export interface BrowserFormReturnType<Schema> {
    */
   isDirty: boolean;
 
+  /**
+   * An array of strings referencing the names of inputs considered "dirty".
+   * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
+   */
+  dirtyFields: Array<keyof Schema>;
+
   // METHODS
   // --------------------------------------------------------------------------------
 
@@ -193,6 +199,16 @@ export interface TransformationSchema<Schema> {
   fields?: {
     [Field in keyof Schema]?: TransformationFn<Schema, Field> | "number" | "string" | "boolean";
   };
+}
+
+// DIRTY FIELDS
+// --------------------------------------------------------------------------------
+
+export interface DirtyFieldsManager<Schema> {
+  isDirty: boolean;
+  setIsDirty: React.Dispatch<React.SetStateAction<boolean>>;
+  dirtyFields: Array<keyof Schema>;
+  setDirtyFields: (fields: Array<keyof Schema>) => void;
 }
 
 // VALIDATION AND ERROR HANDLING
@@ -325,6 +341,7 @@ export interface DataFlowState<Schema> {
   setErrors: ErrorManager<Schema>["setErrors"];
   isDirty: boolean;
   setIsDirty: React.Dispatch<React.SetStateAction<boolean>>;
+  setDirtyFields: DirtyFieldsManager<Schema>["setDirtyFields"];
 }
 
 export type DataFlowFn<Schema> = (dataFlowState: DataFlowState<Schema>) => void;

@@ -16,6 +16,7 @@ export function useDataFlowHandler<Schema>(
   setErrors: DataFlowState<Schema>["setErrors"],
   isDirty: DataFlowState<Schema>["isDirty"],
   setIsDirty: DataFlowState<Schema>["setIsDirty"],
+  setDirtyFields: DataFlowState<Schema>["setDirtyFields"],
 ): HandleDataFlow<Schema> {
   return function handleDataFlow(event: DataFlowEvent<Schema>) {
     // An object reference to be passed around to all data flow functions
@@ -31,6 +32,7 @@ export function useDataFlowHandler<Schema>(
       setErrors,
       isDirty,
       setIsDirty,
+      setDirtyFields,
       changeReason: "",
     };
 

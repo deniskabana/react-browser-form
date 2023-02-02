@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { DEFAULT_OPTIONS } from "../constants";
 import { useDataFlowHandler } from "../hooks/useDataFlowHandler";
 import { useErrorManager } from "../hooks/useErrorManager";
@@ -17,6 +17,7 @@ import { getFieldsData } from "../utils/getFieldsData";
 import { protectOptionsCominations } from "../utils/protectOptionsCombinations";
 import { setDebugData } from "../utils/setDebugData";
 import { uniqueNameProtection } from "../utils/uniqueNameProtection";
+import { useDirtyFieldsManager } from "./useDirtyFieldsManager";
 
 /**
  * **React Browser Form** - React form state management written in TypeScript with performance and developer experience in mind.
@@ -40,7 +41,7 @@ export function useBrowserForm<Schema extends {}>(
   const formState = useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
   const { errorData, setErrors } = useErrorManager<Schema>();
-  const [isDirty, setIsDirty] = useState(false);
+  const { isDirty, setIsDirty, dirtyFields, setDirtyFields } = useDirtyFieldsManager<Schema>();
 
   // STORED REFERENCES
   // --------------------------------------------------------------------------------
@@ -61,6 +62,7 @@ export function useBrowserForm<Schema extends {}>(
     setErrors,
     isDirty,
     setIsDirty,
+    setDirtyFields,
   );
   const formEventHandlers = useFormEventHandlers(handleDataFlow);
 
@@ -82,6 +84,7 @@ export function useBrowserForm<Schema extends {}>(
     // Values
     errorData,
     isDirty,
+    dirtyFields,
     names: fieldsData.names,
     // Methods
     ...formEventHandlers[EventSource.User],

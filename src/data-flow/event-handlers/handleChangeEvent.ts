@@ -20,8 +20,9 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
     const eventValue = dataFlowState.event.value;
     if (!eventValue) return;
 
-    // 1.1. Set form to dirty. This is done on the first change, with no deep comparison
+    // 1.1. Set form to dirty and update dirtyFields
     if (!dataFlowState.isDirty) dataFlowState.setIsDirty(true);
+    dataFlowState.setDirtyFields(Object.keys(eventValue) as Array<keyof Schema>);
 
     // 1.2. Populate changedData, quit if no value was provided
     dataFlowState.changedData = eventValue;
@@ -55,8 +56,9 @@ export function handleChangeEvent<Schema>(dataFlowState: DataFlowState<Schema>):
 
     if (!targetInput || !fieldName) return;
 
-    // 2.1. Set form to dirty. This is done on the first change, with no deep comparison
+    // 2.1. Set form to dirty and update dirtyFields
     if (!dataFlowState.isDirty && targetInput && fieldName) dataFlowState.setIsDirty(true);
+    dataFlowState.setDirtyFields([fieldName] as Array<keyof Schema>);
 
     // 2.2. Conditional execution and revalidation
     const hasOnChangeMode = options.mode === "onChange";
