@@ -15,7 +15,7 @@
     "start": "tsdx watch",
     "prebuild": "yarn test",
     "build": "yarn build:notest",
-    "build:notest": "tsdx build",
+    "build:notest": "yarn && tsdx build",
     "test:unit": "tsdx test --passWithNoTests",
     "test:lint": "tsdx lint src",
     "test:tsc": "tsc --noEmit",

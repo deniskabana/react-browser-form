@@ -1,3 +1,1 @@
-module.exports = {
-  ignorePatterns: ["test"],
-};
+module.exports = {};

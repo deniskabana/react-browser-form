@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "NODE_ENV=production next build && next export && cp -r ./out ../published-docs",
+    "build:lib": "cd ../ && path-exists ./dist/ && echo \"Library is already built\" || yarn build:notest",
+    "export": "NODE_ENV=production next lint && yarn build:lib && next build && next export && cp -r ./out ../published-docs",
     "start": "next start",
     "lint": "next lint"
   },
@@ -24,6 +25,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@iconify/react": "^4.0.1"
+    "@iconify/react": "^4.0.1",
+    "path-exists-cli": "^2.0.0"
   }
 }
