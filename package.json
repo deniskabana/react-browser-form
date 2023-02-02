@@ -13,23 +13,16 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "prebuild": "yarn test",
-    "build": "yarn build:notest",
+    "build": "yarn test && yarn build:notest",
     "build:notest": "yarn && tsdx build",
     "test:unit": "tsdx test --passWithNoTests",
     "test:lint": "tsdx lint src",
     "test:tsc": "tsc --noEmit",
     "test": "yarn test:tsc && yarn test:lint && yarn test:unit",
-    "prepublish": "yarn test && yarn build:notest",
     "size": "size-limit"
   },
   "peerDependencies": {
     "react": ">=16.8"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn test"
-    }
   },
   "name": "react-browser-form",
   "author": "deniskabana",

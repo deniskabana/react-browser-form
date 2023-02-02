@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:lib": "cd ../ && path-exists ./dist/ && echo \"Library is already built\" || yarn build:notest",
-    "export": "NODE_ENV=production next lint && yarn build:lib && next build && next export && cp -r ./out ../published-docs",
+    "build:lib": "cd ../ && yarn build:notest",
+    "export": "NODE_ENV=production next lint && yarn build:lib && next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
