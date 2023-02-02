@@ -1,5 +1,5 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -22,8 +22,7 @@
     "test:tsc": "tsc --noEmit",
     "test": "yarn test:tsc && yarn test:lint && yarn test:unit",
     "prepublish": "yarn test && yarn build:notest",
-    "size": "size-limit",
-    "writemeta": "yarn size --json | grep size\\\" | tail -1 | sed 's/.*\"size\": \\([0-9]*\\)\\,/\\1/' > ./docs/public/meta_pkgsize"
+    "size": "size-limit"
   },
   "peerDependencies": {
     "react": ">=16.8"
