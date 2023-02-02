@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Separator from "ui/Separator";
-import { TipReactBootstrapDocs } from "ui/Tip";
+import Tip, { TipReactBootstrapDocs } from "ui/Tip";
 import fs from "fs/promises";
 
 // Form component
@@ -10,6 +10,7 @@ import { ExampleModeOnBlurUnlessError } from "examples/basic/ExampleModeOnBlurUn
 import { ExampleModeOnBlur } from "examples/basic/ExampleModeOnBlur";
 import { ExampleModeOnChange } from "examples/basic/ExampleModeOnChange";
 import { FormAndCodeTabs } from "ui/examples/FormAndCodeTabs";
+import Link from "next/link";
 
 export default function Page({
   onSubmitUnlessErrorSourceCode,
@@ -92,6 +93,13 @@ export default function Page({
           <code>onChange</code> mode
         </h4>
         <p>A more simplified blur mode for very basic forms.</p>
+        <Tip variant="danger">
+          <strong>
+            Prefer using <Link href="/examples/advanced/live-fields">live fields</Link> over <code>onChange</code> mode
+            due to performance concerns. The <code>onChange</code> mode should only be used on small forms with no
+            validation / transformation.
+          </strong>
+        </Tip>
         <FormAndCodeTabs sourceCode={onChangeSourceCode} name="example-mode-onChange">
           <ExampleModeOnChange />
         </FormAndCodeTabs>

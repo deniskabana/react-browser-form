@@ -86,6 +86,54 @@ export default function Page() {
               </ul>
             </li>
           </ul>
+
+          <h4 className="mt-5 mb-4">Re-using validation schema</h4>
+          <p>
+            We provide a utility function exported from React Browser Form that allows you test your validation schema
+            against any object at your own will.
+          </p>
+          <Card className="my-3 shadow-sm">
+            <pre className="language-tsx" tabIndex={-1}>
+              <code className="language-tsx">{`import { validateFormData } from "react-browser-form/utils"`}</code>
+            </pre>
+          </Card>
+          <p>Now you can test any object against your validation schema with optionally throwing validation errors.</p>
+          <Card className="my-3 shadow-sm">
+            <pre className="m-0 line-numbers language-tsx" tabIndex={-1}>
+              <code className="language-tsx">
+                {`import { validateFormData } from "react-browser-form/utils"
+
+const validationSchema: ValidationSchema<any> = {
+  required: { fields: ["firstName"] },
+  validators: {
+    nickname: nickname => {
+      if (nickname.length < 8) throw new ValidationError(TEST_VALIDATION_ERR_MESSAGE);
+    },
+  },
+};
+
+const formDataToValidate = {
+  firstName: "",
+  nickname: "Joe",
+};
+
+// Testing without errors
+const { hasErrors, errors } = validateFormData(formDataToValidate, validationSchema);
+
+// Testing with errors
+try {
+  validateFormData(
+    formDataToValidate,
+    validationSchema,
+    { shouldThrow: true },
+  );
+} catch (error) {
+  // Use the following line to re-throw errors not coming from validation
+  if (!(error instanceof ValidationError)) throw error;
+}`}
+              </code>
+            </pre>
+          </Card>
         </div>
 
         <Separator />

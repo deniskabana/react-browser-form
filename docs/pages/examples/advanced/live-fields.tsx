@@ -23,13 +23,13 @@ export default function Page({ sourceCode }: { sourceCode: string }) {
           If you need fields that act as they would with <code>onChange</code> mode, prefer using{" "}
           <code>liveFields</code> only for those fields.
         </p>
+        <TipReactBootstrapDocs />
         <Tip variant="danger">
           <strong>
             Be mindful using <code>onChange</code> or live fields - every change in value triggers form hydration, type
-            transformation and validation for changed fields.
+            transformation and validation for changed fields and calls your own <code>onChange</code> callback.
           </strong>
         </Tip>
-        <TipReactBootstrapDocs />
 
         <Separator />
 
