@@ -55,7 +55,8 @@ const defaultValues = {
 type Form = typeof defaultValues;
 
 function Component() {
-  const { formProps, names } = useBrowserForm<Form>({ name: "example", defaultValues });
+  const [data, setData] = React.useState<Form>();
+  const { formProps, names } = useBrowserForm<Form>({ name: "example", defaultValues, onSubmit: setData });
 
   return (
     <form {...formProps}>
