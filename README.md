@@ -49,9 +49,7 @@ There might be some breaking changes introduced before an official release state
 See the [Getting started](https://deniskabana.github.io/react-browser-form/getting-started) page in our Docs for more information.
 
 ```jsx
-const defaultValues = {
-  email: "roberta_warren@znation.com",
-};
+const defaultValues = { email: "" };
 type Form = typeof defaultValues;
 
 function Component() {
@@ -60,7 +58,7 @@ function Component() {
 
   return (
     <form {...formProps}>
-      <input type="email" placeholder="E-mail address" name={names.email} />
+      <input name={names.email} type="email" />
       <button type="submit">Subscribe</button>
     </form>
   );
