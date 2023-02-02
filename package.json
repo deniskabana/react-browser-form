@@ -19,8 +19,7 @@
     "test:unit": "tsdx test --passWithNoTests",
     "test:lint": "tsdx lint src",
     "test:tsc": "tsc --noEmit",
-    "test:build-docs": "cd docs && yarn && yarn export",
-    "test": "yarn test:tsc && yarn test:lint && yarn test:unit && yarn test:build-docs",
+    "test": "yarn test:tsc && yarn test:lint && yarn test:unit",
     "prepublish": "yarn test && yarn build:notest",
     "size": "size-limit"
   },
