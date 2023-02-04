@@ -153,7 +153,11 @@ export default function Page() {
                 <td className="font-monospace text-secondary text-small">{"(values: Partial<Schema>) => void"}</td>
                 <td>
                   Allows to set a subset of values programmatically (this gets merged with the current form state). It
-                  will trigger an <code>onChange</code> event and validation.
+                  will trigger an <code>onChange</code> event and validation.{" "}
+                  <strong>
+                    Setting the values programatically does change the dirty status of both the fields and the whole
+                    form.
+                  </strong>
                   <ul className="mt-2">
                     <li>
                       <Link href="/examples/basic/form-methods">Example</Link>

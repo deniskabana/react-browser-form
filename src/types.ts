@@ -151,6 +151,7 @@ export interface BrowserFormReturnType<Schema> {
 
   /**
    * Allows to set a subset of values programmatically (this gets merged with the current form state). It will trigger an `onChange` event and validation.
+   * **Setting the values programatically does change the dirty status of both the fields and the whole form.**
    * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
    * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
    */
