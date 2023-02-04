@@ -2,14 +2,11 @@ import React, { useEffect } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserFormOptionsInput, ErrorsObject, useBrowserForm } from "../src/index";
 
-interface FormSchema {
-  testField1: string;
-  testField2: string;
-}
-const DEFAULT_FORM_STATE: FormSchema = {
+const DEFAULT_FORM_STATE = {
   testField1: "",
   testField2: "",
 };
+type FormSchema = typeof DEFAULT_FORM_STATE;
 
 function TestComponent({
   options,
