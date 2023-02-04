@@ -143,6 +143,7 @@ export interface BrowserFormReturnType<Schema> {
 
   /**
    * Programatically reset the form. If no values are provided, `defaultValues` are used. If values are provided, they need to cover the entire Schema. Triggers the `onChange` event and validation.
+   * **Resetting the form programatically does NOT change the dirty status of either the fields or the whole form.**
    * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
    * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
    */

@@ -134,7 +134,11 @@ export default function Page() {
                 <td>
                   Programatically reset the form. If no values are provided, <code>defaultValues</code> are used. If
                   values are provided, they need to cover the entire Schema. Triggers the <code>onChange</code> event
-                  and validation.
+                  and validation.{" "}
+                  <strong>
+                    Resetting the form programatically does NOT change the dirty status of either the fields or the
+                    whole form.
+                  </strong>
                   <ul className="mt-2">
                     <li>
                       <Link href="/examples/basic/form-methods">Example</Link>
