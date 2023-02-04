@@ -64,7 +64,10 @@ export default function Page() {
                   <strong className="text-danger text-small d-block">(required)</strong>
                 </td>
                 <td className="font-monospace text-secondary text-small">Schema</td>
-                <td>Default values need to match your schema. These are used for a lot of the iteration.</td>
+                <td>
+                  Default values need to match your schema.{" "}
+                  <strong>Do not change these - it will result in incorrect behavior.</strong>
+                </td>
               </tr>
 
               <tr style={{ background: "rgba(0,0,0,0.1)" }}>

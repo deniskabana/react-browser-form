@@ -12,7 +12,7 @@ export interface BrowserFormOptionsInput<Schema> {
   name: string;
 
   /**
-   * Default values need to match your schema. These are used for a lot of the iteration.
+   * Default values need to match your schema. **Do not change these - it will result in incorrect behavior.**
    * - [Options API](https://deniskabana.github.io/react-browser-form/documentation/options-api)
    */
   defaultValues: Schema & { [key: string]: any };
