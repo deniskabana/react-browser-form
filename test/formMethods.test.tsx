@@ -10,7 +10,9 @@ const defaultValues = {
 };
 type Schema = typeof defaultValues;
 
-// Seriously, fuck types in tests, I'm not wasting my energy on this
+/**
+ * A React component specifically set up for this test suite
+ */
 function TestComponent({ onSubmit, onChange, setSubmit, setReset, setSetValues }: any) {
   const { formProps, names, submit, reset, setValues } = useBrowserForm<Schema>({
     name: "test-form",
@@ -35,7 +37,7 @@ function TestComponent({ onSubmit, onChange, setSubmit, setReset, setSetValues }
 }
 
 /**
- * Try if just basic rendering works
+ * Test all form methods returned by the useBrowserForm() hook
  */
 describe("Form methods", () => {
   it("should work when using submit() method", () => {

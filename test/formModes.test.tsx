@@ -8,6 +8,9 @@ const DEFAULT_FORM_STATE = {
 };
 type FormSchema = typeof DEFAULT_FORM_STATE;
 
+/**
+ * A React component specifically set up for this test suite
+ */
 function TestComponent({
   options,
   onErrorChange,
@@ -15,7 +18,7 @@ function TestComponent({
   options: Omit<BrowserFormOptionsInput<FormSchema>, "name">;
   onErrorChange?: (errorData: ErrorsObject<FormSchema>) => void;
 }) {
-  const { formProps, errorData } = useBrowserForm({ name: "test-form", ...options });
+  const { formProps, errorData, names } = useBrowserForm({ name: "test-form", ...options });
 
   useEffect(() => {
     onErrorChange && onErrorChange(errorData);
@@ -23,8 +26,8 @@ function TestComponent({
 
   return (
     <form data-testid="testForm" {...formProps}>
-      <input type="text" name="testField1" data-testid="testField1" />
-      <input type="text" name="testField2" data-testid="testField2" />
+      <input type="text" name={names.testField1} data-testid={names.testField1} />
+      <input type="text" name={names.testField2} data-testid={names.testField2} />
     </form>
   );
 }
@@ -40,8 +43,7 @@ describe("Form modes are working correctly", () => {
     let formState: FormSchema = { ...DEFAULT_FORM_STATE };
     const onChangeCallback = jest.fn();
 
-    const options: BrowserFormOptionsInput<FormSchema> = {
-      name: "test-form",
+    const options: Omit<BrowserFormOptionsInput<FormSchema>, "name"> = {
       defaultValues: formState,
       mode: "onSubmit",
       onChange: onChangeCallback,
