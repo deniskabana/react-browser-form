@@ -4,12 +4,12 @@ enum InputType {
   // Number types
   Number = "number",
   Range = "range",
-  DatetimeLocal = "datetime-local",
   // Date types
   Date = "date",
   Month = "month",
   Week = "week",
   Time = "time",
+  DatetimeLocal = "datetime-local",
   // Boolean types
   Checkbox = "checkbox",
   // String types
@@ -57,21 +57,14 @@ export function transformValueType<Schema>(name: keyof Schema, value: any, dataF
         case InputType.Date:
         case InputType.Month:
         case InputType.DatetimeLocal:
+        case InputType.Week:
+        case InputType.Time:
           if (value instanceof Date) {
             definitiveValue = value;
           } else if (typeof value === "string") {
             definitiveValue = new Date(value);
           } else {
             definitiveValue = null; // Implicitly return null rather than a code-breaking value
-          }
-          break;
-
-        case InputType.Week:
-        case InputType.Time:
-          if (value instanceof Date) {
-            definitiveValue = value;
-          } else {
-            definitiveValue = domInputElem?.valueAsDate ?? null;
           }
           break;
 

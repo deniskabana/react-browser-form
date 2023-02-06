@@ -8,7 +8,7 @@ import Separator from "ui/Separator";
 const defaultValues = {
   // Primitive types
   primitiveString: "",
-  primitiveNumber: 0 as number,
+  primitiveNumber: 0,
   primitiveBoolean: false,
   // Type transformations
   manualToDate: null as Date | null,

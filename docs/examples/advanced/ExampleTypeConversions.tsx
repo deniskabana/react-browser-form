@@ -17,12 +17,12 @@ const defaultValues = {
   // Number types
   typeNumber: null as number | null,
   typeRange: null as number | null,
-  typeDatetimeLocal: null as number | null,
   // Date types
   typeDate: null as Date | null,
   typeMonth: null as Date | null,
   typeWeek: null as Date | null,
   typeTime: null as Date | null,
+  typeDatetimeLocal: null as Date | null,
   // Boolean types
   typeCheckbox: null as boolean | null,
 };
@@ -66,9 +66,6 @@ export function ExampleAutomaticTypes() {
         <FormTextInput label="number" type="number" name={names.typeNumber} small />
         <FormRange label="range" name={names.typeRange} />
       </FormGroup>
-      <FormGroup>
-        <FormTextInput label="datetime-local" type="datetime-local" name={names.typeDatetimeLocal} small />
-      </FormGroup>
 
       <Separator small dashed />
 
@@ -80,6 +77,9 @@ export function ExampleAutomaticTypes() {
       <FormGroup>
         <FormTextInput label="week" type="week" name={names.typeWeek} small />
         <FormTextInput label="time" type="time" name={names.typeTime} small />
+      </FormGroup>
+      <FormGroup>
+        <FormTextInput label="datetime-local" type="datetime-local" name={names.typeDatetimeLocal} small />
       </FormGroup>
 
       <Separator small dashed />
