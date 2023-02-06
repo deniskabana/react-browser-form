@@ -83,9 +83,7 @@ describe("Validation should work correctly", () => {
       age: 19,
     };
 
-    act(() => {
-      setValuesMethod && setValuesMethod({ ...validData });
-    });
+    act(() => setValuesMethod && setValuesMethod({ ...validData }));
     expect(callback).toHaveBeenCalledWith({ ...validData });
     expect(errorState.count).toEqual(0);
   });

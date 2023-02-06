@@ -87,9 +87,7 @@ describe("Form methods", () => {
       occupation: "Retired contract terminator",
     };
 
-    act(() => {
-      setValuesMethod && setValuesMethod(newValues);
-    });
+    act(() => setValuesMethod && setValuesMethod(newValues));
     expect(callback).toHaveBeenCalledWith({ ...defaultValues, ...newValues });
   });
 });
