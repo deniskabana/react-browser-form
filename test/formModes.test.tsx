@@ -6,7 +6,7 @@ const DEFAULT_FORM_STATE = {
   testField1: "",
   testField2: "",
 };
-type FormSchema = typeof DEFAULT_FORM_STATE;
+type Schema = typeof DEFAULT_FORM_STATE;
 
 /**
  * A React component specifically set up for this test suite
@@ -15,8 +15,8 @@ function TestComponent({
   options,
   onErrorChange,
 }: {
-  options: Omit<BrowserFormOptionsInput<FormSchema>, "name">;
-  onErrorChange?: (errorData: ErrorsObject<FormSchema>) => void;
+  options: Omit<BrowserFormOptionsInput<Schema>, "name">;
+  onErrorChange?: (errorData: ErrorsObject<Schema>) => void;
 }) {
   const { formProps, errorData, names } = useBrowserForm({ name: "test-form", ...options });
 
@@ -40,10 +40,10 @@ describe("Form modes are working correctly", () => {
   const testValidationError = "test error";
 
   it("should update mode: 'onSubmit' correctly", async () => {
-    let formState: FormSchema = { ...DEFAULT_FORM_STATE };
+    let formState: Schema = { ...DEFAULT_FORM_STATE };
     const onChangeCallback = jest.fn();
 
-    const options: Omit<BrowserFormOptionsInput<FormSchema>, "name"> = {
+    const options: Omit<BrowserFormOptionsInput<Schema>, "name"> = {
       defaultValues: formState,
       mode: "onSubmit",
       onChange: onChangeCallback,
@@ -67,14 +67,14 @@ describe("Form modes are working correctly", () => {
   });
 
   it("should update mode: 'onSubmitUnlessError' correctly", async () => {
-    let formState: FormSchema = { ...DEFAULT_FORM_STATE };
-    let errorState: ErrorsObject<FormSchema> = {
+    let formState: Schema = { ...DEFAULT_FORM_STATE };
+    let errorState: ErrorsObject<Schema> = {
       count: 0,
       errors: {},
     };
     const onChangeCallback = jest.fn();
 
-    const options: BrowserFormOptionsInput<FormSchema> = {
+    const options: BrowserFormOptionsInput<Schema> = {
       name: "test-form",
       defaultValues: formState,
       mode: "onSubmitUnlessError",
@@ -116,9 +116,9 @@ describe("Form modes are working correctly", () => {
   });
 
   it("should update mode: 'onBlur' correctly", async () => {
-    let formState: FormSchema = { ...DEFAULT_FORM_STATE };
+    let formState: Schema = { ...DEFAULT_FORM_STATE };
 
-    const options: BrowserFormOptionsInput<FormSchema> = {
+    const options: BrowserFormOptionsInput<Schema> = {
       name: "test-form",
       defaultValues: formState,
       mode: "onBlur",
@@ -142,13 +142,13 @@ describe("Form modes are working correctly", () => {
   });
 
   it("should update mode: 'onBlurUnlessError' correctly", async () => {
-    let formState: FormSchema = { ...DEFAULT_FORM_STATE };
-    let errorState: ErrorsObject<FormSchema> = {
+    let formState: Schema = { ...DEFAULT_FORM_STATE };
+    let errorState: ErrorsObject<Schema> = {
       count: 0,
       errors: {},
     };
 
-    const options: BrowserFormOptionsInput<FormSchema> = {
+    const options: BrowserFormOptionsInput<Schema> = {
       name: "test-form",
       defaultValues: formState,
       mode: "onBlurUnlessError",
@@ -193,9 +193,9 @@ describe("Form modes are working correctly", () => {
   });
 
   it("should update mode: 'onChange' correctly", async () => {
-    let formState: FormSchema = { ...DEFAULT_FORM_STATE };
+    let formState: Schema = { ...DEFAULT_FORM_STATE };
 
-    const options: BrowserFormOptionsInput<FormSchema> = {
+    const options: BrowserFormOptionsInput<Schema> = {
       name: "test-form",
       defaultValues: formState,
       mode: "onChange",

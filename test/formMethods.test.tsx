@@ -80,7 +80,7 @@ describe("Form methods", () => {
   it("should work when using setValues() method without values", () => {
     let setValuesMethod: any;
     const callback = jest.fn();
-    const setSetValues = (reset: any) => (setValuesMethod = reset);
+    const setSetValues = (setValues: any) => (setValuesMethod = setValues);
     render(<TestComponent onChange={callback} setSetValues={setSetValues} />);
 
     const newValues: Partial<Schema> = {

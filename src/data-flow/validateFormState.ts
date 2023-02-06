@@ -6,9 +6,13 @@ import { ValidationError } from "../errors/ValidationError";
 export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>): void {
   if (!dataFlowState.options.validationSchema) return;
 
-  const { required, validated } = dataFlowState.fieldsData;
-  const data = dataFlowState.changedData;
-  const oldErrors = dataFlowState.errorData.errors;
+  const {
+    changedData,
+    formState,
+    fieldsData: { required, validated },
+  } = dataFlowState;
+  const data = changedData ?? formState;
+  const oldErrors = { ...dataFlowState.errorData.errors };
   const newErrors: Partial<Record<keyof Schema, string>> = {};
 
   for (let key in data) {
@@ -17,14 +21,9 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
 
     // Check required
     if (required.includes(key)) {
-      const formStateValue = dataFlowState.formState[key] as unknown;
+      const newValue = data[key] as unknown;
 
-      if (
-        formStateValue === null ||
-        formStateValue === undefined ||
-        formStateValue === false ||
-        String(formStateValue).length === 0
-      ) {
+      if (newValue === null || newValue === undefined || newValue === false || String(newValue).length === 0) {
         newErrors[key] = dataFlowState.options?.validationSchema?.required?.message ?? DEFAULT_REQUIRED_ERROR_MESSAGE;
         dataFlowState.hasErrors = true;
       }
@@ -39,10 +38,10 @@ export function validateFormState<Schema>(dataFlowState: DataFlowState<Schema>):
 
       try {
         if (typeof validator === "function") {
-          validator(dataFlowState.formState[key], { ...dataFlowState.formState });
+          validator(data[key] as Schema[Extract<keyof Schema, string>], { ...formState, ...data });
         } else if (Array.isArray(validator)) {
           for (let validatorFn of validator) {
-            validatorFn(dataFlowState.formState[key], { ...dataFlowState.formState });
+            validatorFn(data[key], { ...formState, ...data });
           }
         } else {
           throw new Error("react-browser-form: Invalid validators provided!");
