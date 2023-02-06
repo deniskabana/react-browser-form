@@ -50,6 +50,17 @@ export default function Page() {
 
             <li className="mb-4">
               <h5 className="text-secondary d-flex align-items-center">
+                <Icon icon="material-symbols:code-blocks-outline" width={36} className="me-2" />
+                Automatic type coercion based on input type
+              </h5>
+              <span className="text-muted">
+                Use forms without object parsers and validators and still receive correct data types. Visit{" "}
+                <Link href="/examples/advanced/automatic-value-types">Automatic value types</Link> to see how it works.
+              </span>
+            </li>
+
+            <li className="mb-4">
+              <h5 className="text-secondary d-flex align-items-center">
                 <Icon icon="tabler:brand-typescript" width={36} className="me-2" />
                 TypeScript-first. Type safety, hints and checks.
               </h5>
