@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { act, render } from "@testing-library/react";
-import { ErrorsObject, useBrowserForm, ValidationError } from "../src/index";
+import { ErrorsObject, useBrowserForm, ValidationError, ValidationSchema } from "../src/index";
 
 const defaultValues = {
-  fullName: "jozo",
+  fullName: "",
   email: "",
   phone: "",
   age: 10,
@@ -13,27 +13,12 @@ type Schema = typeof defaultValues;
 /**
  * A React component specifically set up for this test suite
  */
-function TestComponent({ onErrorChange, onChange, setSetValues }: any) {
+function TestComponent({ onErrorChange, onChange, setSetValues, validationSchema }: any) {
   const { formProps, errorData, names, setValues } = useBrowserForm<Schema>({
     name: "test-form",
     defaultValues,
     onChange,
-    validationSchema: {
-      validators: {
-        fullName: fullName => {
-          if (fullName.length < 10) throw new ValidationError();
-        },
-        email: email => {
-          if (!email.match(/^\S{2,}@\S{2,}\.\S{2,}$/)) throw new ValidationError();
-        },
-        phone: phone => {
-          if (!phone.match(/^[0-9]{6,}$/)) throw new ValidationError();
-        },
-        age: age => {
-          if (!age || age < 18) throw new ValidationError();
-        },
-      },
-    },
+    validationSchema,
   });
 
   // Propagate method to test suites
@@ -57,6 +42,23 @@ function TestComponent({ onErrorChange, onChange, setSetValues }: any) {
  * Test our validation methods
  */
 describe("Validation should work correctly", () => {
+  const validationSchema: ValidationSchema<Schema> = {
+    validators: {
+      fullName: fullName => {
+        if (fullName.length < 10) throw new ValidationError();
+      },
+      email: email => {
+        if (!email.match(/^\S{2,}@\S{2,}\.\S{2,}$/)) throw new ValidationError();
+      },
+      phone: phone => {
+        if (!phone.match(/^[0-9]{6,}$/)) throw new ValidationError();
+      },
+      age: age => {
+        if (!age || age < 18) throw new ValidationError();
+      },
+    },
+  };
+
   it("should pass with a valid schema", async () => {
     let setValuesMethod: any;
     const callback = jest.fn();
@@ -70,6 +72,7 @@ describe("Validation should work correctly", () => {
       <TestComponent
         onChange={callback}
         setSetValues={setSetValues}
+        validationSchema={validationSchema}
         onErrorChange={(errorData: any) => {
           errorState = { ...errorData };
         }}
@@ -108,6 +111,7 @@ describe("Validation should work correctly", () => {
       <TestComponent
         onChange={callback}
         setSetValues={setSetValues}
+        validationSchema={validationSchema}
         onErrorChange={(errorData: any) => {
           errorState = { ...errorData };
         }}
@@ -124,6 +128,69 @@ describe("Validation should work correctly", () => {
  * Test our validation required property
  */
 describe("Required property in validation should work", () => {
-  it("should pass if required fields are filled", async () => {});
-  it("should fail if required fields are not filled", async () => {});
+  const validationSchema: ValidationSchema<Schema> = {
+    required: { fields: ["fullName", "email", "phone"] },
+  };
+
+  it("should pass if required fields are filled", () => {
+    let setValuesMethod: any;
+    const callback = jest.fn();
+    const setSetValues = (setValues: any) => (setValuesMethod = setValues);
+    let errorState: ErrorsObject<Schema> = {
+      count: 0,
+      errors: {},
+    };
+
+    render(
+      <TestComponent
+        onChange={callback}
+        setSetValues={setSetValues}
+        validationSchema={validationSchema}
+        onErrorChange={(errorData: any) => {
+          errorState = { ...errorData };
+        }}
+      />,
+    );
+
+    const validData: Partial<Schema> = {
+      fullName: "Any value",
+      email: "Any value",
+      phone: "Any value",
+    };
+
+    act(() => setValuesMethod && setValuesMethod({ ...validData }));
+    expect(callback).toHaveBeenCalledWith({ ...defaultValues, ...validData });
+    expect(errorState.count).toEqual(0);
+  });
+
+  it("should fail if required fields are not filled", () => {
+    let setValuesMethod: any;
+    const callback = jest.fn();
+    const setSetValues = (setValues: any) => (setValuesMethod = setValues);
+    let errorState: ErrorsObject<Schema> = {
+      count: 0,
+      errors: {},
+    };
+
+    render(
+      <TestComponent
+        onChange={callback}
+        setSetValues={setSetValues}
+        validationSchema={validationSchema}
+        onErrorChange={(errorData: any) => {
+          errorState = { ...errorData };
+        }}
+      />,
+    );
+
+    const invalidData: Partial<Schema> = {
+      fullName: "",
+      email: "",
+      phone: "Any value",
+    };
+
+    act(() => setValuesMethod && setValuesMethod({ ...invalidData }));
+    expect(callback).toHaveBeenCalledWith({ ...defaultValues, ...invalidData });
+    expect(errorState.count).toEqual(2);
+  });
 });
