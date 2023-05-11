@@ -50,7 +50,15 @@ export default function Page() {
                   formProps
                   <strong className="text-danger text-small d-block">(required)</strong>
                 </td>
-                <td className="font-monospace text-secondary text-small">boolean</td>
+                <td className="font-monospace text-secondary text-small">
+                  <pre>{`{
+  name: string;
+  onChange: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onBlur: (event: React.FormEvent<HTMLFormElement>) => void;
+  onReset: (event: React.FormEvent<HTMLFormElement>) => void;
+}`}</pre>
+                </td>
                 <td>
                   Props that will attach to DOM form node - <code>{"<form {...formProps} />"}</code>. This is necessary
                   for React Browser Form to function as it uses the built-in browser form management mechanisms an React
@@ -78,7 +86,10 @@ export default function Page() {
               <tr>
                 <td className="font-monospace fw-bold">errorData</td>
                 <td className="font-monospace text-secondary text-small">
-                  {"{ count: number; errors: Partial<Record<keyof Schema, string>> }"}
+                  <pre>{`{
+  count: number;
+  errors: Partial<Record<keyof Schema, string>>;
+}`}</pre>
                 </td>
                 <td>
                   Errors object that keeps tracks of errors and their count.

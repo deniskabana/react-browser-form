@@ -100,7 +100,12 @@ export default function Page() {
               <tr>
                 <td className="font-monospace fw-bold">mode</td>
                 <td className="font-monospace text-secondary text-small">
-                  "onSubmitUnlessError" | "onSubmit" | "onBlurUnlessError" | "onBlur" | "onChange"
+                  <pre>{`"onSubmitUnlessError"
+| "onSubmit"
+| "onBlurUnlessError"
+| "onBlur"
+| "onChange"
+                  `}</pre>
                 </td>
                 <td>
                   <ul>

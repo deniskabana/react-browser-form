@@ -185,7 +185,10 @@ export type SetValuesMethod<Schema> = (values: Partial<Schema>) => void;
 // VALUE TRANSFORMATION
 // --------------------------------------------------------------------------------
 
-export type TransformationFn<Schema, Key extends keyof Schema> = (fieldData: unknown) => Schema[Key];
+export type TransformationFn<Schema, Key extends keyof Schema> = (
+  fieldData: unknown,
+  formState?: Schema,
+) => Schema[Key];
 
 /**
  * A dead-simple type and value transformation schema. Useful when you need easy data processing, input masking or just recast types.

@@ -81,6 +81,10 @@ export default function Page() {
                   and all form data. The field's data has a type you provided to React Browser Form when initializing.
                 </li>
                 <li>
+                  Type annotation for validator functions is{" "}
+                  <code>{"(fieldData: Schema[Key], formState: Schema) => void;"}</code>
+                </li>
+                <li>
                   You can also compose your validators by providing an array of functions instead of a single function.
                 </li>
               </ul>
@@ -176,8 +180,10 @@ try {
 
           <p>
             You can provide your own transformations using the <code>fields</code> object on transformation schema. Here
-            you can use shorthands (string <code>"number" | "string" | "boolean"</code>) or a function, that takes in a
-            field value and returns your new, transformed value.
+            you can use <strong>shorthands</strong> (string <code>"number" | "string" | "boolean"</code>) or a{" "}
+            <strong>custom function</strong> with annotation{" "}
+            <code>{`(fieldData: unknown, formState?: Schema) => Schema[Key];`}</code>, that takes in a field value and
+            returns your new, transformed value.
           </p>
           <p>
             You can easily transform just the types of the values or even mutate and change the data that is stored in

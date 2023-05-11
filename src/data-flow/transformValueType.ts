@@ -113,7 +113,7 @@ export function transformValueType<Schema>(name: keyof Schema, value: any, dataF
           break;
 
         case "function":
-          definitiveValue = transformator(definitiveValue);
+          definitiveValue = transformator(definitiveValue, dataFlowState.formState);
           break;
 
         default:
