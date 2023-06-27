@@ -1,10 +1,11 @@
-## NOT READY FOR PRODUCTION USE YET!
+<br />
 
-**Wait until the release of version `1.0.0` before adopting React Browser Form into your codebase.**
+<div align="center">
+  <h3 style="color:red">⚠️ Production use not recommended before <code>v1.0.0</code> ⚠️</h3>
+</div>
 
-There might be some breaking changes introduced before an official release statement is put out. Current usage is only recommended for testing, developing or contributing.
-
----
+<br />
+<br />
 
 <div align="center">
   <a href="https://deniskabana.github.io/react-browser-form/introduction" title="React Browser Form - Form management in React made simple for browsers.">
@@ -21,54 +22,55 @@ There might be some breaking changes introduced before an official release state
 
 </div>
 
-<p align="center">
-  <a href="https://deniskabana.github.io/react-browser-form/introduction">Introduction</a> | 
-  <a href="https://deniskabana.github.io/react-browser-form/getting-started">Getting started</a> |
-  <a href="https://deniskabana.github.io/react-browser-form/documentation">API & docs</a> |
-  <a href="https://deniskabana.github.io/react-browser-form/frequently-asked-questions">FAQs</a> |
-  <a href="https://deniskabana.github.io/react-browser-form/examples">Examples</a>
-</p>
+---
 
-### Features
+React Browser Form is a small React library designed as a single hook intended to handle form usage in React while incentivizing the usage of [web forms](https://developer.mozilla.org/en-US/docs/Learn/Forms). It is designed to be flexible, performant, easy to learn and use and to handle even very complex forms while providing full type safety and an amazing developer experience. [Read more in FAQ](https://deniskabana.github.io/react-browser-form/frequently-asked-questions).
 
-1. Written with performance, developer experience and UX in mind
-2. TypeScript-first. Type safety, hints and checks
-3. [Small size](https://bundlephobia.com/result?p=react-browser-form@latest) and no [dependencies](./package.json)
-4. Compatible with UI libraries and frameworks and 3rd party validators *(coming soon...)*
-5. Validation and transformation support
-6. Minimal API with focus on best practices, flexible usage
+---
 
-### Install
+## Features
 
-    npm install react-browser-form
+1. Written with performance 💡, developer experience 🧑‍💻 and browser standards 🌐 in mind.
+2. TypeScript-first with full type safety.
+3. Comes with a [TSDoc documentation](https://github.com/deniskabana/react-browser-form/blob/main/src/types.ts) including links to examples and docs.
+4. [Small size](https://bundlephobia.com/result?p=react-browser-form@latest) and no [dependencies](./package.json).
+5. Non-opinionated, flexible and extensible.
+6. Built-in [validation and transformation](https://deniskabana.github.io/react-browser-form/documentation/validation-and-transformation) support.
+7. Minimal API with emphasis on best practices.
+
+## Docs & examples
+Visit the [Documentation for 🌐📝 React Browser Form](https://deniskabana.github.io/react-browser-form/).
+
+## Install
+
+    npm install --save react-browser-form
     # OR
     yarn add react-browser-form
 
-### Quickstart
+## Quickstart
 
 See the [Getting started](https://deniskabana.github.io/react-browser-form/getting-started) page in our Docs for more information.
 
-```jsx
-const defaultValues = { email: "" };
-type Form = typeof defaultValues;
+```tsx
+const defaultValues = { title: "" };
+export type Form = typeof defaultValues;
 
-function Component() {
-  const [data, setData] = React.useState<Form>();
-  const { formProps, names } = useBrowserForm<Form>({ name: "example", defaultValues, onSubmit: setData });
+export default function FormComponent() {
+  const onSubmit = React.useCallback((values: Form) => {
+    console.log(values);
+  }, []);
+
+  const { formProps, names } = useBrowserForm<Form>({
+    name: "new-form",
+    defaultValues,
+    onSubmit,
+  });
 
   return (
     <form {...formProps}>
-      <input name={names.email} type="email" />
+      <input name={names.title} type="text" />
       <button type="submit">Subscribe</button>
     </form>
   );
 }
 ```
-
-### Sponsors
-
-**Proudly sponsored by:**
-
-<a href='https://nekastores.eu/'>
-  <img src='https://nekastores.eu/logo-letter.jpeg' height='96' />
-</a>
