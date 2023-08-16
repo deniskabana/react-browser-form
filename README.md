@@ -1,12 +1,3 @@
-<br />
-
-<div align="center">
-  <h3 style="color:red">⚠️ Production use not recommended before <code>v1.0.0</code> ⚠️</h3>
-</div>
-
-<br />
-<br />
-
 <div align="center">
   <a href="https://deniskabana.github.io/react-browser-form/introduction" title="React Browser Form - Form management in React made simple for browsers.">
     <img src="https://raw.githubusercontent.com/deniskabana/react-browser-form/main/docs/public/github-logo.png" alt="🌐📝 React Browser Form - React hook for form management in web browsers." />
