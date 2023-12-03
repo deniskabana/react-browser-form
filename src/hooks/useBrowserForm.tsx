@@ -41,7 +41,7 @@ export function useBrowserForm<Schema extends {}>(
   const formState = useRef<Schema>({ ...options.defaultValues }).current;
   // Errors are stateful to trigger React's built-in re-rendering of DOM in children with new data
   const { errorData, setErrors } = useErrorManager<Schema>();
-  const { isDirty, setIsDirty, dirtyFields, setDirtyFields } = useDirtyFieldsManager<Schema>();
+  const { isDirty, setIsDirty, dirtyFields, setDirtyFields, resetDirtyState } = useDirtyFieldsManager<Schema>();
 
   // STORED REFERENCES
   // --------------------------------------------------------------------------------
@@ -63,6 +63,7 @@ export function useBrowserForm<Schema extends {}>(
     isDirty,
     setIsDirty,
     setDirtyFields,
+    resetDirtyState,
   );
   const formEventHandlers = useFormEventHandlers(handleDataFlow);
 

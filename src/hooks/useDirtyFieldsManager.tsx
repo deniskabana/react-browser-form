@@ -13,8 +13,14 @@ export function useDirtyFieldsManager<Schema>(): DirtyFieldsManager<Schema> {
     setIsDirty(true);
   };
 
+  const resetDirtyState = () => {
+    stateSetDirtyFields([]);
+    setIsDirty(false);
+  };
+
   return {
     dirtyFields: stateDirtyFields,
+    resetDirtyState,
     setDirtyFields,
     isDirty,
     setIsDirty,

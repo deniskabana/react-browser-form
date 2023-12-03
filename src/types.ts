@@ -213,6 +213,7 @@ export interface DirtyFieldsManager<Schema> {
   setIsDirty: React.Dispatch<React.SetStateAction<boolean>>;
   dirtyFields: Array<keyof Schema>;
   setDirtyFields: (fields: Array<keyof Schema>) => void;
+  resetDirtyState: () => void;
 }
 
 // VALIDATION AND ERROR HANDLING
@@ -346,6 +347,7 @@ export interface DataFlowState<Schema> {
   isDirty: boolean;
   setIsDirty: React.Dispatch<React.SetStateAction<boolean>>;
   setDirtyFields: DirtyFieldsManager<Schema>["setDirtyFields"];
+  resetDirtyState: DirtyFieldsManager<Schema>["resetDirtyState"];
 }
 
 export type DataFlowFn<Schema> = (dataFlowState: DataFlowState<Schema>) => void;
