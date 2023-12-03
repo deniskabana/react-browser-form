@@ -19,6 +19,10 @@ export function handleResetEvent<Schema>(dataFlowState: DataFlowState<Schema>): 
 
   // 2. Populate formState with transformed data, IF NOT A FORM INIT EVENT
   if (dataFlowState.event.type !== EventType.FormInit) {
+    // Reset dirty fields and isDirty
+    dataFlowState.isDirty = false;
+    dataFlowState.setDirtyFields([]);
+
     for (let key in dataFlowState.changedData) {
       (dataFlowState.formState as any)[key] = transformValueType(
         key as keyof Schema,

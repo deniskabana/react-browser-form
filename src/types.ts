@@ -120,13 +120,13 @@ export interface BrowserFormReturnType<Schema> {
   errorData: ErrorsObject<Schema>;
 
   /**
-   * Whether the form has been touched by the user. Be mindful, this only reacts to the first change and will not reset afterwards. No deep comparisons happen internally.
+   * Whether the form has been touched by the user. No deep comparisons happen internally. Reset will clear this value.
    * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
    */
   isDirty: boolean;
 
   /**
-   * An array of strings referencing the names of inputs considered "dirty".
+   * An array of strings referencing the names of inputs considered "dirty". Reset will clear this value.
    * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
    */
   dirtyFields: Array<keyof Schema>;
@@ -142,8 +142,7 @@ export interface BrowserFormReturnType<Schema> {
   submit: SubmitMethod;
 
   /**
-   * Programatically reset the form. If no values are provided, `defaultValues` are used. If values are provided, they need to cover the entire Schema. Triggers the `onChange` event and validation.
-   * **Resetting the form programatically does NOT change the dirty status of either the fields or the whole form.**
+   * Programatically reset the form. If no values are provided, `defaultValues` are used. If values are provided, they need to cover the entire Schema. Triggers the `onChange` event and validation and reset dirty fields.
    * - [Return types API](https://deniskabana.github.io/react-browser-form/documentation/return-types-api)
    * - [Example](https://deniskabana.github.io/react-browser-form/examples/basic/form-methods)
    */
