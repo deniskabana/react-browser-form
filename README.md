@@ -1,4 +1,10 @@
 <div align="center">
+  🚫 This project is no longer maintained - cue React v19 form handling.
+</div>
+
+---
+
+<div align="center">
   <a href="https://deniskabana.github.io/react-browser-form/introduction" title="React Browser Form - Form management in React made simple for browsers.">
     <img src="https://raw.githubusercontent.com/deniskabana/react-browser-form/main/docs/public/github-logo.png" alt="🌐📝 React Browser Form - React hook for form management in web browsers." />
   </a>
